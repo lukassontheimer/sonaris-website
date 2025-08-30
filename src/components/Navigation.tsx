@@ -32,28 +32,28 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-foreground">sonaris</span>
-            <div className="frequency-line w-16 mt-1"></div>
+            <span className="text-xl font-semibold text-foreground">sonaris</span>
+            <div className="frequency-line w-12 mt-1"></div>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("services")}
-              className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+              className="text-foreground-secondary hover:text-foreground transition-colors duration-200 text-sm font-medium"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection("team")}
-              className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+              className="text-foreground-secondary hover:text-foreground transition-colors duration-200 text-sm font-medium"
             >
               Über uns
             </button>
           </div>
 
           {/* CTA Button */}
-          <Button variant="default" className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50">
+          <Button variant="default" className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/30 text-sm font-medium">
             Gespräch vereinbaren
           </Button>
         </div>

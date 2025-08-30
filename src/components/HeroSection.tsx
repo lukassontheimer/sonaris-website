@@ -34,31 +34,26 @@ const HeroSection = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
-      style={{
-        backgroundImage: `url(${heroBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
+      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden animated-bg"
     >
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-background/40 hero-grid"></div>
+      {/* Subtle animated background */}
+      <div className="absolute inset-0 grid-overlay opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background"></div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
         <Badge 
-          className="fade-in-up mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary hover:border-primary/40 transition-all duration-300"
+          className="fade-in-up bg-card/60 backdrop-blur-md border-border text-foreground-secondary hover:border-primary/30 transition-all duration-200"
         >
           KI sinnvoll integriert statt isoliert
         </Badge>
         
-        <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-bold text-headline mb-6 leading-tight">
+        <h1 className="fade-in-up text-4xl md:text-5xl lg:text-6xl font-semibold text-headline leading-tight">
           Möglichkeiten verknüpfen.{" "}
           <span className="gradient-text">Zukunft gestalten.</span>
         </h1>
         
-        <p className="fade-in-up text-lg md:text-xl text-body mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="fade-in-up text-lg md:text-xl text-body max-w-2xl mx-auto leading-relaxed">
           Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und 
           partnerschaftlich durch alle Phasen der KI-Einführung – mit Fokus auf Zusammenarbeit 
           und nachhaltigen Erfolg.
@@ -66,7 +61,7 @@ const HeroSection = () => {
         
         <Button
           onClick={() => scrollToSection("maturity-check")}
-          className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50"
+          className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-base font-medium border border-primary/30"
         >
           Deinen Standort bestimmen und weiterdenken
         </Button>
@@ -74,8 +69,8 @@ const HeroSection = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary/50 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-5 h-8 border border-primary/40 rounded-full flex justify-center">
+          <div className="w-0.5 h-2 bg-primary/60 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

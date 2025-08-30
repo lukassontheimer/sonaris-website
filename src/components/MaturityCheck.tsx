@@ -78,16 +78,16 @@ const MaturityCheck = () => {
   const recommendation = getRecommendation(maturityScore);
 
   return (
-    <section id="maturity-check" className="py-24 px-6">
+    <section id="maturity-check" className="py-32 px-6 animated-bg">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-headline mb-6 leading-tight">
+        <div className="text-center mb-16 space-y-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-headline leading-tight max-w-4xl mx-auto">
             Was brauchst du, damit KI dich im Alltag{" "}
             <span className="gradient-text">wirklich unterstützt?</span>
           </h2>
         </div>
 
-        <Card className="bg-card border-card-border">
+        <Card className="card-hover bg-card border-border">
           <CardContent className="p-8">
             {!showResults ? (
               <div className="space-y-8">

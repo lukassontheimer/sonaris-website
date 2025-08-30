@@ -2,59 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* sonaris Design System - Linear.app inspired dark theme */
+/* sonaris Design System - Linear.app + Notion inspired */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
-    /* Dark theme only - no light mode */
-    --background: 0 0% 0%;
-    --background-secondary: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --foreground-secondary: 0 0% 63%;
+    /* Cleaner dark theme - more contrast */
+    --background: 0 0% 2%;
+    --background-secondary: 0 0% 6%;
+    --foreground: 0 0% 98%;
+    --foreground-secondary: 0 0% 65%;
     
-    /* Cyan primary system */
-    --primary: 180 100% 50%; /* Pure cyan #00FFFF */
-    --primary-foreground: 0 0% 0%;
-    --primary-glow: 180 100% 50%;
-    --primary-muted: 180 100% 50%;
+    /* Refined turquoise/cyan system */
+    --primary: 180 98% 52%; /* Slightly warmer cyan */
+    --primary-foreground: 0 0% 8%;
+    --primary-glow: 180 85% 60%;
+    --primary-muted: 180 40% 70%;
     
-    /* Card and surface colors */
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 100%;
-    --card-border: 0 0% 10%;
+    /* Cleaner surface colors */
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --card-border: 0 0% 12%;
     
-    /* Interactive states */
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 63%;
-    --accent: 0 0% 8%;
-    --accent-foreground: 0 0% 100%;
+    /* Refined interactive states */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 98%;
     
-    /* Borders and inputs */
-    --border: 0 0% 10%;
-    --input: 0 0% 8%;
-    --ring: 180 100% 50%;
+    /* Cleaner borders */
+    --border: 0 0% 12%;
+    --input: 0 0% 10%;
+    --ring: 180 98% 52%;
     
-    /* Destructive states */
+    /* Error states */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
     
-    /* Glassmorphism nav */
-    --nav-bg: 0 0% 4%;
-    --nav-border: 0 0% 10%;
+    /* Enhanced glassmorphism */
+    --nav-bg: 0 0% 2%;
+    --nav-border: 0 0% 12%;
     
-    /* Gradients and effects */
-    --gradient-primary: linear-gradient(135deg, hsla(180, 100%, 50%, 0.1), hsla(180, 100%, 50%, 0.05));
-    --gradient-hero: radial-gradient(ellipse at center, hsla(180, 100%, 50%, 0.03) 0%, transparent 70%);
-    --glow-primary: 0 0 20px hsla(180, 100%, 50%, 0.3);
-    --glow-hover: 0 0 30px hsla(180, 100%, 50%, 0.5);
+    /* Subtle gradients */
+    --gradient-primary: linear-gradient(135deg, hsla(180, 98%, 52%, 0.08), hsla(180, 98%, 52%, 0.02));
+    --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, hsla(180, 98%, 52%, 0.04) 0%, transparent 60%);
+    --gradient-subtle: linear-gradient(180deg, hsla(0, 0%, 6%, 0.8) 0%, hsla(0, 0%, 2%, 0.9) 100%);
+    
+    /* Refined shadows */
+    --shadow-subtle: 0 1px 3px hsla(0, 0%, 0%, 0.3);
+    --shadow-medium: 0 4px 12px hsla(0, 0%, 0%, 0.4);
+    --shadow-large: 0 8px 32px hsla(0, 0%, 0%, 0.5);
+    --shadow-glow: 0 0 40px hsla(180, 98%, 52%, 0.15);
     
     /* Animation variables */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
-    --radius: 0.75rem;
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
   }
 }
 
@@ -70,8 +77,10 @@
   body {
     @apply bg-background text-foreground font-inter antialiased;
     background-image: 
-      radial-gradient(circle at 20% 80%, hsla(180, 100%, 50%, 0.02) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsla(180, 100%, 50%, 0.02) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, hsla(180, 98%, 52%, 0.015) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, hsla(180, 98%, 52%, 0.015) 0%, transparent 60%),
+      linear-gradient(180deg, hsla(0, 0%, 2%, 1) 0%, hsla(0, 0%, 1%, 1) 100%);
+    background-attachment: fixed;
   }
   
   /* Custom scrollbar */
@@ -94,59 +103,62 @@
 }
 
 @layer components {
-  /* Typography system */
+  /* Typography system - cleaner hierarchy */
   .text-headline {
-    @apply text-foreground font-bold tracking-tight;
+    @apply text-foreground font-semibold tracking-tight leading-tight;
   }
   
   .text-body {
-    @apply text-foreground-secondary leading-relaxed;
+    @apply text-foreground-secondary leading-relaxed font-normal;
   }
   
   .text-label {
-    @apply text-foreground-secondary text-sm font-medium tracking-wide uppercase;
+    @apply text-foreground-secondary text-sm font-medium tracking-wide;
   }
   
-  /* Interactive elements */
+  /* Cleaner interactive elements */
   .interactive-hover {
-    @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-[0_0_30px_hsla(180,100%,50%,0.2)];
+    @apply transition-all duration-200 ease-out hover:scale-[1.01] hover:shadow-[var(--shadow-glow)];
   }
   
   .interactive-glow {
-    @apply transition-all duration-300 ease-out hover:shadow-[0_0_20px_hsla(180,100%,50%,0.3)] hover:border-primary/50;
+    @apply transition-all duration-200 ease-out hover:shadow-[var(--shadow-glow)] hover:border-primary/40;
   }
   
+  /* Smoother animations */
   .fade-in-up {
-    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+    @apply opacity-0 translate-y-6 transition-all duration-500 ease-out;
   }
   
   .fade-in-up.visible {
     @apply opacity-100 translate-y-0;
   }
   
-  /* Glassmorphism nav */
+  /* Enhanced glassmorphism */
   .nav-glass {
-    @apply backdrop-blur-md bg-nav-bg/80 border-nav-border/50;
+    @apply backdrop-blur-xl bg-nav-bg/90 border-nav-border/30;
+    box-shadow: var(--shadow-subtle);
   }
   
-  /* Frequency line animation for logo */
+  /* Subtle frequency line */
   .frequency-line {
-    @apply h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent;
-    animation: frequency-pulse 2s ease-in-out infinite;
+    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+    animation: frequency-pulse 3s ease-in-out infinite;
+    opacity: 0.6;
   }
   
   @keyframes frequency-pulse {
     0%, 100% {
-      opacity: 0.3;
-      transform: scaleX(0.8);
+      opacity: 0.4;
+      transform: scaleX(0.9);
     }
     50% {
-      opacity: 1;
+      opacity: 0.8;
       transform: scaleX(1);
     }
   }
   
-  /* Gradient text */
+  /* Cleaner gradient text */
   .gradient-text {
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-muted)));
     -webkit-background-clip: text;
@@ -154,18 +166,55 @@
     background-clip: text;
   }
   
-  /* Hero grid pattern */
-  .hero-grid {
-    background-image: 
-      linear-gradient(hsla(180, 100%, 50%, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsla(180, 100%, 50%, 0.03) 1px, transparent 1px);
-    background-size: 100px 100px;
-    animation: grid-float 20s ease-in-out infinite;
+  /* Subtle animated background */
+  .animated-bg {
+    position: relative;
+    overflow: hidden;
   }
   
-  @keyframes grid-float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-10px, -10px); }
+  .animated-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 25% 25%, hsla(180, 98%, 52%, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsla(180, 98%, 52%, 0.02) 0%, transparent 50%);
+    animation: float-bg 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes float-bg {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-20px, -20px) rotate(1deg); }
+    66% { transform: translate(20px, -10px) rotate(-1deg); }
+  }
+  
+  /* Subtle grid overlay */
+  .grid-overlay {
+    background-image: 
+      linear-gradient(hsla(180, 98%, 52%, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(180, 98%, 52%, 0.02) 1px, transparent 1px);
+    background-size: 120px 120px;
+    animation: grid-drift 25s linear infinite;
+  }
+  
+  @keyframes grid-drift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(120px, 120px); }
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:border-primary/20;
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  .card-hover:hover {
+    box-shadow: var(--shadow-medium), var(--shadow-glow);
+    transform: translateY(-2px);
   }
 }
 

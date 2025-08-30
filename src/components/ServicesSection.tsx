@@ -22,19 +22,19 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 px-6">
+    <section id="services" className="py-32 px-6 animated-bg">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <Badge className="mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary">
+        <div className="text-center mb-20 space-y-6">
+          <Badge className="bg-card/60 backdrop-blur-md border-border text-foreground-secondary">
             Unser Angebot
           </Badge>
           
-          <h2 className="text-3xl md:text-5xl font-bold text-headline mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-headline leading-tight max-w-4xl mx-auto">
             Bedarfsorientierte{" "}
             <span className="gradient-text">KI-Integration</span>
           </h2>
           
-          <p className="text-lg text-body max-w-3xl mx-auto">
+          <p className="text-lg text-body max-w-2xl mx-auto">
             Von der ersten Idee bis zum praktischen Einsatz – wir geben dir Struktur, 
             Impulse und Raum für eigene Schritte.
           </p>
@@ -44,18 +44,18 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="interactive-glow bg-card border-card-border hover:border-primary/20 transition-all duration-500 group"
+              className="card-hover bg-card border-border group"
             >
               <CardContent className="p-8">
                 <div className="mb-6">
-                  <service.icon className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300" />
+                  <service.icon className="w-10 h-10 text-primary group-hover:scale-105 transition-transform duration-200" />
                 </div>
                 
-                <h3 className="text-xl font-semibold text-foreground mb-4">
+                <h3 className="text-lg font-medium text-headline mb-4">
                   {service.title}
                 </h3>
                 
-                <p className="text-body leading-relaxed">
+                <p className="text-body text-sm leading-relaxed">
                   {service.description}
                 </p>
               </CardContent>
