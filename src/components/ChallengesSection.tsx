@@ -26,19 +26,19 @@ const ChallengesSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="py-32 px-6 bg-background-secondary/50 animated-bg">
+    <section className="py-24 px-6 bg-background-secondary">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20 space-y-6">
-          <Badge className="bg-card/60 backdrop-blur-md border-border text-foreground-secondary">
+        <div className="text-center mb-16">
+          <Badge className="mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary">
             Wo viele beginnen
           </Badge>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-headline leading-tight max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-headline mb-6 leading-tight">
             Von ein bisschen KI für eine E-Mail zu einem ersten{" "}
             <span className="gradient-text">echten Anwendungsfall</span>
           </h2>
           
-          <p className="text-lg text-body max-w-2xl mx-auto">
+          <p className="text-lg text-body max-w-3xl mx-auto">
             Wähle die Themen, die dich weiterbringen – wir geben dir die passenden Impulse dazu.
           </p>
         </div>
@@ -47,17 +47,17 @@ const ChallengesSection = () => {
           {challenges.map((challenge, index) => (
             <Card
               key={index}
-              className="card-hover bg-card border-border cursor-pointer group"
+              className="interactive-glow bg-card border-card-border hover:border-primary/20 transition-all duration-300 cursor-pointer"
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <CardContent className="p-8">
+              <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-medium text-headline">
+                  <h3 className="text-lg font-semibold text-foreground">
                     {challenge.question}
                   </h3>
                   <ChevronRight 
-                    className={`w-4 h-4 text-primary transition-transform duration-200 ${
+                    className={`w-5 h-5 text-primary transition-transform duration-300 ${
                       hoveredCard === index ? "rotate-90" : ""
                     }`}
                   />
