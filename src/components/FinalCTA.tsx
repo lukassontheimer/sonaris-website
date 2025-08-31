@@ -1,20 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect } from "react";
-const FinalCTA = () => {
-  useEffect(() => {
-    // Load HubSpot meetings script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
-    document.body.appendChild(script);
 
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+const FinalCTA = () => {
 
   return <section id="final-cta" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -31,11 +17,16 @@ const FinalCTA = () => {
             
             <p className="text-lg text-body mb-8 max-w-2xl mx-auto">Ein viruteller Espesso mit uns könnte der Anfang deiner KI-Reise sein.</p>
             
-            {/* HubSpot Meeting Booking Form */}
+            {/* Start of Meetings Embed Script */}
             <div 
               className="meetings-iframe-container" 
               data-src="https://meetings-eu1.hubspot.com/oandrees?embed=true"
             ></div>
+            <script 
+              type="text/javascript" 
+              src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+            ></script>
+            {/* End of Meetings Embed Script */}
             
             <div className="mt-8 text-sm text-foreground-secondary">
               Unverbindlich • DSGVO-konform • Praxisorientiert
