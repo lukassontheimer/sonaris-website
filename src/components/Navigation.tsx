@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,15 +30,15 @@ const Navigation = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-foreground">sonaris</span>
-            <div className="frequency-line w-16 mt-1"></div>
+            <span className="text-xl sm:text-2xl font-bold text-foreground">sonaris</span>
+            <div className="frequency-line w-12 sm:w-16 mt-1"></div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("services")}
@@ -52,15 +54,62 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* CTA Button */}
-          <Button 
-            onClick={() => scrollToSection("final-cta")}
-            variant="default" 
-            className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50"
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-foreground-secondary hover:text-foreground transition-colors duration-300"
           >
-            Virtueller Espresso
-          </Button>
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block">
+            <Button 
+              onClick={() => scrollToSection("final-cta")}
+              variant="default" 
+              className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50"
+            >
+              <span className="hidden lg:inline">Virtueller Espresso</span>
+              <span className="lg:hidden">Kontakt</span>
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 py-4 border-t border-nav-border/30">
+            <div className="flex flex-col space-y-4">
+              <button
+                onClick={() => {
+                  scrollToSection("services");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("team");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+              >
+                Über uns
+              </button>
+              <Button 
+                onClick={() => {
+                  scrollToSection("final-cta");
+                  setIsMobileMenuOpen(false);
+                }}
+                variant="default" 
+                className="mt-4 w-full interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50"
+              >
+                Virtueller Espresso
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

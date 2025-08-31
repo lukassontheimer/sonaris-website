@@ -26,37 +26,38 @@ const HeroSection = () => {
       });
     }
   };
-  return <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden" style={{
+  return <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden" style={{
     backgroundImage: `url(${heroBackground})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    backgroundAttachment: "fixed"
+    backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
   }}>
       {/* Background overlay */}
       <div className="absolute inset-0 bg-background/40 hero-grid"></div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <Badge className="fade-in-up mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary hover:border-primary/40 transition-all duration-300">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
+        <Badge className="fade-in-up mb-4 sm:mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary hover:border-primary/40 transition-all duration-300 text-xs sm:text-sm">
           KI sinnvoll integriert statt isoliert
         </Badge>
         
-        <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-bold text-headline mb-6 leading-tight">
+        <h1 className="fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-headline mb-4 sm:mb-6 leading-tight">
           Möglichkeiten verknüpfen.{" "}
           <span className="gradient-text">Zukunft mit KI gestalten.</span>
         </h1>
         
-        <p className="fade-in-up text-lg md:text-xl text-body mb-8 max-w-3xl mx-auto leading-relaxed">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
+        <p className="fade-in-up text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
         
-        <Button onClick={() => scrollToSection("final-cta")} className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50">
-          Deinen Standort bestimmen und weiterdenken
+        <Button onClick={() => scrollToSection("final-cta")} className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg border border-primary/50">
+          <span className="hidden sm:inline">Deinen Standort bestimmen und weiterdenken</span>
+          <span className="sm:hidden">Standort bestimmen</span>
         </Button>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary/50 rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-primary/30 rounded-full flex justify-center">
+          <div className="w-1 h-2 sm:h-3 bg-primary/50 rounded-full mt-1 sm:mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>;

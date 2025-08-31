@@ -16,7 +16,7 @@ const FinalCTA = () => {
     };
   }, []);
 
-  return <section id="final-cta" className="py-24 px-6">
+  return <section id="final-cta" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/50 border-primary/20">
           {/* Gradient border effect */}
@@ -24,20 +24,20 @@ const FinalCTA = () => {
             <div className="h-full w-full bg-card rounded-lg"></div>
           </div>
           
-          <CardContent className="relative z-10 p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-headline mb-6">
+          <CardContent className="relative z-10 p-6 sm:p-8 lg:p-12 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-headline mb-4 sm:mb-6">
               Bereit für den <span className="gradient-text">nächsten Schritt?</span>
             </h2>
             
-            <p className="text-lg text-body mb-8 max-w-2xl mx-auto">Ein viruteller Espesso mit uns könnte der Anfang deiner KI-Reise sein.</p>
+            <p className="text-base sm:text-lg text-body mb-6 sm:mb-8 max-w-2xl mx-auto">Ein viruteller Espesso mit uns könnte der Anfang deiner KI-Reise sein.</p>
             
             {/* HubSpot Meeting Booking Form */}
             <div 
-              className="meetings-iframe-container" 
+              className="meetings-iframe-container min-h-[400px] sm:min-h-[500px]" 
               data-src="https://meetings-eu1.hubspot.com/oandrees?embed=true"
             ></div>
             
-            <div className="mt-8 text-sm text-foreground-secondary">
+            <div className="mt-6 sm:mt-8 text-xs sm:text-sm text-foreground-secondary">
               Unverbindlich • DSGVO-konform • Praxisorientiert
             </div>
           </CardContent>
