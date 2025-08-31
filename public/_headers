@@ -1,0 +1,26 @@
+# Cache static assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache WebP images for 1 year  
+/lovable-uploads/*.webp
+  Cache-Control: public, max-age=31536000
+
+# Cache other images for 1 year
+/lovable-uploads/*
+  Cache-Control: public, max-age=31536000
+
+# Cache fonts for 1 year
+/*.woff2
+  Cache-Control: public, max-age=31536000
+
+/*.woff
+  Cache-Control: public, max-age=31536000
+
+# Cache main HTML for 5 minutes (allow updates)
+/
+  Cache-Control: public, max-age=300
+
+# Cache other pages for 1 hour
+/*.html
+  Cache-Control: public, max-age=3600
