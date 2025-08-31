@@ -20,9 +20,9 @@ const FinalCTA = () => {
               15 Minuten Gespräch mit uns können der Anfang deiner KI-Journey sein.
             </p>
             
-            <Button className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50 animate-pulse">
-              Termin vereinbaren
-            </Button>
+            {/* HubSpot Meetings Embed */}
+            <div className="meetings-iframe-container" data-src="https://meetings-eu1.hubspot.com/oandrees?embed=true"></div>
+            <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
             
             <div className="mt-8 text-sm text-foreground-secondary">
               Unverbindlich • DSGVO-konform • Praxisorientiert
