@@ -1,22 +1,49 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+
 const FinalCTA = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Load HubSpot meetings script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
-    document.body.appendChild(script);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !scriptLoaded) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
 
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
-  return <section id="final-cta" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+    return () => observer.disconnect();
+  }, [scriptLoaded]);
+
+  useEffect(() => {
+    if (isVisible && !scriptLoaded) {
+      // Load HubSpot meetings script lazily
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+      setScriptLoaded(true);
+
+      return () => {
+        // Cleanup script on unmount
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, [isVisible, scriptLoaded]);
+
+  return <section id="final-cta" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6" ref={containerRef}>
       <div className="max-w-4xl mx-auto">
         <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/50 border-primary/20">
           {/* Gradient border effect */}
