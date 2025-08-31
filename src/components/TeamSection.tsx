@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const teamMembers = [
   {
@@ -55,11 +56,16 @@ const TeamSection = () => {
               onMouseLeave={() => setHoveredMember(null)}
             >
               <CardContent className="p-6">
-                {/* Placeholder avatar with cyan border */}
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 mx-auto mb-4 flex items-center justify-center group-hover:border-primary/50 transition-colors duration-300">
-                  <span className="text-2xl font-bold text-primary">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                {/* Profile picture or avatar fallback */}
+                <div className="mx-auto mb-4 w-20 h-20">
+                  <Avatar className="w-20 h-20 border-2 border-primary/30 group-hover:border-primary/50 transition-colors duration-300">
+                    {index === 0 ? (
+                      <AvatarImage src="/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png" alt={member.name} />
+                    ) : null}
+                    <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/5 text-2xl font-bold text-primary">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
                 </div>
                 
                 <h3 className="text-lg font-semibold text-foreground text-center mb-2">
