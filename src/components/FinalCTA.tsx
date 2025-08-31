@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
 const FinalCTA = () => {
-  return (
-    <section className="py-24 px-6">
+  return <section className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/50 border-primary/20">
           {/* Gradient border effect */}
@@ -16,13 +14,11 @@ const FinalCTA = () => {
               Bereit für den <span className="gradient-text">nächsten Schritt?</span>
             </h2>
             
-            <p className="text-lg text-body mb-8 max-w-2xl mx-auto">
-              15 Minuten Gespräch mit uns können der Anfang deiner KI-Journey sein.
-            </p>
+            <p className="text-lg text-body mb-8 max-w-2xl mx-auto">15 Minuten Gespräch mit uns können der Anfang deiner KI-Reise sein.</p>
             
-            {/* HubSpot Meetings Embed */}
-            <div className="meetings-iframe-container" data-src="https://meetings-eu1.hubspot.com/oandrees?embed=true"></div>
-            <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+            <Button className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50 animate-pulse">
+              Termin vereinbaren
+            </Button>
             
             <div className="mt-8 text-sm text-foreground-secondary">
               Unverbindlich • DSGVO-konform • Praxisorientiert
@@ -30,8 +26,6 @@ const FinalCTA = () => {
           </CardContent>
         </Card>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FinalCTA;
