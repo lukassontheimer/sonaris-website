@@ -63,7 +63,7 @@ const TeamSection = () => {
                 </div>
                 
                 <h3 className="text-lg font-semibold text-foreground text-center mb-2">
-                  {member.name}
+                  Lukas Sontheimer
                 </h3>
                 
                 <p className="text-primary text-sm text-center font-medium mb-3">
