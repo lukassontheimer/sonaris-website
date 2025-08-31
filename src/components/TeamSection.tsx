@@ -21,7 +21,7 @@ const teamMembers = [
   },
   {
     name: "Christian Pessing",
-    role: "Training & Change",
+    role: "Sales & Training",
     bio: "Führt Teams durch Veränderungsprozesse und macht KI-Technologien für alle Mitarbeiter zugänglich."
   }
 ];
