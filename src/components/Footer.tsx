@@ -20,12 +20,12 @@ const Footer = () => {
             >
               Impressum
             </Link>
-            <a 
-              href="#datenschutz" 
+            <Link 
+              to="/datenschutz" 
               className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
             >
               Datenschutz
-            </a>
+            </Link>
             <div className="flex items-center space-x-3">
               <Linkedin className="w-5 h-5 text-foreground-secondary hover:text-primary transition-colors duration-300 cursor-pointer" />
             </div>
