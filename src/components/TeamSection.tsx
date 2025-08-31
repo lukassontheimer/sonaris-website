@@ -11,7 +11,7 @@ const teamMembers = [
   },
   {
     name: "Lorenz Surkemper",
-    role: "Lead Developer",
+    role: "Technologie-Experte",
     bio: "Experte für DSGVO-konforme KI-Systeme und Integration bestehender Unternehmensstrukturen."
   },
   {
