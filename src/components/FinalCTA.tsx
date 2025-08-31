@@ -16,7 +16,7 @@ const FinalCTA = () => {
     };
   }, []);
 
-  return <section className="py-24 px-6">
+  return <section id="final-cta" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/50 border-primary/20">
           {/* Gradient border effect */}

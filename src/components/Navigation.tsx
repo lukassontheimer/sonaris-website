@@ -53,7 +53,11 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <Button variant="default" className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50">
+          <Button 
+            onClick={() => scrollToSection("final-cta")}
+            variant="default" 
+            className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50"
+          >
             Virtueller Espresso
           </Button>
         </div>
