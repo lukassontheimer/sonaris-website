@@ -61,6 +61,8 @@ const TeamSection = () => {
                   <Avatar className="w-20 h-20 border-2 border-primary/30 group-hover:border-primary/50 transition-colors duration-300">
                     {index === 0 ? (
                       <AvatarImage src="/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png" alt={member.name} />
+                    ) : index === 3 ? (
+                      <AvatarImage src="/lovable-uploads/2197ae50-ed87-4061-8a5f-6e7bf3bdf5f3.png" alt={member.name} />
                     ) : null}
                     <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/5 text-2xl font-bold text-primary">
                       {member.name.split(' ').map(n => n[0]).join('')}
