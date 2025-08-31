@@ -54,7 +54,7 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <Button variant="default" className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50">
-            Gespräch vereinbaren
+            Virtueller Espresso
           </Button>
         </div>
       </div>
