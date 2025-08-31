@@ -24,3 +24,11 @@
 # Cache other pages for 1 hour
 /*.html
   Cache-Control: public, max-age=3600
+
+# Security Headers
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.hsappstatic.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://static.hsappstatic.net data:; img-src 'self' data: https:; connect-src 'self'; frame-src 'self' https://meetings-eu1.hubspot.com; frame-ancestors 'self' https://*.lovable.dev https://*.lovable.app; base-uri 'self'; form-action 'self';
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), clipboard-read=(), clipboard-write=()
+  X-Content-Type-Options: nosniff
+  Strict-Transport-Security: max-age=15552000; includeSubDomains
