@@ -1,6 +1,21 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
 const FinalCTA = () => {
+  useEffect(() => {
+    // Load HubSpot meetings script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return <section className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/50 border-primary/20">
@@ -16,9 +31,11 @@ const FinalCTA = () => {
             
             <p className="text-lg text-body mb-8 max-w-2xl mx-auto">15 Minuten Gespräch mit uns können der Anfang deiner KI-Reise sein.</p>
             
-            <Button className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50 animate-pulse">
-              Termin vereinbaren
-            </Button>
+            {/* HubSpot Meeting Booking Form */}
+            <div 
+              className="meetings-iframe-container" 
+              data-src="https://meetings-eu1.hubspot.com/oandrees?embed=true"
+            ></div>
             
             <div className="mt-8 text-sm text-foreground-secondary">
               Unverbindlich • DSGVO-konform • Praxisorientiert
