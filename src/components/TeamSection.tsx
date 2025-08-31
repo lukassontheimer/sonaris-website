@@ -4,24 +4,24 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const teamMembers = [
   {
-    name: "Dr. Sarah Weber",
-    role: "KI-Strategin",
-    bio: "Spezialistin für KI-Transformation in mittelständischen Unternehmen mit 8 Jahren Erfahrung in der Strategieberatung."
+    name: "Lukas Sontheimer",
+    role: "KI-Strategist",
+    bio: "Spezialist für KI-Transformation in mittelständischen Unternehmen mit umfassender Erfahrung in der Strategieberatung."
   },
   {
-    name: "Marcus Richter",
+    name: "Lorenz Surkemper",
     role: "Lead Developer",
     bio: "Experte für DSGVO-konforme KI-Systeme und Integration bestehender Unternehmensstrukturen."
   },
   {
-    name: "Anna Hoffmann",
-    role: "Training & Change",
-    bio: "Führt Teams durch Veränderungsprozesse und macht KI-Technologien für alle Mitarbeiter zugänglich."
-  },
-  {
-    name: "Thomas Müller",
+    name: "Oliver Andrees",
     role: "Solutions Architect",
     bio: "Entwickelt maßgeschneiderte KI-Lösungen, die nahtlos in bestehende Unternehmensprozesse integrieren."
+  },
+  {
+    name: "Christian Pessing",
+    role: "Training & Change",
+    bio: "Führt Teams durch Veränderungsprozesse und macht KI-Technologien für alle Mitarbeiter zugänglich."
   }
 ];
 
@@ -63,7 +63,7 @@ const TeamSection = () => {
                 </div>
                 
                 <h3 className="text-lg font-semibold text-foreground text-center mb-2">
-                  Lorenz Surkemper
+                  {member.name}
                 </h3>
                 
                 <p className="text-primary text-sm text-center font-medium mb-3">
