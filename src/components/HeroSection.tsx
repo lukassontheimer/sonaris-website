@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import heroBackground from "@/assets/hero-bg.webp";
+import heroBackground from "@/assets/hero-bg.jpg";
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   useEffect(() => {

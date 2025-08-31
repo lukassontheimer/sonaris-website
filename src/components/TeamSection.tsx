@@ -60,13 +60,13 @@ const TeamSection = () => {
                 <div className="mx-auto mb-3 sm:mb-4 w-16 h-16 sm:w-20 sm:h-20">
                   <Avatar className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-primary/30 group-hover:border-primary/50 transition-colors duration-300">
                     {index === 0 ? (
-                      <AvatarImage src="/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.webp" alt={member.name} />
+                      <AvatarImage src="/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png" alt={member.name} />
                     ) : index === 1 ? (
-                      <AvatarImage src="/lovable-uploads/64310054-52e7-48af-ba44-b16e7e1a919f.webp" alt={member.name} />
+                      <AvatarImage src="/lovable-uploads/64310054-52e7-48af-ba44-b16e7e1a919f.png" alt={member.name} />
                     ) : index === 2 ? (
-                      <AvatarImage src="/lovable-uploads/2978bf0f-c48a-4252-99b2-0c893e569892.webp" alt={member.name} />
+                      <AvatarImage src="/lovable-uploads/2978bf0f-c48a-4252-99b2-0c893e569892.png" alt={member.name} />
                     ) : index === 3 ? (
-                      <AvatarImage src="/lovable-uploads/6ecd5e1b-5938-4825-83a1-6463e2b7075b.webp" alt={member.name} />
+                      <AvatarImage src="/lovable-uploads/6ecd5e1b-5938-4825-83a1-6463e2b7075b.png" alt={member.name} />
                     ) : null}
                     <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/5 text-lg sm:text-2xl font-bold text-primary">
                       {member.name.split(' ').map(n => n[0]).join('')}
