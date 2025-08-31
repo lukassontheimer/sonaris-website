@@ -6,7 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 const teamMembers = [
   {
     name: "Lukas Sontheimer",
-    role: "KI-Strategist",
+    role: "KI-Stratege",
     bio: "Spezialist für KI-Transformation in mittelständischen Unternehmen mit umfassender Erfahrung in der Strategieberatung."
   },
   {
