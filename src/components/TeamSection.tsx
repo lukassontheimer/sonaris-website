@@ -63,6 +63,8 @@ const TeamSection = () => {
                       <AvatarImage src="/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png" alt={member.name} />
                     ) : index === 1 ? (
                       <AvatarImage src="/lovable-uploads/64310054-52e7-48af-ba44-b16e7e1a919f.png" alt={member.name} />
+                    ) : index === 2 ? (
+                      <AvatarImage src="/lovable-uploads/2978bf0f-c48a-4252-99b2-0c893e569892.png" alt={member.name} />
                     ) : index === 3 ? (
                       <AvatarImage src="/lovable-uploads/2197ae50-ed87-4061-8a5f-6e7bf3bdf5f3.png" alt={member.name} />
                     ) : null}
