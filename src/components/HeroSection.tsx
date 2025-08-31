@@ -48,7 +48,7 @@ const HeroSection = () => {
         
         <p className="fade-in-up text-lg md:text-xl text-body mb-8 max-w-3xl mx-auto leading-relaxed">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
         
-        <Button onClick={() => scrollToSection("maturity-check")} className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50">
+        <Button onClick={() => scrollToSection("final-cta")} className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg border border-primary/50">
           Deinen Standort bestimmen und weiterdenken
         </Button>
       </div>
