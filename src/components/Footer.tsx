@@ -33,7 +33,7 @@ const Footer = () => {
           
           {/* Copyright */}
           <div className="text-foreground-secondary text-sm">
-            © 2024 sonaris
+            © 2025 sonaris
           </div>
         </div>
         
