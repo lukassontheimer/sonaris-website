@@ -29,7 +29,7 @@ const FinalCTA = () => {
               Bereit für den <span className="gradient-text">nächsten Schritt?</span>
             </h2>
             
-            <p className="text-lg text-body mb-8 max-w-2xl mx-auto">15 Minuten Gespräch mit uns können der Anfang deiner KI-Reise sein.</p>
+            <p className="text-lg text-body mb-8 max-w-2xl mx-auto">Ein viruteller Espesso mit uns könnte der Anfang deiner KI-Reise sein.</p>
             
             {/* HubSpot Meeting Booking Form */}
             <div 
