@@ -7,7 +7,7 @@ const Datenschutz = () => {
   return (
     <div className="min-h-screen bg-background font-inter">
       <Navigation />
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
         <Link 
           to="/" 
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
