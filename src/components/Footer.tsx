@@ -1,4 +1,5 @@
 import { Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,12 +14,12 @@ const Footer = () => {
           
           {/* Links */}
           <div className="flex items-center space-x-8">
-            <a 
-              href="#impressum" 
+            <Link 
+              to="/impressum" 
               className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
             >
               Impressum
-            </a>
+            </Link>
             <a 
               href="#datenschutz" 
               className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
