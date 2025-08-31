@@ -1,9 +1,7 @@
 import { Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Footer = () => {
-  return (
-    <footer className="py-12 px-6 border-t border-border/30">
+  return <footer className="py-12 px-6 border-t border-border/30">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           {/* Logo */}
@@ -14,16 +12,10 @@ const Footer = () => {
           
           {/* Links */}
           <div className="flex items-center space-x-8">
-            <Link 
-              to="/impressum" 
-              className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
-            >
+            <Link to="/impressum" className="text-foreground-secondary hover:text-foreground transition-colors duration-300">
               Impressum
             </Link>
-            <Link 
-              to="/datenschutz" 
-              className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
-            >
+            <Link to="/datenschutz" className="text-foreground-secondary hover:text-foreground transition-colors duration-300">
               Datenschutz
             </Link>
             <div className="flex items-center space-x-3">
@@ -38,13 +30,9 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-border/20">
-          <p className="text-center text-sm text-foreground-secondary">
-            DSGVO-konforme KI-Transformation für den Mittelstand im DACH-Raum
-          </p>
+          <p className="text-center text-sm text-foreground-secondary">DSGVO-konforme KI-Integration für den Mittelstand</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
