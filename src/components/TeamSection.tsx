@@ -12,7 +12,7 @@ const teamMembers = [
   {
     name: "Lorenz Surkemper",
     role: "Technologie-Experte",
-    bio: "Experte für DSGVO-konforme KI-Systeme und Integration bestehender Unternehmensstrukturen."
+    bio: "Lorenz findet den Weg, damit eure Ideen auch technisch Wirklichkeit werden. Mit Ruhe, System und klarem Blick macht er aus komplexen Anforderungen funktionierende Lösungen."
   },
   {
     name: "Oliver Andrees",
