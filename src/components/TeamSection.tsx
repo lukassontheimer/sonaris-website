@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "Lukas Sontheimer",
     role: "KI-Stratege",
-    bio: "Spezialist für KI-Transformation in mittelständischen Unternehmen mit umfassender Erfahrung in der Strategieberatung."
+    bio: "Lukas verwandelt das Chaos der KI-Eruption in klare, funktionierende Systeme für euer Unternehmen. Mit einem systemischen Ansatz baut er die Brücke zwischen euren bestehenden Prozessen und den praktischen Integrationsmöglichkeiten der KI."
   },
   {
     name: "Lorenz Surkemper",
