@@ -16,7 +16,7 @@ const teamMembers = [
   },
   {
     name: "Oliver Andrees",
-    role: "Solutions Architect",
+    role: "Sales & Strategy",
     bio: "Entwickelt maßgeschneiderte KI-Lösungen, die nahtlos in bestehende Unternehmensprozesse integrieren."
   },
   {
