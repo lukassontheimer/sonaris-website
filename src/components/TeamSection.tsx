@@ -85,7 +85,7 @@ const TeamSection = () => {
                 {/* Bio slide-in effect */}
                 <div 
                   className={`overflow-hidden transition-all duration-300 ${
-                    hoveredMember === index ? "max-h-48 sm:max-h-40 opacity-100" : "max-h-0 opacity-0"
+                    hoveredMember === index ? "max-h-64 sm:max-h-56 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
                   <p className="text-body text-xs sm:text-sm leading-relaxed text-center">
