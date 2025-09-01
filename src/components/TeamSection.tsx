@@ -22,7 +22,7 @@ const teamMembers = [
   {
     name: "Christian Pessing",
     role: "Sales & Training",
-    bio: "Führt Teams durch Veränderungsprozesse und macht KI-Technologien für alle Mitarbeiter zugänglich."
+    bio: "Christian trainiert die Geometrie der Gesprächsführung – eine systematische Methode, die Kommunikation klar strukturiert und anschlussfähig macht. Sein Schwerpunkt liegt auf der Interaktion mit KI- und LLM-Systemen, sodass Verständigung zwischen Menschen und Modellen verlässlich gelingt."
   }
 ];
 
