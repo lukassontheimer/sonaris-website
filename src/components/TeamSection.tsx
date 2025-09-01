@@ -21,7 +21,7 @@ const teamMembers = [
   },
   {
     name: "Christian Pessing",
-    role: "Training & Coaching",
+    role: "Sales & Consulting",
     bio: "Christian trainiert die Geometrie der Gesprächsführung – eine systematische Methode, die Kommunikation klar strukturiert und anschlussfähig macht. Sein Schwerpunkt liegt auf der Interaktion mit KI- und LLM-Systemen, sodass Verständigung zwischen Menschen und Modellen verlässlich gelingt."
   }
 ];
