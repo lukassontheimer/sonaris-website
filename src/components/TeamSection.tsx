@@ -17,7 +17,7 @@ const teamMembers = [
   {
     name: "Oliver Andrees",
     role: "Sales & Strategy",
-    bio: "Entwickelt maßgeschneiderte KI-Lösungen, die nahtlos in bestehende Unternehmensprozesse integrieren."
+    bio: "Oliver öffnet die Tür zur Wirtschaftswelt der KI. Mit ihm klärt ihr, warum es sich lohnt, beispielsweise unsere Plattform einzusetzen. Er verbindet wirtschaftliche Argumente mit technischem Verständnis. So erkennt ihr schnell, wo sich Investitionen wirklich rechnen."
   },
   {
     name: "Christian Pessing",
