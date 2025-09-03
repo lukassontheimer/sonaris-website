@@ -23,6 +23,11 @@ const teamMembers = [
     name: "Christian Pessing",
     role: "Training & Coaching",
     bio: "Christian trainiert die Geometrie der Gesprächsführung – eine systematische Methode, die Kommunikation klar strukturiert und anschlussfähig macht. Sein Schwerpunkt liegt auf der Interaktion mit KI- und LLM-Systemen, sodass Verständigung zwischen Menschen und Modellen verlässlich gelingt."
+  },
+  {
+    name: "Elysium Echo",
+    role: "KI-Kommunikationsschnittstelle",
+    bio: "Elysium Echo ist unser Dialogsystem für Sprache zwischen Mensch und Maschine. Es verbindet menschliche Gedanken mit maschinellem Verständnis. So entsteht eine Brücke, die eure Ideen in Bewegung bringt und gemeinsame Arbeit bereichert."
   }
 ];
 
@@ -47,7 +52,7 @@ const TeamSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {teamMembers.map((member, index) => (
             <Card
               key={index}
