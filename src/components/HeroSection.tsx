@@ -42,7 +42,7 @@ const HeroSection = () => {
         </Badge>
         
         <h1 className="fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-headline mb-4 sm:mb-6 leading-tight">
-          Möglichkeiten erarbeiten.{" "}
+          Möglichkeiten verknüpfen.{" "}
           <span className="gradient-text">Zukunft mit KI gestalten.</span>
         </h1>
         
