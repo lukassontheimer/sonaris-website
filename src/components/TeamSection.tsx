@@ -72,6 +72,8 @@ const TeamSection = () => {
                       <AvatarImage src="/lovable-uploads/2978bf0f-c48a-4252-99b2-0c893e569892.webp" alt={member.name} />
                     ) : index === 3 ? (
                       <AvatarImage src="/lovable-uploads/6ecd5e1b-5938-4825-83a1-6463e2b7075b.webp" alt={member.name} />
+                    ) : index === 4 ? (
+                      <AvatarImage src="/lovable-uploads/26cb722e-b1e2-4878-a88f-2780b6225fa0.png" alt={member.name} />
                     ) : null}
                     <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/5 text-lg sm:text-2xl font-bold text-primary">
                       {member.name.split(' ').map(n => n[0]).join('')}
