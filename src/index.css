@@ -135,6 +135,12 @@
   .fade-in-up.visible {
     @apply opacity-100 translate-y-0;
   }
+
+  /* Optimize LCP element rendering */
+  .lcp-optimized {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 200px;
+  }
   
   /* Glassmorphism nav */
   .nav-glass {
