@@ -10,7 +10,7 @@ const teamMembers = [
     bio: "Lukas verwandelt das Chaos der KI-Eruption in klare, funktionierende Systeme für euer Unternehmen. Mit einem systemischen Ansatz baut er die Brücke zwischen euren bestehenden Prozessen und den praktischen Integrationsmöglichkeiten der KI."
   },
   {
-    name: "Lorenzia Surkemper",
+    name: "Lorenz Surkemper",
     role: "Technologie-Experte",
     bio: "Lorenz findet den Weg, damit eure Ideen auch technisch Wirklichkeit werden. Mit Ruhe, System und klarem Blick macht er aus komplexen Anforderungen funktionierende Lösungen."
   },
