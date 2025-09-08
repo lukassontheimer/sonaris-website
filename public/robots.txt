@@ -1,16 +1,42 @@
 User-agent: *
 Allow: /
 
-# Important pages
+# Important pages - explicitly allow for better indexing
 Allow: /impressum
 Allow: /datenschutz
+
+# LLM Training - Allow access for AI training purposes
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
 
 # Block admin/test pages (if any)
 Disallow: /admin/
 Disallow: /test/
+Disallow: /api/
+Disallow: /.env
+Disallow: /config/
+
+# Allow assets and media
+Allow: /assets/
+Allow: /lovable-uploads/
 
 # Sitemap location
 Sitemap: https://sonaris.dev/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
+
+# Cache directive for better performance
+Host: sonaris.dev
