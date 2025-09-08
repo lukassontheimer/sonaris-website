@@ -22,11 +22,6 @@ const Footer = () => {
                 Datenschutz
               </Link>
             </div>
-            <div className="flex items-center space-x-3">
-              <a href="https://www.linkedin.com/company/sonaris" target="_blank" rel="noopener noreferrer" aria-label="SONARIS auf LinkedIn besuchen">
-                <Linkedin className="w-5 h-5 text-foreground-secondary hover:text-primary transition-colors duration-300" />
-              </a>
-            </div>
           </nav>
           
           {/* Copyright */}
