@@ -25,6 +25,16 @@
 /*.html
   Cache-Control: public, max-age=3600
 
+# Explicit indexing for main routes
+/
+  X-Robots-Tag: index, follow
+
+/impressum
+  X-Robots-Tag: index, follow
+
+/datenschutz
+  X-Robots-Tag: index, follow
+
 # Security Headers
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.hsappstatic.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://static.hsappstatic.net data:; img-src 'self' data: https:; connect-src 'self'; frame-src 'self' https://meetings-eu1.hubspot.com; frame-ancestors 'self' https://*.lovable.dev https://*.lovable.app; base-uri 'self'; form-action 'self';
