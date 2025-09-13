@@ -46,7 +46,7 @@ const HeroSection = () => {
           <span className="gradient-text">Zukunft mit KI gestalten.</span>
         </h1>
         
-        <p className="text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed will-change-auto">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
+        <p className="text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
         
         <Button 
           onClick={() => scrollToSection("final-cta")} 
