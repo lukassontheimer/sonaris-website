@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const teamMembers = [
   {
@@ -97,6 +98,53 @@ const TeamSection = () => {
                 >
                   <p className="text-body text-xs sm:text-sm leading-relaxed text-center">
                     {member.bio}
+                    {index === 3 && ( // Christian Pessing
+                      <Dialog>
+                        <DialogTrigger className="text-primary hover:underline ml-2 cursor-pointer">
+                          Read more
+                        </DialogTrigger>
+                        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                          <DialogHeader>
+                            <DialogTitle className="text-2xl font-bold text-headline mb-4">
+                              Christian Pessing - Training & Coaching
+                            </DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4 text-body">
+                            <p className="font-bold">
+                              Ich stelle Verbindungen zwischen menschlicher und maschineller Kommunikation her.
+                            </p>
+                            
+                            <p>
+                              Als Kommunikationsexperte mit 15 Jahren Universitätslehrerfahrung und sprachwissenschaftlichem Hintergrund erkannte ich vor drei Jahren sofort: Wer erfolgreich mit Large Language Models arbeiten will, braucht exzellente Kommunikationsfähigkeiten. Diese Erkenntnis wurde zum Fundament meiner Spezialisierung.
+                            </p>
+                            
+                            <p>
+                              Meine Methoden wie die "Geometry of Conversation" und der "Promptresonanz-Check" verbinden bewährte zwischenmenschliche Gesprächstechniken mit systematischen KI-Interaktionsstrategien. Ich entwickle Custom GPTs und digitale Assistenten, die nicht nur Tools sind, sondern Kommunikationspartner - präzise kalibriert für spezifische Aufgaben von Trainingsdesign bis Gesprächsanalyse.
+                            </p>
+                            
+                            <p>
+                              In meinem Blog "Dialoglabor" dokumentiere ich auf über 120 Artikeln, wie sich Kommunikationsprinzipien zwischen biologischen und künstlichen neuronalen Netzwerken übertragen lassen. Dabei interessieren mich besonders die Fragen: Wie strukturiere ich Eingaben für optimale Ausgaben? Wie nutze ich Feedback-Loops zur kontinuierlichen Verbesserung?
+                            </p>
+                            
+                            <p className="font-bold">
+                              Parallel arbeite ich als bildender Künstler.
+                            </p>
+                            
+                            <p>
+                              Mit einer selbst entwickelten Hartkernbuntstift-Technik auf G4-Zeichenkarton schaffe ich surreale Interpretationen von Bewusstseinszuständen und Traumwelten. Diese künstlerische Praxis schärft mein Verständnis für non-lineare Kommunikation und visuelle Informationsverarbeitung - Kompetenzen, die sich direkt auf meine Arbeit mit KI-Systemen übertragen. Beide Bereiche - systematische Kommunikationsanalyse und intuitive visuelle Gestaltung - verstärken sich gegenseitig.
+                            </p>
+                            
+                            <p>
+                              Meine Kunden sind Fach- und Führungskräfte aus mittelständischen Unternehmen, die verstehen möchten, wie traditionelle Kommunikationsexzellenz und KI-Kompetenz sich gegenseitig verstärken können.
+                            </p>
+                            
+                            <p className="font-bold">
+                              Persönlich: Ich bin Vater einer 11 jährigen Tochter und arbeite aus einem selbst ausgebauten Mercedes Sprinter Coaching-Mobil.
+                            </p>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    )}
                   </p>
                 </div>
               </CardContent>
