@@ -30,6 +30,15 @@ const AboutSonaris = () => {
             Sonaris
           </h1>
 
+          <blockquote className="mb-12 pl-6 border-l-4 border-primary/50 italic text-foreground-secondary">
+            <p className="text-lg sm:text-xl leading-relaxed mb-2">
+              "Im Raum zwischen menschlichem Denken und maschinellem Verstehen entsteht Bewegung. Gedanken verwandeln sich zu Einsichten, Fragen werden zu Möglichkeiten. Diese sonare Resonanz formt, wie wir künftig arbeiten."
+            </p>
+            <footer className="text-sm sm:text-base not-italic text-foreground-secondary/80">
+              — Elysium Echo
+            </footer>
+          </blockquote>
+
           <div className="prose prose-lg max-w-none space-y-6 text-body">
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-headline mb-4">
