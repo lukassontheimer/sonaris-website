@@ -118,25 +118,25 @@ const AboutSonaris = () => {
               </h2>
               <div className="space-y-4">
                 <p className="leading-relaxed">
-                  Ihr bleibt beweglich. Jeden Monat zeigen wir euch neu, dass die Zusammenarbeit trägt. Euer Vertrag ist monatlich kündbar, und ein Anruf genügt. Diese Freiheit gibt euch Sicherheit – und gibt uns den Ansporn, kontinuierlich Wert zu liefern.
+                  <strong className="font-semibold text-foreground">Ihr bleibt beweglich.</strong> Jeden Monat zeigen wir euch neu, dass die Zusammenarbeit trägt. Euer Vertrag ist monatlich kündbar, und ein Anruf genügt. Diese Freiheit gibt euch Sicherheit – und gibt uns den Ansporn, kontinuierlich Wert zu liefern.
                 </p>
                 <p className="leading-relaxed">
-                  Wir konzipieren für eure Situation. Wir klären zunächst, wie viele Menschen und welche Abteilungen beteiligt sind und welche Schmerzpunkte Priorität haben; erst dann entsteht euer Konzept. Jede Organisation hat ihre eigene Topografie – unsere Beratung knüpft an diese Landschaft an, erweitert sie um klare Strukturen und macht Potenziale sichtbar.
+                  <strong className="font-semibold text-foreground">Wir konzipieren für eure Situation.</strong> Wir klären zunächst, wie viele Menschen und welche Abteilungen beteiligt sind und welche Schmerzpunkte Priorität haben; erst dann entsteht euer Konzept. Jede Organisation hat ihre eigene Topografie – unsere Beratung knüpft an diese Landschaft an, erweitert sie um klare Strukturen und macht Potenziale sichtbar.
                 </p>
                 <p className="leading-relaxed">
-                  Wir lieben Tools – mit Maß. Neue Möglichkeiten faszinieren uns, manchmal sogar zu sehr; deshalb gilt die Regel: Erst das Vorhandene nutzen lernen, dann erweitern. Wir zeigen euch die passende Option für jetzt; wenn sie sich bewährt, folgt die nächste. Neuronale Netze lernen Schicht für Schicht – ob biologisch oder künstlich.
+                  <strong className="font-semibold text-foreground">Wir lieben Tools – mit Maß.</strong> Neue Möglichkeiten faszinieren uns, manchmal sogar zu sehr; deshalb gilt die Regel: Erst das Vorhandene nutzen lernen, dann erweitern. Wir zeigen euch die passende Option für jetzt; wenn sie sich bewährt, folgt die nächste. Neuronale Netze lernen Schicht für Schicht – ob biologisch oder künstlich.
                 </p>
                 <p className="leading-relaxed">
-                  Wir zeigen, während wir sprechen. Bildschirmteilung. Ihr nennt einen Use Case, wir öffnen die Plattform, ihr seht die Umsetzung. Diese unmittelbare Erfahrung öffnet Türen, die sich durch Beschreibungen nicht öffnen lassen. Das Verstehen geschieht beim Zusehen.
+                  <strong className="font-semibold text-foreground">Wir zeigen, während wir sprechen.</strong> Bildschirmteilung. Ihr nennt einen Use Case, wir öffnen die Plattform, ihr seht die Umsetzung. Diese unmittelbare Erfahrung öffnet Türen, die sich durch Beschreibungen nicht öffnen lassen. Das Verstehen geschieht beim Zusehen.
                 </p>
                 <p className="leading-relaxed">
-                  Wir benennen, was nicht geht. Wenn ein Tool an Grenzen stößt, sagen wir es. Wenn eine Integration Entwicklungsarbeit braucht, sprechen wir darüber. Wenn wir selbst noch lernen, erwähnen wir es. KI transformiert Arbeitswelten – sie erweitert Möglichkeiten erheblich, hat aber auch ihre Grenzen.
+                  <strong className="font-semibold text-foreground">Wir benennen, was nicht geht.</strong> Wenn ein Tool an Grenzen stößt, sagen wir es. Wenn eine Integration Entwicklungsarbeit braucht, sprechen wir darüber. Wenn wir selbst noch lernen, erwähnen wir es. KI transformiert Arbeitswelten – sie erweitert Möglichkeiten erheblich, hat aber auch ihre Grenzen.
                 </p>
                 <p className="leading-relaxed">
-                  Ihr testet ohne Risiko. 30 Tage LangDoc-Demo. Assistenten bauen, Integrationen prüfen, Wissensordner befüllen. Was ihr erstellt, bleibt eures. Wenn die Plattform überzeugt, arbeitet ihr weiter damit. Wenn nicht, habt ihr trotzdem Kompetenz aufgebaut. Dieser Test übersetzt unser Vertrauen in die Technologie in ein konkretes Angebot.
+                  <strong className="font-semibold text-foreground">Ihr testet ohne Risiko.</strong> 30 Tage LangDoc-Demo. Assistenten bauen, Integrationen prüfen, Wissensordner befüllen. Was ihr erstellt, bleibt eures. Wenn die Plattform überzeugt, arbeitet ihr weiter damit. Wenn nicht, habt ihr trotzdem Kompetenz aufgebaut. Dieser Test übersetzt unser Vertrauen in die Technologie in ein konkretes Angebot.
                 </p>
                 <p className="leading-relaxed">
-                  Wir rechnen nach Pauschale. Monatlicher Betrag, Fair-Use-Prinzip. Nach intensiven Sessions braucht ihr Zeit zum Integrieren – wir wissen das. Deshalb messen wir Fortschritt. Falls ihr unsere Kapazität überstrapaziert, erwähnen wir es. Das kam bisher nicht vor.
+                  <strong className="font-semibold text-foreground">Wir rechnen nach Pauschale.</strong> Monatlicher Betrag, Fair-Use-Prinzip. Nach intensiven Sessions braucht ihr Zeit zum Integrieren – wir wissen das. Deshalb messen wir Fortschritt. Falls ihr unsere Kapazität überstrapaziert, erwähnen wir es. Das kam bisher nicht vor.
                 </p>
               </div>
             </section>
