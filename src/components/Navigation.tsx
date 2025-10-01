@@ -64,7 +64,7 @@ const Navigation = () => {
                   to="/about-sonaris"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Über Sonaris
+                  Sonaris
                 </Link>
               </>
             ) : (
@@ -79,7 +79,7 @@ const Navigation = () => {
                   to="/about-sonaris"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Über Sonaris
+                  Sonaris
                 </Link>
               </>
             )}
@@ -135,7 +135,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Über Sonaris
+                    Sonaris
                   </Link>
                   <Button 
                     onClick={() => {
@@ -162,7 +162,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Über Sonaris
+                    Sonaris
                   </Link>
                 </>
               )}
