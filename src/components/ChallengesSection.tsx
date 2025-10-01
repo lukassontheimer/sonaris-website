@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 const challenges = [
   {
     question: "First Contact, einfach beginnen",
-    answer: "Wir identifizieren gemeinsam konkrete Anwendungsfälle in deinem Arbeitsalltag und entwickeln einen strukturierten Einführungsplan."
+    answer: "Übungen mit einem Sprachmodell – vier Sektoren zum direkten Ausprobieren am Bildschirm."
   },
   {
     question: "Welche Tools sind DSGVO-konform?",
