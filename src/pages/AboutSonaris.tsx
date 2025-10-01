@@ -44,10 +44,11 @@ const AboutSonaris = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-headline mb-4">
                 Unsere Mission
               </h2>
+              <p className="leading-relaxed mb-4">
+                Sonare Kommunikation – das Aussenden von Gedanken und Empfangen transformierter Antworten – entsteht dort, wo ihr als Führungskräfte gemeinsam mit euren Teams lernt, mit KI zu arbeiten. Wir befähigen euch, diese Kompetenz durch alle Ebenen eurer Organisation zu tragen. Ihr schafft Raum, in dem eure Teams diese Fähigkeiten entwickeln können.
+              </p>
               <p className="leading-relaxed">
-                Sonaris steht für die intelligente Integration von KI in bestehende Arbeitsabläufe. 
-                Wir verbinden menschliche Expertise mit maschineller Intelligenz, um bereichsübergreifende 
-                Zusammenarbeit zu stärken und nachhaltige Kompetenzentwicklung zu ermöglichen.
+                Eure Mitarbeitenden entwickeln bei uns die Fähigkeit, selbstständig zu erkennen, wo KI-Unterstützung ihre Arbeit verbessert. Sie lernen, präzise zu benennen, welche Unterstützung sie brauchen – gegenüber Entwicklern, Systemgestaltern, jenen, die Agenten bauen. Diffuse Wünsche werden zu sonaren Signalen.
               </p>
             </section>
 
