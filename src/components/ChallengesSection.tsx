@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
@@ -43,37 +44,48 @@ const ChallengesSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {challenges.map((challenge, index) => (
-            <Card
-              key={index}
-              className="interactive-glow bg-card border-card-border hover:border-primary/20 transition-all duration-300 cursor-pointer"
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <CardContent className="p-4 sm:p-6">
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <h3 className="text-base sm:text-lg font-semibold text-foreground">
-                    {challenge.question}
-                  </h3>
-                  <ChevronRight 
-                    className={`w-4 h-4 sm:w-5 sm:h-5 text-primary transition-transform duration-300 flex-shrink-0 ml-2 ${
-                      hoveredCard === index ? "rotate-90" : ""
+          {challenges.map((challenge, index) => {
+            const cardContent = (
+              <Card
+                className="interactive-glow bg-card border-card-border hover:border-primary/20 transition-all duration-300 cursor-pointer"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <h3 className="text-base sm:text-lg font-semibold text-foreground">
+                      {challenge.question}
+                    </h3>
+                    <ChevronRight 
+                      className={`w-4 h-4 sm:w-5 sm:h-5 text-primary transition-transform duration-300 flex-shrink-0 ml-2 ${
+                        hoveredCard === index ? "rotate-90" : ""
+                      }`}
+                    />
+                  </div>
+                  
+                  <div 
+                    className={`overflow-hidden transition-all duration-300 ${
+                      hoveredCard === index ? "max-h-40 sm:max-h-32 opacity-100" : "max-h-0 opacity-0"
                     }`}
-                  />
-                </div>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ${
-                    hoveredCard === index ? "max-h-40 sm:max-h-32 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <p className="text-body text-xs sm:text-sm leading-relaxed">
-                    {challenge.answer}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  >
+                    <p className="text-body text-xs sm:text-sm leading-relaxed">
+                      {challenge.answer}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+            
+            return index === 0 ? (
+              <Link key={index} to="/first-contact">
+                {cardContent}
+              </Link>
+            ) : (
+              <div key={index}>
+                {cardContent}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -7,6 +7,11 @@ import Index from "./pages/Index";
 import AboutSonaris from "./pages/AboutSonaris";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
+import FirstContact from "./pages/FirstContact";
+import Bereich1 from "./pages/Bereich1";
+import Bereich2 from "./pages/Bereich2";
+import Bereich3 from "./pages/Bereich3";
+import Bereich4 from "./pages/Bereich4";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +25,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about-sonaris" element={<AboutSonaris />} />
+          <Route path="/first-contact" element={<FirstContact />} />
+          <Route path="/first-contact/bereich-1" element={<Bereich1 />} />
+          <Route path="/first-contact/bereich-2" element={<Bereich2 />} />
+          <Route path="/first-contact/bereich-3" element={<Bereich3 />} />
+          <Route path="/first-contact/bereich-4" element={<Bereich4 />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
