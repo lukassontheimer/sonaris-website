@@ -42,8 +42,8 @@ const HeroSection = () => {
         </Badge>
         
         <h1 className="fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-headline mb-4 sm:mb-6 leading-tight">
-          Möglichkeiten verknüpfen.{" "}
-          <span className="gradient-text">Zukunft mit KI gestalten.</span>
+          Möglichkeiten verbinden.{" "}
+          <span className="gradient-text">Kompetenzen entfalten.</span>
         </h1>
         
         <p className="text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
