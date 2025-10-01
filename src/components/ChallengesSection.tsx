@@ -39,7 +39,7 @@ const ChallengesSection = () => {
           </h2>
           
           <p className="text-base sm:text-lg text-body max-w-3xl mx-auto">
-            Übungen mit einem Sprachmodell – vier Sektoren zum direkten Ausprobieren am Bildschirm.
+            KI-Nutzung beginnt mit einzelnen Momenten: eine einfache Anwendung, eine schnellere Recherche. Wir zeigen euch, wie sich diese Momente zu tragfähigen Mustern verdichten, die eure Organisation erweitern.
           </p>
         </div>
 
