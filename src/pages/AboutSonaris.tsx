@@ -102,7 +102,7 @@ const AboutSonaris = () => {
                     Wir analysieren eure Prozesse, finden Ansatzpunkte wo KI-Unterstützung Wert schafft. Repetitive Aufgaben, Wissensdokumentation, Kommunikationsabläufe. Niedrigschwellig beginnend, systematisch vertiefend, messbar in Zeitgewinn und Arbeitsqualität.
                   </p>
                   <p className="leading-relaxed">
-                    Dabei beginnen wir mit euren 10-15 Menschen, die vorangehen wollen - Führungskräfte, Teamleiter, jene die bereits experimentieren. Diese Gruppe schafft die ersten messbaren Erfolge, wird sichtbar für andere Abteilungen, weckt Neugier. Parallel identifizieren wir in Marketing, Vertrieb, Engineering jene Prozesse, wo Wiederholungen Zeit fressen oder dokumentiertes Wissen fehlt. Hier entstehen eure ersten KI-gestützten Workflows - konkret, im Alltag verankert, von den Teams selbst mitgestaltet.
+                    Dabei beginnen wir beispielsweise mit einer ersten Gruppe von experimentierfreudigen Vorläufern und/oder engagierten Ambassadoren, die vorangehen wollen - Führungskräfte, Teamleiter, jene die bereits experimentieren. Diese Gruppe schafft die ersten messbaren Erfolge, wird sichtbar für andere Abteilungen, weckt Neugier. Parallel identifizieren wir in Marketing, Vertrieb, Engineering jene Prozesse, wo Wiederholungen Zeit fressen oder dokumentiertes Wissen fehlt. Hier entstehen eure ersten KI-gestützten Workflows - konkret, im Alltag verankert, von den Teams selbst mitgestaltet.
                   </p>
                 </div>
               </div>
