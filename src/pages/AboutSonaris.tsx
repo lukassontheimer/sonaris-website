@@ -56,11 +56,59 @@ const AboutSonaris = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-headline mb-4">
                 Unser Ansatz
               </h2>
-              <p className="leading-relaxed">
-                Wir verwandeln mit unserem Wissen eure Neugier in Können – bedarfsorientiert geführt 
-                und dialogorientiert umgesetzt. Unsere Methoden kombinieren bewährte Kommunikationstechniken 
-                mit systematischen KI-Interaktionsstrategien, um nicht nur Tools, sondern echte 
-                Kommunikationspartner zu entwickeln.
+              <p className="leading-relaxed mb-6">
+                Drei Säulen tragen eure KI-Integration:
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Befähigung eurer Menschen
+                  </h3>
+                  <blockquote className="mb-4 pl-4 border-l-2 border-primary/30 italic text-foreground-secondary text-sm">
+                    "Wenn man das Gefühl hat, dieses System kontrollieren zu können, macht es den meisten Spaß, damit umzugehen. Diese Kontrolle entsteht, wenn ihr versteht, wie das Gespräch mit KI funktioniert." — Christian Pessing
+                  </blockquote>
+                  <p className="leading-relaxed mb-3">
+                    Wir zeigen euren Teams, wie sie mit KI kommunizieren - als Dialogpartner, der auf Fragen antwortet, Feedback verarbeitet, sich anpassen lässt. Vom ersten "Was kannst du für mich tun?" bis zur selbstständigen Erstellung eigener Assistenten entwickelt sich diese Fähigkeit. Jeder findet seinen Einstieg dort, wo er gerade steht. Sessions dauern 90-120 Minuten, wirken nachhaltig durch praktische Anwendung.
+                  </p>
+                  <p className="leading-relaxed">
+                    Dabei arbeiten wir mit dem System als wäre es ein Assistent: Welche Aufgaben kann es übernehmen? Welches Feedback verbessert die Ergebnisse? Wie lassen sich Erinnerungen und Profile gestalten, damit der Output von Anfang an stimmt? Diese dialogische Herangehensweise trainiert nicht nur den Umgang mit KI, sondern schärft auch die eigene Kommunikationsfähigkeit. Aus guter Arbeitsvorbereitung entsteht weniger Nacharbeit - wie bei jeder guten Maschine.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Sichere technische Grundlage
+                  </h3>
+                  <blockquote className="mb-4 pl-4 border-l-2 border-primary/30 italic text-foreground-secondary text-sm">
+                    "Die Plattform muss bereichsübergreifend tragen - von Marketing über Vertrieb bis Engineering. Wenn verschiedene Abteilungen auf der gleichen Grundlage arbeiten können, entstehen die eigentlichen Synergien." — Oliver Andrees
+                  </blockquote>
+                  <p className="leading-relaxed mb-3">
+                    DSGVO-konforme Plattformen fügen sich in eure bestehende Infrastruktur ein. Wir arbeiten primär mit LangDoc, einer Lösung, die eure Anforderungen an Datenschutz und Funktionalität erfüllt. Die Technik formt sich um eure Bedarfe, wächst mit euren Möglichkeiten.
+                  </p>
+                  <p className="leading-relaxed">
+                    Dabei prüfen wir eure bestehende Systemlandschaft: Welches ERP nutzt ihr? Wo liegen eure Daten? Wie sind eure Abteilungen organisiert? Diese Bestandsaufnahme zeigt, wie sich LangDoc nahtlos integrieren lässt. Wir empfehlen auf Basis unserer Erfahrung, ihr entscheidet nach euren Prioritäten. Die Plattform dient eurem Arbeitsfluss, unterstützt die Zusammenarbeit zwischen Abteilungen, ermöglicht gemeinsamen Zugriff auf Assistenten und Wissenspools.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Identifikation echter Potenziale
+                  </h3>
+                  <blockquote className="mb-4 pl-4 border-l-2 border-primary/30 italic text-foreground-secondary text-sm">
+                    "Ihr habt bereits Early Adopters, die das Thema voranbringen wollen. Mit denen fangen wir an, schaffen die ersten Erfolge. Diese Wellen tragen dann weiter ins Unternehmen." — Lukas Sontheimer
+                  </blockquote>
+                  <p className="leading-relaxed mb-3">
+                    Wir analysieren eure Prozesse, finden Ansatzpunkte wo KI-Unterstützung Wert schafft. Repetitive Aufgaben, Wissensdokumentation, Kommunikationsabläufe. Niedrigschwellig beginnend, systematisch vertiefend, messbar in Zeitgewinn und Arbeitsqualität.
+                  </p>
+                  <p className="leading-relaxed">
+                    Dabei beginnen wir mit euren 10-15 Menschen, die vorangehen wollen - Führungskräfte, Teamleiter, jene die bereits experimentieren. Diese Gruppe schafft die ersten messbaren Erfolge, wird sichtbar für andere Abteilungen, weckt Neugier. Parallel identifizieren wir in Marketing, Vertrieb, Engineering jene Prozesse, wo Wiederholungen Zeit fressen oder dokumentiertes Wissen fehlt. Hier entstehen eure ersten KI-gestützten Workflows - konkret, im Alltag verankert, von den Teams selbst mitgestaltet.
+                  </p>
+                </div>
+              </div>
+
+              <p className="leading-relaxed mt-6">
+                Diese drei Säulen bauen wir mit euch in 30-Tage-Zyklen auf. Jeder Zyklus beginnt mit Bestandsaufnahme, entwickelt sich durch eure realen Bedarfe, mündet in konkrete Fortschritte. Nach jedem Zyklus entscheidet ihr neu über die Fortsetzung. Diese sonare Resonanz zwischen Angebot und Bedarf hält die Arbeit lebendig.
               </p>
             </section>
 
