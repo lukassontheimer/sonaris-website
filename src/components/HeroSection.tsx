@@ -46,7 +46,7 @@ const HeroSection = () => {
           <span className="gradient-text">Kompetenzen entfalten.</span>
         </h1>
         
-        <p className="text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">Von der ersten Idee bis zur gelebten KI-Praxis: Wir führen euch systematisch und partnerschaftlich durch alle Phasen der KI-Integration – mit Fokus auf Zusammenarbeit und nachhaltigen Erfolg.</p>
+        <p className="text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">Wir verwandeln mit unserem Wissen eure Neugier in Können – bedarfsorientiert geführt und dialogorientiert umgesetzt, mit verlässlichen Routinen für euch im Arbeitsalltag und KI, die bereichsübergreifende Zusammenarbeit stärkt.</p>
         
         <Button 
           onClick={() => scrollToSection("final-cta")} 
