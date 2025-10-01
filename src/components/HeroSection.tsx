@@ -38,7 +38,7 @@ const HeroSection = () => {
       {/* Content */}
       <header className="relative z-10 max-w-4xl mx-auto text-center px-4">
         <Badge className="fade-in-up mb-4 sm:mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary hover:border-primary/40 transition-all duration-300 text-xs sm:text-sm">
-          KI sinnvoll integriert statt isoliert
+          KI integriert – Zusammenarbeit optimiert
         </Badge>
         
         <h1 className="fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-headline mb-4 sm:mb-6 leading-tight">
