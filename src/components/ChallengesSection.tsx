@@ -34,12 +34,11 @@ const ChallengesSection = () => {
           </Badge>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-headline mb-4 sm:mb-6 leading-tight">
-            Von ein bisschen KI für eine E-Mail zu einem ersten{" "}
-            <span className="gradient-text">echten Anwendungsfall</span>
+            Von der ersten Anwendung zur Integration
           </h2>
           
           <p className="text-base sm:text-lg text-body max-w-3xl mx-auto">
-            Wähle die Themen, die dich weiterbringen – wir geben dir die passenden Impulse dazu.
+            KI-Nutzung beginnt mit einzelnen Momenten: eine einfache Anwendung, eine schnellere Recherche. Wir zeigen euch, wie sich diese Momente zu tragfähigen Mustern verdichten, die eure Organisation erweitern.
           </p>
         </div>
 
