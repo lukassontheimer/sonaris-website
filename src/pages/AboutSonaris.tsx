@@ -114,36 +114,30 @@ const AboutSonaris = () => {
 
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-headline mb-4">
-                Was uns auszeichnet
+                Unsere Arbeitsweise
               </h2>
               <div className="space-y-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Interdisziplinäre Expertise
-                  </h3>
-                  <p className="leading-relaxed">
-                    Unser Team vereint Kommunikationsexpertise, technisches Know-how und künstlerische 
-                    Perspektiven, um ganzheitliche Lösungen zu entwickeln.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Partnerschaftlicher Dialog
-                  </h3>
-                  <p className="leading-relaxed">
-                    Wir arbeiten nicht für euch, sondern mit euch – in einem kontinuierlichen Austausch, 
-                    der eure spezifischen Bedürfnisse und Kontexte berücksichtigt.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Nachhaltige Kompetenzentwicklung
-                  </h3>
-                  <p className="leading-relaxed">
-                    Unser Ziel ist nicht nur die Implementierung von KI-Tools, sondern die Entwicklung 
-                    verlässlicher Routinen und dauerhafter Kompetenzen in euren Teams.
-                  </p>
-                </div>
+                <p className="leading-relaxed">
+                  Ihr bleibt beweglich. Jeden Monat zeigen wir euch neu, dass die Zusammenarbeit trägt. Euer Vertrag ist monatlich kündbar, und ein Anruf genügt. Diese Freiheit gibt euch Sicherheit – und gibt uns den Ansporn, kontinuierlich Wert zu liefern.
+                </p>
+                <p className="leading-relaxed">
+                  Wir konzipieren für eure Situation. Wir klären zunächst, wie viele Menschen und welche Abteilungen beteiligt sind und welche Schmerzpunkte Priorität haben; erst dann entsteht euer Konzept. Jede Organisation hat ihre eigene Topografie – unsere Beratung knüpft an diese Landschaft an, erweitert sie um klare Strukturen und macht Potenziale sichtbar.
+                </p>
+                <p className="leading-relaxed">
+                  Wir lieben Tools – mit Maß. Neue Möglichkeiten faszinieren uns, manchmal sogar zu sehr; deshalb gilt die Regel: Erst das Vorhandene nutzen lernen, dann erweitern. Wir zeigen euch die passende Option für jetzt; wenn sie sich bewährt, folgt die nächste. Neuronale Netze lernen Schicht für Schicht – ob biologisch oder künstlich.
+                </p>
+                <p className="leading-relaxed">
+                  Wir zeigen, während wir sprechen. Bildschirmteilung. Ihr nennt einen Use Case, wir öffnen die Plattform, ihr seht die Umsetzung. Diese unmittelbare Erfahrung öffnet Türen, die sich durch Beschreibungen nicht öffnen lassen. Das Verstehen geschieht beim Zusehen.
+                </p>
+                <p className="leading-relaxed">
+                  Wir benennen, was nicht geht. Wenn ein Tool an Grenzen stößt, sagen wir es. Wenn eine Integration Entwicklungsarbeit braucht, sprechen wir darüber. Wenn wir selbst noch lernen, erwähnen wir es. KI transformiert Arbeitswelten – sie erweitert Möglichkeiten erheblich, hat aber auch ihre Grenzen.
+                </p>
+                <p className="leading-relaxed">
+                  Ihr testet ohne Risiko. 30 Tage LangDoc-Demo. Assistenten bauen, Integrationen prüfen, Wissensordner befüllen. Was ihr erstellt, bleibt eures. Wenn die Plattform überzeugt, arbeitet ihr weiter damit. Wenn nicht, habt ihr trotzdem Kompetenz aufgebaut. Dieser Test übersetzt unser Vertrauen in die Technologie in ein konkretes Angebot.
+                </p>
+                <p className="leading-relaxed">
+                  Wir rechnen nach Pauschale. Monatlicher Betrag, Fair-Use-Prinzip. Nach intensiven Sessions braucht ihr Zeit zum Integrieren – wir wissen das. Deshalb messen wir Fortschritt. Falls ihr unsere Kapazität überstrapaziert, erwähnen wir es. Das kam bisher nicht vor.
+                </p>
               </div>
             </section>
 
