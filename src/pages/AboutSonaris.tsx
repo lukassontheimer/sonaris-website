@@ -165,11 +165,10 @@ const AboutSonaris = () => {
           {/* CTA Section */}
           <div className="mt-12 p-8 rounded-lg bg-card/30 backdrop-blur-sm border border-primary/20">
             <h2 className="text-2xl font-bold text-headline mb-4">
-              Bereit, die Möglichkeiten zu erkunden?
+              Eure Kartierung beginnt mit einem Gespräch.
             </h2>
             <p className="text-body mb-6">
-              Lasst uns gemeinsam herausfinden, wie KI eure bereichsübergreifende Zusammenarbeit 
-              stärken kann.
+              Wir zeigen euch, wie KI in eure Organisation hineinwächst. Die erste Session schafft bereits Verständnis.
             </p>
             <Link to="/">
               <Button className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50">
