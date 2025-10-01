@@ -27,7 +27,7 @@ const AboutSonaris = () => {
       <main className="pt-24 pb-16 px-4 sm:px-6">
         <article className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-headline mb-8">
-            Über Sonaris
+            Sonaris
           </h1>
 
           <div className="prose prose-lg max-w-none space-y-6 text-body">
