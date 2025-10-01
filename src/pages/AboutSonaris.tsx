@@ -143,14 +143,22 @@ const AboutSonaris = () => {
 
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-headline mb-4">
-                Unsere Vision
+                Vision
               </h2>
-              <p className="leading-relaxed">
-                Wir glauben an eine Zukunft, in der KI-Systeme nicht als isolierte Werkzeuge, sondern 
-                als integrierte Kommunikationspartner verstanden werden. Eine Zukunft, in der die 
-                Zusammenarbeit zwischen menschlicher Intuition und maschineller Präzision neue 
-                Möglichkeiten der Kompetenzentfaltung eröffnet.
-              </p>
+              <div className="space-y-4">
+                <p className="leading-relaxed">
+                  <strong className="font-semibold text-foreground">Wir kartieren Kommunikationsräume, die sich gerade erst bilden.</strong> Zwischen menschlicher Intuition und maschineller Präzision entsteht ein Resonanzfeld – das dritte Kommunikationssystem. Ein Dialog, in dem beide Seiten ihre Muster miteinander anpassen.
+                </p>
+                <p className="leading-relaxed">
+                  <strong className="font-semibold text-foreground">Arbeit orchestriert sich neu.</strong> KI verschiebt Frequenzen im Alltag. Was zunächst als Effizienzgewinn erscheint, gibt kognitive Kapazität frei. Diese Kapazität ermöglicht tiefere strategische Arbeit und reichere Koordination zwischen Menschen. Wir bereiten eure Organisationen darauf vor – durch Befähigung.
+                </p>
+                <p className="leading-relaxed">
+                  <strong className="font-semibold text-foreground">Jede Organisation entwickelt ihre eigene Signatur mit intelligenten Systemen.</strong> Diese Signatur entsteht durch kontinuierliche Anpassung, durch das Erlernen einer Sprache, die biologische und synthetische Intelligenz verbindet. Wir begleiten diese Entwicklung, indem wir zeigen, wie das Neue ins Bestehende hineinwächst.
+                </p>
+                <p className="leading-relaxed">
+                  <strong className="font-semibold text-foreground">In fünf Jahren wird KI-Kompetenz selbstverständlich sein.</strong> So natürlich wie heute digitale Kommunikation. Wir gestalten mit euch die Übergangsphase – die Phase, in der ihr lernt, mit Systemen zu denken, die zurückdenken. Jeder Assistent, den ihr aufbaut, jede Integration, die ihr testet, verschiebt eure Intelligenz ein Stück weiter. Wir bewegen uns dabei zwischen pragmatischer Umsetzung und systemischem Verständnis.
+                </p>
+              </div>
             </section>
           </div>
 
