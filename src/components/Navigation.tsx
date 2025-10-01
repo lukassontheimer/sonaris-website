@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,18 +46,43 @@ const Navigation = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection("team")}
-              className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
-            >
-              Über uns
-            </button>
+            {isHomePage ? (
+              <>
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={() => scrollToSection("team")}
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Über uns
+                </button>
+                <Link
+                  to="/about-sonaris"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Über Sonaris
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/about-sonaris"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Über Sonaris
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -82,34 +110,62 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-nav-border/30">
             <div className="flex flex-col space-y-4">
-              <button
-                onClick={() => {
-                  scrollToSection("services");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => {
-                  scrollToSection("team");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
-              >
-                Über uns
-              </button>
-              <Button 
-                onClick={() => {
-                  scrollToSection("final-cta");
-                  setIsMobileMenuOpen(false);
-                }}
-                variant="default" 
-                className="mt-4 w-full interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50"
-              >
-                Virtueller Espresso
-              </Button>
+              {isHomePage ? (
+                <>
+                  <button
+                    onClick={() => {
+                      scrollToSection("services");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Services
+                  </button>
+                  <button
+                    onClick={() => {
+                      scrollToSection("team");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Über uns
+                  </button>
+                  <Link
+                    to="/about-sonaris"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Über Sonaris
+                  </Link>
+                  <Button 
+                    onClick={() => {
+                      scrollToSection("final-cta");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    variant="default" 
+                    className="mt-4 w-full interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50"
+                  >
+                    Virtueller Espresso
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/about-sonaris"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Über Sonaris
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}
