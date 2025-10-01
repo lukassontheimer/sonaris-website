@@ -6,22 +6,22 @@ import Footer from "@/components/Footer";
 
 const sections = [
   {
-    title: "Bereich 1 – Erstkontakt & Kalibrierung",
+    title: "Sektor 1 – Erstkontakt & Kalibrierung",
     description: "Gedächtnisprüfung, Fähigkeitsprüfung, eingeschränkte Zusammenfassungen, Arbeitsanweisung → Kalibrierung",
     link: "/first-contact/bereich-1"
   },
   {
-    title: "Bereich 2 – Kalibrierung & tiefergehende Techniken",
+    title: "Sektor 2 – Kalibrierung & tiefergehende Techniken",
     description: "Mehrdeutigkeit erkennen, gemeinsames Verständnis, Bestätigungsschleife, schnelle Verbesserung, Verfeinerungsprotokoll, Annahmenbewusstsein",
     link: "/first-contact/bereich-2"
   },
   {
-    title: "Bereich 3 – Musterbewusstsein & Übersetzung",
+    title: "Sektor 3 – Musterbewusstsein & Übersetzung",
     description: "Problem- vs. Lösungsorientierung, Übersicht vs. Detail, Reihenfolge vs. Zufall, Hin- und Hergehen vs. Weggehen, Autoren- vs. Leserperspektive, Durchsetzungsvermögen vs. Absicherung",
     link: "/first-contact/bereich-3"
   },
   {
-    title: "Bereich 4 – Kritisches Denken & Reflexion",
+    title: "Sektor 4 – Kritisches Denken & Reflexion",
     description: "Wahrheit vs. Plausibilität, praktisches Denken, Mehrdeutigkeitserkundung, Regressionstest, Anti-Standardformulierung, Redakteursrolle, Zukunftsreflexion",
     link: "/first-contact/bereich-4"
   }

@@ -10,7 +10,7 @@ const Bereich4 = () => {
         <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-headline mb-6 sm:mb-8">
-              Bereich 4 – Kritisches Denken & Reflexion
+              Sektor 4 – Kritisches Denken & Reflexion
             </h1>
             
             <div className="prose prose-lg max-w-none text-body">
