@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 
 const challenges = [
   {
-    question: "Wo fange ich mit KI an?",
+    question: "First Contact, einfach beginnen",
     answer: "Wir identifizieren gemeinsam konkrete Anwendungsfälle in deinem Arbeitsalltag und entwickeln einen strukturierten Einführungsplan."
   },
   {
