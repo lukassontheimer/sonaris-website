@@ -30,7 +30,7 @@ const ChallengesSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="mb-4 sm:mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary text-xs sm:text-sm">
-            Wo viele beginnen
+            Wo wir mit euch beginnen
           </Badge>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-headline mb-4 sm:mb-6 leading-tight">
