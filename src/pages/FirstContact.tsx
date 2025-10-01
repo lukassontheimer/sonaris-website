@@ -40,7 +40,7 @@ const FirstContact = () => {
             </h1>
             
             <p className="text-base sm:text-lg text-body max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-              Wir identifizieren gemeinsam konkrete Anwendungsfälle in deinem Arbeitsalltag und entwickeln einen strukturierten Einführungsplan.
+              Übungen mit einem Sprachmodell – vier Sektoren zum direkten Ausprobieren am Bildschirm.
             </p>
 
             <div className="grid gap-6 sm:gap-8">
