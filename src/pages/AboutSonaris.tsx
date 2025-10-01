@@ -84,10 +84,10 @@ const AboutSonaris = () => {
                     "Die Plattform muss bereichsübergreifend tragen - von Marketing über Vertrieb bis Engineering. Wenn verschiedene Abteilungen auf der gleichen Grundlage arbeiten können, entstehen die eigentlichen Synergien." — Oliver Andrees
                   </blockquote>
                   <p className="leading-relaxed mb-3">
-                    DSGVO-konforme Plattformen fügen sich in eure bestehende Infrastruktur ein. Wir arbeiten primär mit LangDoc, einer Lösung, die eure Anforderungen an Datenschutz und Funktionalität erfüllt. Die Technik formt sich um eure Bedarfe, wächst mit euren Möglichkeiten.
+                    DSGVO-konforme Plattformen fügen sich in eure bestehende Infrastruktur ein. Wir arbeiten primär mit Langdock, einer Lösung, die eure Anforderungen an Datenschutz und Funktionalität erfüllt. Die Technik formt sich um eure Bedarfe, wächst mit euren Möglichkeiten.
                   </p>
                   <p className="leading-relaxed">
-                    Dabei prüfen wir eure bestehende Systemlandschaft: Welches ERP nutzt ihr? Wo liegen eure Daten? Wie sind eure Abteilungen organisiert? Diese Bestandsaufnahme zeigt, wie sich LangDoc nahtlos integrieren lässt. Wir empfehlen auf Basis unserer Erfahrung, ihr entscheidet nach euren Prioritäten. Die Plattform dient eurem Arbeitsfluss, unterstützt die Zusammenarbeit zwischen Abteilungen, ermöglicht gemeinsamen Zugriff auf Assistenten und Wissenspools.
+                    Dabei prüfen wir eure bestehende Systemlandschaft: Welches ERP nutzt ihr? Wo liegen eure Daten? Wie sind eure Abteilungen organisiert? Diese Bestandsaufnahme zeigt, wie sich Langdock nahtlos integrieren lässt. Wir empfehlen auf Basis unserer Erfahrung, ihr entscheidet nach euren Prioritäten. Die Plattform dient eurem Arbeitsfluss, unterstützt die Zusammenarbeit zwischen Abteilungen, ermöglicht gemeinsamen Zugriff auf Assistenten und Wissenspools.
                   </p>
                 </div>
 
@@ -133,7 +133,7 @@ const AboutSonaris = () => {
                   <strong className="font-semibold text-foreground">Wir benennen, was nicht geht.</strong> Wenn ein Tool an Grenzen stößt, sagen wir es. Wenn eine Integration Entwicklungsarbeit braucht, sprechen wir darüber. Wenn wir selbst noch lernen, erwähnen wir es. KI transformiert Arbeitswelten – sie erweitert Möglichkeiten erheblich, hat aber auch ihre Grenzen.
                 </p>
                 <p className="leading-relaxed">
-                  <strong className="font-semibold text-foreground">Ihr testet ohne Risiko.</strong> 30 Tage LangDoc-Demo. Assistenten bauen, Integrationen prüfen, Wissensordner befüllen. Was ihr erstellt, bleibt eures. Wenn die Plattform überzeugt, arbeitet ihr weiter damit. Wenn nicht, habt ihr trotzdem Kompetenz aufgebaut. Dieser Test übersetzt unser Vertrauen in die Technologie in ein konkretes Angebot.
+                  <strong className="font-semibold text-foreground">Ihr testet ohne Risiko.</strong> 30 Tage Langdock-Demo. Assistenten bauen, Integrationen prüfen, Wissensordner befüllen. Was ihr erstellt, bleibt eures. Wenn die Plattform überzeugt, arbeitet ihr weiter damit. Wenn nicht, habt ihr trotzdem Kompetenz aufgebaut. Dieser Test übersetzt unser Vertrauen in die Technologie in ein konkretes Angebot.
                 </p>
                 <p className="leading-relaxed">
                   <strong className="font-semibold text-foreground">Wir rechnen nach Pauschale.</strong> Monatlicher Betrag, Fair-Use-Prinzip. Nach intensiven Sessions braucht ihr Zeit zum Integrieren – wir wissen das. Deshalb messen wir Fortschritt. Falls ihr unsere Kapazität überstrapaziert, erwähnen wir es. Das kam bisher nicht vor.
