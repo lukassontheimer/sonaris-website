@@ -53,7 +53,7 @@ const HeroSection = () => {
           className="fade-in-up interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg border border-primary/50"
           aria-label="Zur Terminbuchung springen"
         >
-          <span className="hidden sm:inline">Deinen Standort bestimmen und weiterdenken</span>
+          <span className="hidden sm:inline">Euren Standort bestimmen und weiterdenken</span>
           <span className="sm:hidden">Standort bestimmen</span>
         </Button>
       </header>
