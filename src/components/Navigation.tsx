@@ -54,17 +54,11 @@ const Navigation = () => {
                 >
                   Services
                 </button>
-                <button
-                  onClick={() => scrollToSection("team")}
-                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
-                >
-                  Über uns
-                </button>
                 <Link
                   to="/about-sonaris"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Sonaris
+                  Über Sonaris
                 </Link>
               </>
             ) : (
@@ -79,7 +73,7 @@ const Navigation = () => {
                   to="/about-sonaris"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Sonaris
+                  Über Sonaris
                 </Link>
               </>
             )}
@@ -121,21 +115,12 @@ const Navigation = () => {
                   >
                     Services
                   </button>
-                  <button
-                    onClick={() => {
-                      scrollToSection("team");
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
-                  >
-                    Über uns
-                  </button>
                   <Link
                     to="/about-sonaris"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Sonaris
+                    Über Sonaris
                   </Link>
                   <Button 
                     onClick={() => {
@@ -162,7 +147,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Sonaris
+                    Über Sonaris
                   </Link>
                 </>
               )}
