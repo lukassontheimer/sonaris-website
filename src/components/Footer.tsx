@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
           {/* Logo */}
-          <div className="flex flex-col items-center md:items-start">
+          <Link to="/" className="flex flex-col items-center md:items-start hover:opacity-80 transition-opacity duration-300">
             <span className="text-lg sm:text-xl font-bold text-foreground">sonaris</span>
             <div className="frequency-line w-10 sm:w-12 mt-1"></div>
-          </div>
+          </Link>
           
           {/* Links */}
           <nav className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8" aria-label="Footer Navigation">

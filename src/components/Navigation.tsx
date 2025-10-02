@@ -36,13 +36,13 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <Link 
+            to="/"
             className="flex flex-col hover:opacity-80 transition-opacity duration-300"
           >
             <span className="text-xl sm:text-2xl font-bold text-foreground">sonaris</span>
             <div className="frequency-line w-12 sm:w-16 mt-1"></div>
-          </button>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
