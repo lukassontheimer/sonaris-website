@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const DsgvoTools = () => {
   const [text, setText] = useState("");
@@ -16,6 +18,13 @@ const DsgvoTools = () => {
       <main className="flex-grow pt-20 sm:pt-24">
         <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
+            <Link to="/">
+              <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Zurück zur Startseite
+              </Button>
+            </Link>
+            
             <div className="text-center mb-8 sm:mb-12">
               <Badge className="mb-4 sm:mb-6 bg-card/50 backdrop-blur-sm border-primary/20 text-foreground-secondary text-xs sm:text-sm">
                 DSGVO & Datenschutz
