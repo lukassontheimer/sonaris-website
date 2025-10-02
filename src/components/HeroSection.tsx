@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import heroBackground from "@/assets/hero-bg.webp";
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -48,18 +47,6 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-base sm:text-lg md:text-xl text-body mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">Wir verwandeln mit unserem Wissen eure Neugier in Können – bedarfsorientiert geführt und dialogorientiert umgesetzt, mit verlässlichen Routinen für euch im Arbeitsalltag und KI, die bereichsübergreifende Zusammenarbeit stärkt.</p>
-        
-        <div className="flex justify-center mb-4">
-          <Button 
-            asChild
-            variant="outline"
-            className="fade-in-up border-primary/50 hover:bg-primary/10"
-          >
-            <Link to="/about-sonaris">
-              Erfahre mehr über Sonaris
-            </Link>
-          </Button>
-        </div>
         
         <Button
           onClick={() => scrollToSection("final-cta")} 

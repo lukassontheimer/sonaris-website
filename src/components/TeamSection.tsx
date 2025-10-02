@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const teamMembers = [
   {
@@ -51,6 +53,18 @@ const TeamSection = () => {
             Training, Beratung, Entwicklung - plus ein digitales Gegenüber. 
             So entsteht ein System, das dich bei der Integration von KI unterstützt.
           </p>
+
+          <div className="flex justify-center mt-6">
+            <Button 
+              asChild
+              variant="outline"
+              className="border-primary/50 hover:bg-primary/10"
+            >
+              <Link to="/about-sonaris">
+                Erfahre mehr über Sonaris
+              </Link>
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
