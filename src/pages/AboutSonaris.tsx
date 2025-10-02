@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const AboutSonaris = () => {
   return (
@@ -152,6 +154,15 @@ const AboutSonaris = () => {
             <p className="text-body mb-6">
               Wir zeigen euch, wie KI in eure Organisation hineinwächst. Die erste Session schafft bereits Verständnis.
             </p>
+            <Button 
+              asChild
+              className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg border border-primary/50"
+            >
+              <Link to="/#final-cta">
+                <span className="hidden sm:inline">Euren Standort bestimmen und weiterdenken</span>
+                <span className="sm:hidden">Standort bestimmen</span>
+              </Link>
+            </Button>
           </div>
         </article>
       </main>
