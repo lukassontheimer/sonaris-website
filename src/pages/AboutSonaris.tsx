@@ -1,30 +1,12 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const AboutSonaris = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header with back button */}
-      <header className="fixed top-0 left-0 right-0 z-50 nav-glass border-b border-nav-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex flex-col hover:opacity-80 transition-opacity duration-300">
-              <span className="text-xl sm:text-2xl font-bold text-foreground">sonaris</span>
-              <div className="frequency-line w-12 sm:w-16 mt-1"></div>
-            </Link>
-            <Link to="/">
-              <Button variant="ghost" className="gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Zurück
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="pt-24 pb-16 px-4 sm:px-6">
+    <div className="min-h-screen flex flex-col bg-background">
+      <Navigation />
+      
+      <main className="flex-grow pt-20 pb-16 px-4 sm:px-6">
         <article className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-headline mb-8">
             Sonaris
@@ -170,14 +152,11 @@ const AboutSonaris = () => {
             <p className="text-body mb-6">
               Wir zeigen euch, wie KI in eure Organisation hineinwächst. Die erste Session schafft bereits Verständnis.
             </p>
-            <Link to="/">
-              <Button className="interactive-hover bg-primary hover:bg-primary/90 text-primary-foreground border border-primary/50">
-                Zurück zur Startseite
-              </Button>
-            </Link>
           </div>
         </article>
       </main>
+      
+      <Footer />
     </div>
   );
 };
