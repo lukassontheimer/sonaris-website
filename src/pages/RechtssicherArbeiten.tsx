@@ -2,6 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 const RechtssicherArbeiten = () => {
   return (
@@ -11,6 +13,13 @@ const RechtssicherArbeiten = () => {
       <main className="flex-grow pt-20 sm:pt-24">
         <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
+            <Link to="/">
+              <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Zurück zur Startseite
+              </Button>
+            </Link>
+            
             <div className="text-center mb-8 sm:mb-12">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-headline mb-6 sm:mb-8 leading-tight">
                 12 KI-Compliance-Checkpoints: Wie wir euch dabei unterstützen, Menschen zu befähigen und rechtssicher in die KI-Zukunft zu navigieren
