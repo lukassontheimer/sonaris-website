@@ -9,6 +9,7 @@ import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import FirstContact from "./pages/FirstContact";
 import DsgvoTools from "./pages/DsgvoTools";
+import RechtssicherArbeiten from "./pages/RechtssicherArbeiten";
 import Bereich1 from "./pages/Bereich1";
 import Bereich2 from "./pages/Bereich2";
 import Bereich3 from "./pages/Bereich3";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/about-sonaris" element={<AboutSonaris />} />
           <Route path="/first-contact" element={<FirstContact />} />
           <Route path="/dsgvo-tools" element={<DsgvoTools />} />
+          <Route path="/rechtssicher-arbeiten" element={<RechtssicherArbeiten />} />
           <Route path="/first-contact/bereich-1" element={<Bereich1 />} />
           <Route path="/first-contact/bereich-2" element={<Bereich2 />} />
           <Route path="/first-contact/bereich-3" element={<Bereich3 />} />

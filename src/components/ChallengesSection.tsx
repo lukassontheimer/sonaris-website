@@ -88,6 +88,12 @@ const ChallengesSection = () => {
                   {cardContent}
                 </Link>
               );
+            } else if (index === 2) {
+              return (
+                <Link key={index} to="/rechtssicher-arbeiten">
+                  {cardContent}
+                </Link>
+              );
             } else {
               return (
                 <div key={index}>
