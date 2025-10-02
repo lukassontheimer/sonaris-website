@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
 const sections = [
   {
@@ -35,6 +36,13 @@ const FirstContact = () => {
       <main className="flex-grow pt-20">
         <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
+            <Link to="/">
+              <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Zurück zur Startseite
+              </Button>
+            </Link>
+            
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-headline mb-6 sm:mb-8 text-center">
               First Contact, einfach beginnen
             </h1>
