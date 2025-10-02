@@ -84,7 +84,7 @@ const ChallengesSection = () => {
               );
             } else if (index === 1) {
               return (
-                <Link key={index} to="/dsgvo-tools">
+                <Link key={index} to="/dsgvo-tools" onClick={() => window.scrollTo(0, 0)}>
                   {cardContent}
                 </Link>
               );
