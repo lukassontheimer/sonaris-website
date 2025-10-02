@@ -14,8 +14,8 @@ const challenges = [
     answer: "Wir arbeiten ausschließlich mit europäischen oder DSGVO-zertifizierten Lösungen und bieten eigene konforme KI-Infrastruktur."
   },
   {
-    question: "Wie sichere ich die Akzeptanz im Team?",
-    answer: "Durch praxisnahe Schulungen, schrittweise Einführung und die Demonstration konkreter Vorteile für den Arbeitsalltag jedes Einzelnen."
+    question: "Rechtssicher mit KI-Plattformen arbeiten.",
+    answer: "KI-Risiken erkennen, Compliance-Anforderungen verstehen und rechtssichere Entscheidungen treffen"
   },
   {
     question: "Was ist der ROI von KI?",
