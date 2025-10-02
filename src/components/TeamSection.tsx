@@ -60,7 +60,7 @@ const TeamSection = () => {
               variant="outline"
               className="border-primary/50 hover:bg-primary/10"
             >
-              <Link to="/about-sonaris">
+              <Link to="/about-sonaris" onClick={() => window.scrollTo(0, 0)}>
                 Erfahre mehr über Sonaris
               </Link>
             </Button>
