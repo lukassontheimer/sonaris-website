@@ -90,7 +90,7 @@ const ChallengesSection = () => {
               );
             } else if (index === 2) {
               return (
-                <Link key={index} to="/rechtssicher-arbeiten">
+                <Link key={index} to="/rechtssicher-arbeiten" onClick={() => window.scrollTo(0, 0)}>
                   {cardContent}
                 </Link>
               );
