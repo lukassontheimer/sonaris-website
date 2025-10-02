@@ -67,7 +67,7 @@ const Navigation = () => {
                   to="/"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Home
+                  Services
                 </Link>
                 <Link
                   to="/about-sonaris"
@@ -140,7 +140,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Home
+                    Services
                   </Link>
                   <Link
                     to="/about-sonaris"
