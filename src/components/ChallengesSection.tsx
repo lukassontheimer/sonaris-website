@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const challenges = [
   {
@@ -25,6 +33,7 @@ const challenges = [
 
 const ChallengesSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background-secondary">
@@ -76,15 +85,37 @@ const ChallengesSection = () => {
               </Card>
             );
             
-            return index === 0 ? (
-              <Link key={index} to="/first-contact">
-                {cardContent}
-              </Link>
-            ) : (
-              <div key={index}>
-                {cardContent}
-              </div>
-            );
+            if (index === 0) {
+              return (
+                <Link key={index} to="/first-contact">
+                  {cardContent}
+                </Link>
+              );
+            } else if (index === 1) {
+              return (
+                <Dialog key={index} open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogTrigger asChild>
+                    {cardContent}
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl">
+                    <DialogHeader>
+                      <DialogTitle className="text-xl sm:text-2xl font-bold text-headline">
+                        {challenge.question}
+                      </DialogTitle>
+                      <DialogDescription className="text-base sm:text-lg text-body leading-relaxed pt-4">
+                        {challenge.answer}
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+              );
+            } else {
+              return (
+                <div key={index}>
+                  {cardContent}
+                </div>
+              );
+            }
           })}
         </div>
       </div>
