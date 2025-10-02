@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const RechtssicherArbeiten = () => {
   return (
@@ -30,69 +30,77 @@ const RechtssicherArbeiten = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto mt-12">
-              <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group">
-                <CardContent className="p-8 sm:p-10">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <span className="text-3xl font-bold text-primary">1</span>
+              <Link to="/sektion-1" className="block">
+                <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group h-full">
+                  <CardContent className="p-8 sm:p-10">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <span className="text-lg font-bold text-primary">Sektion 1</span>
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+                        Menschen befähigen
+                      </h2>
+                      <p className="text-sm sm:text-base text-body">
+                        Teams schulen und KI-Kompetenzen aufbauen
+                      </p>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
-                      Menschen befähigen
-                    </h2>
-                    <p className="text-sm sm:text-base text-body">
-                      Teams schulen und KI-Kompetenzen aufbauen
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
 
-              <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group">
-                <CardContent className="p-8 sm:p-10">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <span className="text-3xl font-bold text-primary">2</span>
+              <Link to="/sektion-2" className="block">
+                <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group h-full">
+                  <CardContent className="p-8 sm:p-10">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <span className="text-lg font-bold text-primary">Sektion 2</span>
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+                        Rechtliche Klarheit
+                      </h2>
+                      <p className="text-sm sm:text-base text-body">
+                        EU AI Act und Compliance-Anforderungen verstehen
+                      </p>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
-                      Rechtliche Klarheit
-                    </h2>
-                    <p className="text-sm sm:text-base text-body">
-                      EU AI Act und Compliance-Anforderungen verstehen
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
 
-              <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group">
-                <CardContent className="p-8 sm:p-10">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <span className="text-3xl font-bold text-primary">3</span>
+              <Link to="/sektion-3" className="block">
+                <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group h-full">
+                  <CardContent className="p-8 sm:p-10">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <span className="text-lg font-bold text-primary">Sektion 3</span>
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+                        Verträge absichern
+                      </h2>
+                      <p className="text-sm sm:text-base text-body">
+                        Rechtssichere Vereinbarungen mit KI-Anbietern
+                      </p>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
-                      Verträge absichern
-                    </h2>
-                    <p className="text-sm sm:text-base text-body">
-                      Rechtssichere Vereinbarungen mit KI-Anbietern
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
 
-              <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group">
-                <CardContent className="p-8 sm:p-10">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <span className="text-3xl font-bold text-primary">4</span>
+              <Link to="/sektion-4" className="block">
+                <Card className="bg-card border-card-border hover:border-primary/40 transition-all duration-300 cursor-pointer group h-full">
+                  <CardContent className="p-8 sm:p-10">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <span className="text-lg font-bold text-primary">Sektion 4</span>
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+                        Strategie entwickeln
+                      </h2>
+                      <p className="text-sm sm:text-base text-body">
+                        Tragfähige KI-Governance und langfristige Planung
+                      </p>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
-                      Strategie entwickeln
-                    </h2>
-                    <p className="text-sm sm:text-base text-body">
-                      Tragfähige KI-Governance und langfristige Planung
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>

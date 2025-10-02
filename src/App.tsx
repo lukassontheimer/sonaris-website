@@ -10,6 +10,10 @@ import Datenschutz from "./pages/Datenschutz";
 import FirstContact from "./pages/FirstContact";
 import DsgvoTools from "./pages/DsgvoTools";
 import RechtssicherArbeiten from "./pages/RechtssicherArbeiten";
+import Sektion1 from "./pages/Sektion1";
+import Sektion2 from "./pages/Sektion2";
+import Sektion3 from "./pages/Sektion3";
+import Sektion4 from "./pages/Sektion4";
 import Bereich1 from "./pages/Bereich1";
 import Bereich2 from "./pages/Bereich2";
 import Bereich3 from "./pages/Bereich3";
@@ -30,6 +34,10 @@ const App = () => (
           <Route path="/first-contact" element={<FirstContact />} />
           <Route path="/dsgvo-tools" element={<DsgvoTools />} />
           <Route path="/rechtssicher-arbeiten" element={<RechtssicherArbeiten />} />
+          <Route path="/sektion-1" element={<Sektion1 />} />
+          <Route path="/sektion-2" element={<Sektion2 />} />
+          <Route path="/sektion-3" element={<Sektion3 />} />
+          <Route path="/sektion-4" element={<Sektion4 />} />
           <Route path="/first-contact/bereich-1" element={<Bereich1 />} />
           <Route path="/first-contact/bereich-2" element={<Bereich2 />} />
           <Route path="/first-contact/bereich-3" element={<Bereich3 />} />
