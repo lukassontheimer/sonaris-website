@@ -78,7 +78,7 @@ const ChallengesSection = () => {
             
             if (index === 0) {
               return (
-                <Link key={index} to="/first-contact">
+                <Link key={index} to="/first-contact" onClick={() => window.scrollTo(0, 0)}>
                   {cardContent}
                 </Link>
               );
