@@ -58,7 +58,7 @@ const Navigation = () => {
                   onClick={() => scrollToSection("services")}
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Frequencies
+                  Frequency
                 </button>
               </>
             ) : (
@@ -73,7 +73,7 @@ const Navigation = () => {
                   to="/"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
-                  Frequencies
+                  Frequency
                 </Link>
               </>
             )}
@@ -120,7 +120,7 @@ const Navigation = () => {
                     }}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Frequencies
+                    Frequency
                   </button>
                   <Button 
                     onClick={() => {
@@ -147,7 +147,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
-                    Frequencies
+                    Frequency
                   </Link>
                 </>
               )}
