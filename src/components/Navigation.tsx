@@ -48,32 +48,32 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             {isHomePage ? (
               <>
+                <Link
+                  to="/about-sonaris"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Sonaris
+                </Link>
                 <button
                   onClick={() => scrollToSection("services")}
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
                   Frequencies
                 </button>
+              </>
+            ) : (
+              <>
                 <Link
                   to="/about-sonaris"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
                   Sonaris
                 </Link>
-              </>
-            ) : (
-              <>
                 <Link
                   to="/"
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
                   Frequencies
-                </Link>
-                <Link
-                  to="/about-sonaris"
-                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
-                >
-                  Sonaris
                 </Link>
               </>
             )}
@@ -106,6 +106,13 @@ const Navigation = () => {
             <div className="flex flex-col space-y-4">
               {isHomePage ? (
                 <>
+                  <Link
+                    to="/about-sonaris"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Sonaris
+                  </Link>
                   <button
                     onClick={() => {
                       scrollToSection("services");
@@ -115,13 +122,6 @@ const Navigation = () => {
                   >
                     Frequencies
                   </button>
-                  <Link
-                    to="/about-sonaris"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
-                  >
-                    Sonaris
-                  </Link>
                   <Button 
                     onClick={() => {
                       scrollToSection("final-cta");
@@ -136,18 +136,18 @@ const Navigation = () => {
               ) : (
                 <>
                   <Link
-                    to="/"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
-                  >
-                    Frequencies
-                  </Link>
-                  <Link
                     to="/about-sonaris"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
                     Sonaris
+                  </Link>
+                  <Link
+                    to="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Frequencies
                   </Link>
                 </>
               )}
