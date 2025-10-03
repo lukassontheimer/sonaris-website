@@ -60,6 +60,12 @@ const Navigation = () => {
                 >
                   Frequency
                 </button>
+                <Link
+                  to="/spectrum"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Spectrum
+                </Link>
               </>
             ) : (
               <>
@@ -74,6 +80,12 @@ const Navigation = () => {
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
                   Frequency
+                </Link>
+                <Link
+                  to="/spectrum"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Spectrum
                 </Link>
               </>
             )}
@@ -122,6 +134,13 @@ const Navigation = () => {
                   >
                     Frequency
                   </button>
+                  <Link
+                    to="/spectrum"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Spectrum
+                  </Link>
                   <Button 
                     onClick={() => {
                       scrollToSection("final-cta");
@@ -148,6 +167,13 @@ const Navigation = () => {
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
                     Frequency
+                  </Link>
+                  <Link
+                    to="/spectrum"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Spectrum
                   </Link>
                 </>
               )}

@@ -19,6 +19,7 @@ import Bereich1 from "./pages/Bereich1";
 import Bereich2 from "./pages/Bereich2";
 import Bereich3 from "./pages/Bereich3";
 import Bereich4 from "./pages/Bereich4";
+import Spectrum from "./pages/Spectrum";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/first-contact/bereich-2" element={<Bereich2 />} />
           <Route path="/first-contact/bereich-3" element={<Bereich3 />} />
           <Route path="/first-contact/bereich-4" element={<Bereich4 />} />
+          <Route path="/spectrum" element={<Spectrum />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
