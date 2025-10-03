@@ -10,6 +10,7 @@ import Datenschutz from "./pages/Datenschutz";
 import FirstContact from "./pages/FirstContact";
 import DsgvoTools from "./pages/DsgvoTools";
 import RechtssicherArbeiten from "./pages/RechtssicherArbeiten";
+import RoiVonKi from "./pages/RoiVonKi";
 import Sektion1 from "./pages/Sektion1";
 import Sektion2 from "./pages/Sektion2";
 import Sektion3 from "./pages/Sektion3";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/first-contact" element={<FirstContact />} />
           <Route path="/dsgvo-tools" element={<DsgvoTools />} />
           <Route path="/rechtssicher-arbeiten" element={<RechtssicherArbeiten />} />
+          <Route path="/roi-von-ki" element={<RoiVonKi />} />
           <Route path="/sektion-1" element={<Sektion1 />} />
           <Route path="/sektion-2" element={<Sektion2 />} />
           <Route path="/sektion-3" element={<Sektion3 />} />

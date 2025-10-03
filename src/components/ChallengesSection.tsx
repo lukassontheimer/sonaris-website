@@ -96,9 +96,9 @@ const ChallengesSection = () => {
               );
             } else {
               return (
-                <div key={index}>
+                <Link key={index} to="/roi-von-ki" onClick={() => window.scrollTo(0, 0)}>
                   {cardContent}
-                </div>
+                </Link>
               );
             }
           })}
