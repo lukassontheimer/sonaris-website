@@ -17,14 +17,42 @@ const Spectrum = () => {
             </Button>
           </Link>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-foreground">
             Spectrum
           </h1>
           
-          <div className="prose prose-lg max-w-none">
-            <p className="text-foreground-secondary text-lg mb-6">
-              Welcome to the Spectrum page. This is where you can explore our full spectrum of services and solutions.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link 
+              to="/spectrum/first-contact" 
+              className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between"
+            >
+              <span className="text-xl font-medium text-foreground">First Contact</span>
+              <ArrowLeft className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+            </Link>
+
+            <Link 
+              to="/spectrum/onboarding" 
+              className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between"
+            >
+              <span className="text-xl font-medium text-foreground">Onboarding</span>
+              <ArrowLeft className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+            </Link>
+
+            <Link 
+              to="/spectrum/bridge-building" 
+              className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between"
+            >
+              <span className="text-xl font-medium text-foreground">Bridge Building</span>
+              <ArrowLeft className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+            </Link>
+
+            <Link 
+              to="/spectrum/future-pacing" 
+              className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between"
+            >
+              <span className="text-xl font-medium text-foreground">Future Pacing</span>
+              <ArrowLeft className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+            </Link>
           </div>
         </div>
       </main>

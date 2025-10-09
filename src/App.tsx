@@ -20,6 +20,10 @@ import Bereich2 from "./pages/Bereich2";
 import Bereich3 from "./pages/Bereich3";
 import Bereich4 from "./pages/Bereich4";
 import Spectrum from "./pages/Spectrum";
+import FirstContactSpectrum from "./pages/spectrum/FirstContactSpectrum";
+import Onboarding from "./pages/spectrum/Onboarding";
+import BridgeBuilding from "./pages/spectrum/BridgeBuilding";
+import FuturePacing from "./pages/spectrum/FuturePacing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +50,10 @@ const App = () => (
           <Route path="/first-contact/bereich-3" element={<Bereich3 />} />
           <Route path="/first-contact/bereich-4" element={<Bereich4 />} />
           <Route path="/spectrum" element={<Spectrum />} />
+          <Route path="/spectrum/first-contact" element={<FirstContactSpectrum />} />
+          <Route path="/spectrum/onboarding" element={<Onboarding />} />
+          <Route path="/spectrum/bridge-building" element={<BridgeBuilding />} />
+          <Route path="/spectrum/future-pacing" element={<FuturePacing />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
