@@ -24,6 +24,7 @@ import FirstContactSpectrum from "./pages/spectrum/FirstContactSpectrum";
 import Onboarding from "./pages/spectrum/Onboarding";
 import BridgeBuilding from "./pages/spectrum/BridgeBuilding";
 import FuturePacing from "./pages/spectrum/FuturePacing";
+import ExperienceEcho from "./pages/spectrum/ExperienceEcho";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/spectrum/onboarding" element={<Onboarding />} />
           <Route path="/spectrum/bridge-building" element={<BridgeBuilding />} />
           <Route path="/spectrum/future-pacing" element={<FuturePacing />} />
+          <Route path="/spectrum/experience-echo" element={<ExperienceEcho />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

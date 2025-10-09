@@ -53,6 +53,14 @@ const Spectrum = () => {
               <span className="text-xl font-medium text-foreground">Future Pacing</span>
               <ArrowLeft className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
             </Link>
+
+            <Link 
+              to="/spectrum/experience-echo" 
+              className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between"
+            >
+              <span className="text-xl font-medium text-foreground">Experience Echo</span>
+              <ArrowLeft className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+            </Link>
           </div>
         </div>
       </main>
