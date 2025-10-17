@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AboutSonaris from "./pages/AboutSonaris";
+import LukasSontheimer from "./pages/LukasSontheimer";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import FirstContact from "./pages/FirstContact";
@@ -40,6 +41,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about-sonaris" element={<AboutSonaris />} />
+          <Route path="/lukas-sontheimer" element={<LukasSontheimer />} />
           <Route path="/first-contact" element={<FirstContact />} />
           <Route path="/dsgvo-tools" element={<DsgvoTools />} />
           <Route path="/rechtssicher-arbeiten" element={<RechtssicherArbeiten />} />

@@ -112,6 +112,11 @@ const TeamSection = () => {
                 >
                   <p className="text-body text-xs sm:text-sm leading-relaxed text-center">
                     {member.bio}
+                    {index === 0 && ( // Lukas Sontheimer
+                      <Link to="/lukas-sontheimer" className="text-primary hover:underline ml-2 cursor-pointer">
+                        Read more
+                      </Link>
+                    )}
                     {index === 3 && ( // Christian Pessing
                       <Dialog>
                         <DialogTrigger className="text-primary hover:underline ml-2 cursor-pointer">
