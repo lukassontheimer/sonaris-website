@@ -66,6 +66,12 @@ const Navigation = () => {
                 >
                   Spectrum
                 </Link>
+                <Link
+                  to="/spectrum/transmission"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Transmission
+                </Link>
               </>
             ) : (
               <>
@@ -86,6 +92,12 @@ const Navigation = () => {
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
                   Spectrum
+                </Link>
+                <Link
+                  to="/spectrum/transmission"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  Transmission
                 </Link>
               </>
             )}
@@ -141,7 +153,14 @@ const Navigation = () => {
                   >
                     Spectrum
                   </Link>
-                  <Button 
+                  <Link
+                    to="/spectrum/transmission"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Transmission
+                  </Link>
+                  <Button
                     onClick={() => {
                       scrollToSection("final-cta");
                       setIsMobileMenuOpen(false);
@@ -174,6 +193,13 @@ const Navigation = () => {
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
                     Spectrum
+                  </Link>
+                  <Link
+                    to="/spectrum/transmission"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    Transmission
                   </Link>
                 </>
               )}
