@@ -23,8 +23,32 @@ const LukasSontheimer = () => {
             </h1>
             
             <div className="space-y-6 text-foreground/90">
-              <p className="text-xl leading-relaxed">
-                Content placeholder for Lukas Sontheimer's detailed profile.
+              <p className="text-xl leading-relaxed font-semibold">
+                Ich schaffe Klarheit im KI-Chaos durch systematische Prozessintegration.
+              </p>
+              
+              <p className="text-lg leading-relaxed">
+                Als KI-Stratege mit technischem Hintergrund erkannte ich früh: Erfolgreiche KI-Implementierung beginnt mit dem Verständnis bestehender Prozesse. Meine Spezialisierung liegt darin, die Brücke zwischen organisationalen Strukturen und KI-Möglichkeiten zu bauen – pragmatisch, bedarfsorientiert und immer mit Blick auf das Wesentliche.
+              </p>
+              
+              <p className="text-lg leading-relaxed">
+                Meine Arbeitsweise folgt einem klaren Prinzip: Funktionierende Prozesse sind die Grundlage für erfolgreiche KI-Integration. Deshalb beginne ich mit der kritischen Analyse dessen, was wirklich funktioniert. Gemeinsam mit Unternehmen identifiziere ich Use Cases, die technisch machbar und ökonomisch sinnvoll sind. Von Quick Wins wie automatisierten Meeting-Protokollen bis hin zu komplexen Wissensdatenbanken: Ich bewerte nach Risiko, technischer Komplexität und tatsächlichem Nutzen.
+              </p>
+              
+              <p className="text-lg leading-relaxed">
+                Mein Ansatz ist iterativ und systematisch. Ich arbeite mit dem Drei-Säulen-Modell: Training der Mitarbeitenden, technische Plattform-Integration und Use-Case-Identifikation. Dabei verstehe ich mich als Prozess- und Change-Manager, der die technischen Möglichkeiten mit den organisationalen Realitäten verbindet. Besonders wichtig ist mir die Vorbereitung: Je klarer definiert ist, welches Wissen benötigt wird und woran Qualität gemessen wird, desto erfolgreicher die Implementierung.
+              </p>
+              
+              <p className="text-lg leading-relaxed">
+                Technisch bewege ich mich sicher zwischen verschiedenen Systemen – von Microsoft-Umgebungen über LangDoc bis zu Open-Source-Lösungen wie Open Web UI. Ich kenne die Stärken jeder Plattform und kann einschätzen, welche Lösung für welches Unternehmen passt. Mein Fokus liegt auf funktionierenden, planbaren Lösungen, die tatsächlich Mehrwert schaffen.
+              </p>
+              
+              <p className="text-lg leading-relaxed">
+                Ich arbeite mit mittelständischen Unternehmen, die KI als strategisches Werkzeug verstehen wollen. Meine Kunden schätzen, dass ich technische Komplexität auf das Wesentliche reduziere und ihnen zeige, wo sie ihre Ressourcen wirklich investieren sollten.
+              </p>
+              
+              <p className="text-lg leading-relaxed font-semibold">
+                Persönlich: Ich arbeite aus der Überzeugung, dass die meiste Arbeit bei KI-Projekten in der Vorbereitung und im Testing liegt. Diese Erkenntnis teile ich konsequent mit meinen Kunden.
               </p>
             </div>
           </article>
