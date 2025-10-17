@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AboutSonaris from "./pages/AboutSonaris";
 import LukasSontheimer from "./pages/LukasSontheimer";
+import OliverAndrees from "./pages/OliverAndrees";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import FirstContact from "./pages/FirstContact";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about-sonaris" element={<AboutSonaris />} />
           <Route path="/lukas-sontheimer" element={<LukasSontheimer />} />
+          <Route path="/oliver-andrees" element={<OliverAndrees />} />
           <Route path="/first-contact" element={<FirstContact />} />
           <Route path="/dsgvo-tools" element={<DsgvoTools />} />
           <Route path="/rechtssicher-arbeiten" element={<RechtssicherArbeiten />} />
