@@ -117,6 +117,11 @@ const TeamSection = () => {
                         Read more
                       </Link>
                     )}
+                    {index === 1 && ( // Lorenz Surkemper
+                      <Link to="/lorenz-surkemper" className="text-primary hover:underline ml-2 cursor-pointer">
+                        Read more
+                      </Link>
+                    )}
                     {index === 2 && ( // Oliver Andrees
                       <Link to="/oliver-andrees" className="text-primary hover:underline ml-2 cursor-pointer">
                         Read more
