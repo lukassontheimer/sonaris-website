@@ -30,6 +30,7 @@ import FuturePacing from "./pages/spectrum/FuturePacing";
 import ExperienceEcho from "./pages/spectrum/ExperienceEcho";
 import ResonatingEcho from "./pages/spectrum/ResonatingEcho";
 import Transmission from "./pages/spectrum/Transmission";
+import PromptGallery from "./pages/spectrum/PromptGallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -66,6 +67,7 @@ const App = () => (
           <Route path="/spectrum/experience-echo" element={<ExperienceEcho />} />
           <Route path="/spectrum/resonating-echo" element={<ResonatingEcho />} />
           <Route path="/spectrum/transmission" element={<Transmission />} />
+          <Route path="/spectrum/prompt-gallery" element={<PromptGallery />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

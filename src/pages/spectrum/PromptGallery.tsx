@@ -4,26 +4,22 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
-const Transmission = () => {
+const PromptGallery = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="pt-24 pb-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <Link to="/spectrum">
+          <Link to="/spectrum/transmission">
             <Button variant="ghost" className="mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Spectrum
+              Back to Transmission
             </Button>
           </Link>
           
           <article className="prose prose-lg max-w-none">
-            <Link to="/spectrum/prompt-gallery" className="block">
-              <div className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between cursor-pointer">
-                <span className="text-3xl font-medium text-foreground">Prompt Gallery</span>
-                <ArrowLeft className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
-              </div>
-            </Link>
+            <h1 className="text-4xl font-bold mb-8">Prompt Gallery</h1>
+            {/* Content will be added here */}
           </article>
         </div>
       </main>
@@ -32,4 +28,4 @@ const Transmission = () => {
   );
 };
 
-export default Transmission;
+export default PromptGallery;
