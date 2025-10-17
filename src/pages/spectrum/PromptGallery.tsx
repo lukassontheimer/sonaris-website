@@ -19,6 +19,7 @@ const PromptGallery = () => {
           
           <article className="prose prose-lg max-w-none">
             <h1 className="text-4xl font-bold mb-8">Prompt Gallery</h1>
+            <Button className="mb-8">About the Gallery</Button>
             {/* Content will be added here */}
           </article>
         </div>
