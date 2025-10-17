@@ -18,7 +18,10 @@ const Transmission = () => {
           </Link>
           
           <article className="prose prose-lg max-w-none">
-            {/* Content will be added here */}
+            <div className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between cursor-pointer">
+              <span className="text-3xl font-medium text-foreground">Prompt Gallery</span>
+              <ArrowLeft className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+            </div>
           </article>
         </div>
       </main>
