@@ -18,12 +18,21 @@ const Transmission = () => {
           </Link>
           
           <article className="prose prose-lg max-w-none">
-            <Link to="/spectrum/prompt-gallery" className="block">
-              <div className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between cursor-pointer">
-                <span className="text-3xl font-medium text-foreground">Prompt Gallery</span>
-                <ArrowLeft className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
-              </div>
-            </Link>
+            <div className="space-y-6">
+              <Link to="/spectrum/prompt-gallery" className="block">
+                <div className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between cursor-pointer">
+                  <span className="text-3xl font-medium text-foreground">Prompt Gallery</span>
+                  <ArrowLeft className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+                </div>
+              </Link>
+              
+              <Link to="/spectrum/ki-grundlagen" className="block">
+                <div className="group relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-between cursor-pointer">
+                  <span className="text-3xl font-medium text-foreground">KI Grundlagen</span>
+                  <ArrowLeft className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+                </div>
+              </Link>
+            </div>
           </article>
         </div>
       </main>
