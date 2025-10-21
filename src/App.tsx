@@ -32,6 +32,7 @@ import ResonatingEcho from "./pages/spectrum/ResonatingEcho";
 import Transmission from "./pages/spectrum/Transmission";
 import PromptGallery from "./pages/spectrum/PromptGallery";
 import KiGrundlagen from "./pages/spectrum/KiGrundlagen";
+import DatenVerstehen from "./pages/spectrum/DatenVerstehen";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -70,6 +71,7 @@ const App = () => (
           <Route path="/spectrum/transmission" element={<Transmission />} />
           <Route path="/spectrum/prompt-gallery" element={<PromptGallery />} />
           <Route path="/spectrum/ki-grundlagen" element={<KiGrundlagen />} />
+          <Route path="/spectrum/daten-verstehen" element={<DatenVerstehen />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
