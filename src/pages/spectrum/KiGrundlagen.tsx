@@ -20,7 +20,9 @@ const KiGrundlagen = () => {
           <article className="prose prose-lg max-w-none">
             <h1 className="text-4xl font-bold mb-8">KI Grundlagen</h1>
             <div className="grid gap-4">
-              {/* Buttons will be added here */}
+              <Button size="lg" className="text-lg py-6">
+                Daten verstehen
+              </Button>
             </div>
           </article>
         </div>
