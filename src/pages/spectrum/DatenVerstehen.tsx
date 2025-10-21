@@ -3,26 +3,101 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const DatenVerstehen = () => {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      let currentSection = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= 150) {
+          currentSection = section.getAttribute("id") || "";
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const tocSections = [
+    { id: "ueberblick", title: "Überblick" },
+    { id: "einfuehrung", title: "Einführung in moderne Datenkonzepte" },
+    { id: "datenanalyse", title: "Wie funktioniert Datenanalyse?" },
+    { id: "visualisierung", title: "Datenvisualisierungen" },
+    { id: "data-science", title: "Theorie und Methoden der Data Science" },
+    { id: "anwendung", title: "Anwendung der Data Science" },
+    { id: "tools", title: "Datentools und Programmiersprachen" },
+    { id: "joblandschaft", title: "Die Daten-Joblandschaft" },
+    { id: "ausblick", title: "Ausblick" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="pt-24 pb-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Link to="/spectrum/ki-grundlagen">
             <Button variant="ghost" className="mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to KI Grundlagen
             </Button>
           </Link>
-          
-          <article className="prose prose-lg max-w-none prose-invert">
-            <h1 className="text-4xl font-bold mb-8">Daten verstehen</h1>
-            
-            <p className="text-xl mb-6">Grundlagen für die Arbeit mit KI</p>
 
-            <h2 className="text-3xl font-bold mt-12 mb-6">Überblick: Warum Daten das Herzstück der digitalen Welt sind</h2>
+          <div className="flex gap-8">
+            {/* Sticky Table of Contents */}
+            <aside className="hidden lg:block w-64 flex-shrink-0">
+              <div className="sticky top-24">
+                <h2 className="text-sm font-semibold text-foreground mb-4">
+                  Inhaltsverzeichnis
+                </h2>
+                <nav className="space-y-2">
+                  {tocSections.map((section) => (
+                    <button
+                      key={section.id}
+                      onClick={() => scrollToSection(section.id)}
+                      className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-colors ${
+                        activeSection === section.id
+                          ? "bg-primary/10 text-primary font-medium"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      }`}
+                    >
+                      {section.title}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+
+            {/* Main Content */}
+            <article className="flex-1 prose prose-lg max-w-none prose-invert">
+              <h1 className="text-4xl font-bold mb-8">Daten verstehen</h1>
+            
+              <p className="text-xl mb-6">Grundlagen für die Arbeit mit KI</p>
+
+              <section id="ueberblick">
+                <h2 className="text-3xl font-bold mt-12 mb-6">Überblick: Warum Daten das Herzstück der digitalen Welt sind</h2>
 
             <p className="mb-4">
               Daten sind das Herzstück der digitalen Welt – doch wie entstehen sie, was steckt dahinter und wie können wir sie sinnvoll nutzen? Diese Frage begleitet uns durch eine Zeit, in der digitale Technologien nicht mehr Randerscheinung, sondern Grundlage unseres Alltags sind. Ob ihr morgens euer Smartphone entsperrt, eine Suchanfrage stellt oder mit einem Sprachassistenten interagiert – hinter jeder dieser Handlungen stehen Daten. Sie werden erhoben, verarbeitet, analysiert und in Entscheidungen übersetzt.
@@ -36,13 +111,15 @@ const DatenVerstehen = () => {
               Besonders wichtig: Wir nähern uns dem Thema aus einer Perspektive, die für eure praktische Arbeit relevant ist. Viele von euch haben vielleicht schon erste Erfahrungen mit ChatGPT, Gemini, Grok oder anderen Large Language Models (LLMs) gemacht. Ihr habt Fragen gestellt, Texte erstellen lassen, erste Ergebnisse erzielt. Doch zwischen diesen ersten Versuchen und einem fundierten Verständnis dessen, was dort eigentlich passiert, liegt eine wichtige Lernstrecke. Dieser Artikel baut diese Brücke.
             </p>
 
-            <p className="mb-4">
-              Wir beginnen mit den Grundlagen: Was sind Daten überhaupt? Wie werden sie erhoben und strukturiert? Von dort aus bewegen wir uns Schritt für Schritt zu komplexeren Konzepten – immer mit dem Ziel, dass ihr versteht, wie moderne KI-Systeme funktionieren und wie ihr sie sinnvoll in euren Arbeitsalltag integrieren könnt.
-            </p>
+                <p className="mb-4">
+                  Wir beginnen mit den Grundlagen: Was sind Daten überhaupt? Wie werden sie erhoben und strukturiert? Von dort aus bewegen wir uns Schritt für Schritt zu komplexeren Konzepten – immer mit dem Ziel, dass ihr versteht, wie moderne KI-Systeme funktionieren und wie ihr sie sinnvoll in euren Arbeitsalltag integrieren könnt.
+                </p>
+              </section>
 
-            <hr className="my-8" />
+              <hr className="my-8" />
 
-            <h2 className="text-3xl font-bold mt-12 mb-6">Einführung in moderne Datenkonzepte</h2>
+              <section id="einfuehrung">
+                <h2 className="text-3xl font-bold mt-12 mb-6">Einführung in moderne Datenkonzepte</h2>
 
             <h3 className="text-2xl font-semibold mt-8 mb-4">Was sind Daten?</h3>
 
@@ -146,14 +223,16 @@ const DatenVerstehen = () => {
               <li className="mb-2"><strong>Variabilität der Ergebnisse</strong>: Stellt ihr dieselbe Frage mehrmals, könnt ihr leicht unterschiedliche Antwortformulierungen erhalten – alle statistisch plausibel, aber nicht identisch.</li>
             </ol>
 
-            <p className="mb-4">
-              Diese Eigenschaften machen LLMs zu mächtigen Werkzeugen für bestimmte Aufgaben – insbesondere dort, wo es um Sprache, Kommunikation und das Verstehen von Zusammenhängen geht. Aber sie erfordern auch ein anderes Arbeiten: kritisches Prüfen der Ergebnisse, bewusstes Gestalten der Eingaben, Verständnis für die Grenzen des Systems.
-            </p>
+                <p className="mb-4">
+                  Diese Eigenschaften machen LLMs zu mächtigen Werkzeugen für bestimmte Aufgaben – insbesondere dort, wo es um Sprache, Kommunikation und das Verstehen von Zusammenhängen geht. Aber sie erfordern auch ein anderes Arbeiten: kritisches Prüfen der Ergebnisse, bewusstes Gestalten der Eingaben, Verständnis für die Grenzen des Systems.
+                </p>
 
-            <p className="mb-8 text-sm italic">
-              *Dieser Artikel ist der erste Teil einer Serie über die Grundlagen der Arbeit mit Daten und Künstlicher Intelligenz. Die kommenden Artikel vertiefen einzelne Aspekte und zeigen konkrete Anwendungsmöglichkeiten.*
-            </p>
-          </article>
+                <p className="mb-8 text-sm italic">
+                  *Dieser Artikel ist der erste Teil einer Serie über die Grundlagen der Arbeit mit Daten und Künstlicher Intelligenz. Die kommenden Artikel vertiefen einzelne Aspekte und zeigen konkrete Anwendungsmöglichkeiten.*
+                </p>
+              </section>
+            </article>
+          </div>
         </div>
       </main>
       <Footer />
