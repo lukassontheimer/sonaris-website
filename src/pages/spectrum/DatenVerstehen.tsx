@@ -67,17 +67,17 @@ const DatenVerstehen = () => {
 
           <div className="flex gap-8">
             {/* Sticky Table of Contents */}
-            <aside className="hidden lg:block w-64 flex-shrink-0">
+            <aside className="w-56 flex-shrink-0">
               <div className="sticky top-24">
                 <h2 className="text-sm font-semibold text-foreground mb-4">
                   Inhaltsverzeichnis
                 </h2>
-                <nav className="space-y-2">
+                <nav className="space-y-1">
                   {tocSections.map((section) => (
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-colors ${
+                      className={`block w-full text-left text-xs py-1.5 px-2 rounded transition-colors ${
                         activeSection === section.id
                           ? "bg-primary/10 text-primary font-medium"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
