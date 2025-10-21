@@ -25,6 +25,11 @@ const KiGrundlagen = () => {
                   Daten verstehen
                 </Button>
               </Link>
+              <Link to="/spectrum/grundlagen-ki">
+                <Button size="lg" className="text-lg py-6 w-full">
+                  Grundlagen der Künstlichen Intelligenz
+                </Button>
+              </Link>
             </div>
           </article>
         </div>
