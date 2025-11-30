@@ -72,6 +72,12 @@ const Navigation = () => {
                 >
                   Transmission
                 </Link>
+                <Link
+                  to="/spectrum/dive"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  DIVE
+                </Link>
               </>
             ) : (
               <>
@@ -98,6 +104,12 @@ const Navigation = () => {
                   className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
                 >
                   Transmission
+                </Link>
+                <Link
+                  to="/spectrum/dive"
+                  className="text-foreground-secondary hover:text-foreground transition-colors duration-300"
+                >
+                  DIVE
                 </Link>
               </>
             )}
@@ -160,6 +172,13 @@ const Navigation = () => {
                   >
                     Transmission
                   </Link>
+                  <Link
+                    to="/spectrum/dive"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    DIVE
+                  </Link>
                   <Button
                     onClick={() => {
                       scrollToSection("final-cta");
@@ -200,6 +219,13 @@ const Navigation = () => {
                     className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
                   >
                     Transmission
+                  </Link>
+                  <Link
+                    to="/spectrum/dive"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-left text-foreground-secondary hover:text-foreground transition-colors duration-300 py-2"
+                  >
+                    DIVE
                   </Link>
                 </>
               )}
