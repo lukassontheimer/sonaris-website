@@ -3,6 +3,14 @@ import * as THREE from "three";
 
 const Dive = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorLabelRef = useRef<HTMLDivElement>(null);
+  const hudStatusRef = useRef<HTMLDivElement>(null);
+  const navHintRef = useRef<HTMLDivElement>(null);
+  const containerBlueRef = useRef<HTMLDivElement>(null);
+  const containerPurpleRef = useRef<HTMLDivElement>(null);
+  const containerGoldRef = useRef<HTMLDivElement>(null);
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ title: "", color: "", text: "" });
 
@@ -72,14 +80,14 @@ const Dive = () => {
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
-    // UI Elements
-    const cursor = document.getElementById("cursor");
-    const cursorLbl = document.getElementById("cursor-label");
-    const hudStatus = document.getElementById("status-text");
-    const navHint = document.getElementById("nav-hint");
-    const contBlue = document.getElementById("container-blue");
-    const contPurple = document.getElementById("container-purple");
-    const contGold = document.getElementById("container-gold");
+    // UI Elements - Use refs instead of getElementById
+    const cursor = cursorRef.current;
+    const cursorLbl = cursorLabelRef.current;
+    const hudStatus = hudStatusRef.current;
+    const navHint = navHintRef.current;
+    const contBlue = containerBlueRef.current;
+    const contPurple = containerPurpleRef.current;
+    const contGold = containerGoldRef.current;
 
     // Mouse move handler
     const handleMouseMove = (e: MouseEvent) => {
@@ -321,11 +329,11 @@ const Dive = () => {
 
         <div id="hud-top">
           <h1 className="sonaris-h1" id="main-title">SONARIS</h1>
-          <div className="sub-text" id="status-text">SYSTEM IDLE // TRINITY CORE DETECTED</div>
+          <div className="sub-text" ref={hudStatusRef}>SYSTEM IDLE // TRINITY CORE DETECTED</div>
         </div>
-        <div id="nav-hint">SELECT A CORE TO ACCESS DATA</div>
+        <div id="nav-hint" ref={navHintRef}>SELECT A CORE TO ACCESS DATA</div>
 
-        <div className="module-container blue-theme" id="container-blue">
+        <div className="module-container blue-theme" ref={containerBlueRef}>
           <div className="node-btn" onClick={() => (window as any).openData("train")}>
             <div className="icon">📖</div>
             <span>Training</span>
@@ -340,7 +348,7 @@ const Dive = () => {
           </div>
         </div>
 
-        <div className="spectrum-container purple-theme" id="container-purple">
+        <div className="spectrum-container purple-theme" ref={containerPurpleRef}>
           <div className="node-btn" onClick={() => (window as any).openData("spec1")}>
             <span>First Contact</span>
             <div className="arrow">→</div>
@@ -371,7 +379,7 @@ const Dive = () => {
           </div>
         </div>
 
-        <div className="essentials-container gold-theme" id="container-gold">
+        <div className="essentials-container gold-theme" ref={containerGoldRef}>
           <div className="node-btn" onClick={() => (window as any).openData("ess1")}>
             <span>First Contact, einfach beginnen</span>
             <div className="arrow">→</div>
@@ -451,8 +459,8 @@ const Dive = () => {
           </div>
         )}
 
-        <div id="cursor"></div>
-        <div id="cursor-label"></div>
+        <div id="cursor" ref={cursorRef}></div>
+        <div id="cursor-label" ref={cursorLabelRef}></div>
       </div>
     </>
   );
