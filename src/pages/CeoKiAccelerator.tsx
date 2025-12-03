@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Target, Settings, BookOpen, Shield, MessageCircle, Send, X } from "lucide-react";
+import { Target, Settings, BookOpen, Shield, Sparkles, Send, X } from "lucide-react";
 
 const CeoKiAccelerator = () => {
   const [activeNav, setActiveNav] = useState("summary");
@@ -123,11 +123,11 @@ const CeoKiAccelerator = () => {
       <div className="ceo-accelerator min-h-screen bg-[#000] flex justify-center overflow-x-hidden">
         <div className="sonar-grid" />
         
-        <div className="w-full max-w-[210mm] min-h-screen bg-[#020617] text-[#f8fafc] relative shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-row" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, #111827 0%, #020617 80%)' }}>
+        <div className="w-full max-w-[1200px] min-h-screen bg-[#020617] text-[#f8fafc] relative shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-row" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, #111827 0%, #020617 80%)' }}>
           
           {/* Sidebar */}
-          <div className="w-[50mm] bg-[rgba(2,6,23,0.95)] border-r border-[rgba(34,211,238,0.25)] flex flex-col pt-[15mm] sticky top-0 h-screen z-10 backdrop-blur-[12px]">
-            <div className="text-center mb-[15mm]">
+          <div className="w-[200px] min-w-[200px] bg-[rgba(2,6,23,0.95)] border-r border-[rgba(34,211,238,0.25)] flex flex-col pt-14 sticky top-0 h-screen z-10 backdrop-blur-[12px]">
+            <div className="text-center mb-14">
               <div className="w-10 h-10 mx-auto mb-2.5 border-2 border-[#22d3ee] rounded-full relative flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.2)]">
                 <div className="w-1.5 h-1.5 bg-[#22d3ee] rounded-full" />
               </div>
@@ -135,7 +135,7 @@ const CeoKiAccelerator = () => {
               <div className="text-[9px] text-[#22d3ee] tracking-[1px] font-mono">ACCELERATOR</div>
             </div>
             
-            <div className="flex flex-col gap-5 pl-[15mm] mt-5 border-l border-[rgba(255,255,255,0.1)]">
+            <div className="flex flex-col gap-5 pl-14 mt-5 border-l border-[rgba(255,255,255,0.1)] ml-4">
               {navItems.map(item => (
                 <a
                   key={item.id}
@@ -156,7 +156,7 @@ const CeoKiAccelerator = () => {
           </div>
           
           {/* Main Content */}
-          <div className="flex-1 p-[15mm_25mm_30mm_25mm] z-[2] flex flex-col gap-[30mm]">
+          <div className="flex-1 p-12 z-[2] flex flex-col gap-20">
             
             {/* Title */}
             <div>
@@ -186,13 +186,13 @@ const CeoKiAccelerator = () => {
             <div id="team">
               <span className="font-mono text-[#22d3ee] text-[10px] border-b border-[rgba(34,211,238,0.25)] pb-[5px] mb-[25px] block tracking-[1px]">&gt;&gt; EXPERTEN TEAM [YOUR TASK FORCE]</span>
               
-              <div className="grid grid-cols-3 gap-5 mb-5">
+              <div className="grid grid-cols-3 gap-6 mb-6">
                 {teamRow1.map((member, i) => (
-                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-[25px] relative transition-all duration-300 min-h-[220px] flex flex-col items-start text-left z-[1] hover:border-[#22d3ee] hover:z-50">
-                    <div className="w-[50px] h-[50px] rounded-full bg-[#111] border border-[#0891b2] mb-[15px] flex items-center justify-center text-lg font-bold text-[#22d3ee] self-center">{member.initials}</div>
-                    <span className="text-sm font-bold text-white block mb-[5px] leading-[1.2] w-full text-center">{member.name}</span>
-                    <span className="font-mono text-[10px] text-[#0891b2] uppercase tracking-[1px] w-full text-center block">{member.title}</span>
-                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-[25px] flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
+                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-6 relative transition-all duration-300 min-h-[200px] flex flex-col items-center text-center z-[1] hover:border-[#22d3ee] hover:z-50">
+                    <div className="w-12 h-12 rounded-full bg-[#111] border border-[#0891b2] mb-4 flex items-center justify-center text-lg font-bold text-[#22d3ee]">{member.initials}</div>
+                    <span className="text-sm font-bold text-white block mb-1 leading-tight">{member.name}</span>
+                    <span className="font-mono text-[9px] text-[#0891b2] uppercase tracking-wider block break-words">{member.title}</span>
+                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
                       <strong className="text-[#22d3ee] block mb-2 font-mono text-[10px] uppercase">Fokus:</strong>
                       <p className="text-[#f8fafc] text-xs leading-[1.5] m-0">{member.focus}</p>
                     </div>
@@ -200,13 +200,13 @@ const CeoKiAccelerator = () => {
                 ))}
               </div>
               
-              <div className="grid grid-cols-2 gap-5 w-[66%] mx-auto">
+              <div className="grid grid-cols-2 gap-6 w-[70%] mx-auto">
                 {teamRow2.map((member, i) => (
-                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-[25px] relative transition-all duration-300 min-h-[220px] flex flex-col items-start text-left z-[1] hover:border-[#22d3ee] hover:z-50">
-                    <div className="w-[50px] h-[50px] rounded-full bg-[#111] border border-[#0891b2] mb-[15px] flex items-center justify-center text-lg font-bold text-[#22d3ee] self-center">{member.initials}</div>
-                    <span className="text-sm font-bold text-white block mb-[5px] leading-[1.2] w-full text-center">{member.name}</span>
-                    <span className="font-mono text-[10px] text-[#0891b2] uppercase tracking-[1px] w-full text-center block">{member.title}</span>
-                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-[25px] flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
+                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-6 relative transition-all duration-300 min-h-[200px] flex flex-col items-center text-center z-[1] hover:border-[#22d3ee] hover:z-50">
+                    <div className="w-12 h-12 rounded-full bg-[#111] border border-[#0891b2] mb-4 flex items-center justify-center text-lg font-bold text-[#22d3ee]">{member.initials}</div>
+                    <span className="text-sm font-bold text-white block mb-1 leading-tight">{member.name}</span>
+                    <span className="font-mono text-[9px] text-[#0891b2] uppercase tracking-wider block break-words">{member.title}</span>
+                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
                       <strong className="text-[#22d3ee] block mb-2 font-mono text-[10px] uppercase">Fokus:</strong>
                       <p className="text-[#f8fafc] text-xs leading-[1.5] m-0">{member.focus}</p>
                     </div>
@@ -388,9 +388,9 @@ const CeoKiAccelerator = () => {
         {/* Chatbot Toggler */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          className="chat-toggler fixed bottom-[30px] right-[35px] w-[60px] h-[60px] rounded-full bg-[rgba(30,41,59,0.98)] border border-[rgba(34,211,238,0.3)] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+          className="chat-toggler fixed bottom-[30px] right-[35px] w-[70px] h-[70px] rounded-full bg-[#1e293b] border-2 border-[#22d3ee] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
         >
-          {chatOpen ? <X className="w-6 h-6 text-[#22d3ee]" /> : <MessageCircle className="w-6 h-6 text-[#22d3ee]" />}
+          {chatOpen ? <X className="w-6 h-6 text-[#22d3ee]" /> : <Sparkles className="w-6 h-6 text-[#22d3ee]" />}
         </button>
         
         {/* Chat Window */}
