@@ -197,7 +197,7 @@ const CeoKiAccelerator = () => {
       <div className="ceo-accelerator min-h-screen bg-[#000] flex justify-center overflow-x-hidden">
         <div className="sonar-grid" />
         
-        <div className="w-full max-w-[1200px] min-h-screen bg-[#020617] text-[#f8fafc] relative shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-row" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, #111827 0%, #020617 80%)' }}>
+        <div className="w-full max-w-[1440px] min-h-screen bg-[#020617] text-[#f8fafc] relative shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-row" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, #111827 0%, #020617 80%)' }}>
           
           {/* Sidebar */}
           <div className="w-[250px] min-w-[250px] bg-[rgba(2,6,23,0.95)] border-r border-[rgba(34,211,238,0.25)] flex flex-col pt-16 sticky top-0 h-screen z-10 backdrop-blur-[12px]">
