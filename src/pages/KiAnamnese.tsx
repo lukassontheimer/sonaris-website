@@ -106,9 +106,9 @@ const KiAnamnese = () => {
           flex-direction: column;
           padding-top: 15mm;
           position: relative;
-          min-height: 100vh;
           z-index: 10;
           backdrop-filter: blur(12px);
+          align-self: stretch;
         }
 
         .anamnese-page .logo-area {
