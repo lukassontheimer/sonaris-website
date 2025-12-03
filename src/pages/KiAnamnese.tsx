@@ -105,9 +105,8 @@ const KiAnamnese = () => {
           display: flex;
           flex-direction: column;
           padding-top: 15mm;
-          position: sticky;
-          top: 0;
-          height: 100vh;
+          position: relative;
+          min-height: 100vh;
           z-index: 10;
           backdrop-filter: blur(12px);
         }
