@@ -560,13 +560,14 @@ const CeoKiAccelerator = () => {
             <div ref={messagesEndRef} />
           </div>
           <div className="p-3 lg:p-[15px_20px] border-t border-[rgba(34,211,238,0.3)] flex gap-2.5 bg-[rgba(0,0,0,0.2)]">
-            <textarea 
+            <input 
+              type="text"
               placeholder="Schreibe eine Nachricht..." 
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyPress}
               disabled={isLoading}
-              className="flex-1 bg-transparent border-none outline-none text-[#f8fafc] text-sm lg:text-[0.95rem] resize-none h-6 max-h-[100px] p-0 mt-0.5 placeholder:text-[rgba(255,255,255,0.3)] disabled:opacity-50"
+              className="flex-1 bg-transparent border-none outline-none text-[#f8fafc] text-sm lg:text-[0.95rem] h-6 p-0 placeholder:text-[rgba(255,255,255,0.3)] disabled:opacity-50"
             />
             <button 
               onClick={sendMessage}
