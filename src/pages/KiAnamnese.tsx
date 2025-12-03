@@ -1,10 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { QRCodeSVG } from "qrcode.react";
+import { Share2, X, Copy, Check } from "lucide-react";
 
 const KiAnamnese = () => {
   const [activeDepth, setActiveDepth] = useState(0);
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const pageUrl = typeof window !== "undefined" 
+    ? `${window.location.origin}/ki-anamnese` 
+    : "https://sonaris.de/ki-anamnese";
 
   const setDepth = (level: number) => {
     setActiveDepth(level);
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(pageUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const depthLabels = [
@@ -673,6 +687,141 @@ const KiAnamnese = () => {
             gap: 20px;
           }
         }
+
+        .anamnese-page .share-btn {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 100;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s;
+          backdrop-filter: blur(10px);
+        }
+
+        .anamnese-page .share-btn:hover {
+          border-color: var(--cyan-glow);
+          box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+
+        .anamnese-page .share-btn svg {
+          color: var(--cyan-glow);
+        }
+
+        .anamnese-page .share-modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.85);
+          backdrop-filter: blur(10px);
+          z-index: 200;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        .anamnese-page .share-modal {
+          background: var(--bg-deep);
+          border: 1px solid var(--glass-border);
+          border-radius: 12px;
+          padding: 40px;
+          max-width: 400px;
+          width: 90%;
+          text-align: center;
+          position: relative;
+          animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .anamnese-page .share-modal-close {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--text-mute);
+          transition: color 0.2s;
+        }
+
+        .anamnese-page .share-modal-close:hover {
+          color: white;
+        }
+
+        .anamnese-page .share-modal h3 {
+          color: var(--cyan-glow);
+          font-size: 14px;
+          letter-spacing: 2px;
+          margin: 0 0 30px 0;
+          text-transform: uppercase;
+        }
+
+        .anamnese-page .qr-container {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          display: inline-block;
+          margin-bottom: 25px;
+        }
+
+        .anamnese-page .share-url {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          border-radius: 6px;
+          padding: 12px 15px;
+        }
+
+        .anamnese-page .share-url input {
+          flex: 1;
+          background: none;
+          border: none;
+          color: var(--text-white);
+          font-family: var(--font-mono);
+          font-size: 12px;
+          outline: none;
+        }
+
+        .anamnese-page .copy-btn {
+          background: var(--cyan-glow);
+          border: none;
+          border-radius: 4px;
+          padding: 8px 12px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+          transition: all 0.2s;
+        }
+
+        .anamnese-page .copy-btn:hover {
+          background: white;
+        }
+
+        .anamnese-page .copy-btn.copied {
+          background: var(--color-safe);
+        }
       `}</style>
 
       <div className="anamnese-page">
@@ -1011,6 +1160,48 @@ const KiAnamnese = () => {
             </div>
           </div>
         </div>
+
+        {/* Share Button */}
+        <button 
+          className="share-btn" 
+          onClick={() => setShowShareModal(true)}
+          title="Seite teilen"
+        >
+          <Share2 size={20} />
+        </button>
+
+        {/* Share Modal */}
+        {showShareModal && (
+          <div className="share-modal-overlay" onClick={() => setShowShareModal(false)}>
+            <div className="share-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="share-modal-close" onClick={() => setShowShareModal(false)}>
+                <X size={20} />
+              </button>
+              <h3>Seite teilen</h3>
+              <div className="qr-container">
+                <QRCodeSVG 
+                  value={pageUrl} 
+                  size={180}
+                  level="H"
+                  includeMargin={false}
+                />
+              </div>
+              <div className="share-url">
+                <input 
+                  type="text" 
+                  value={pageUrl} 
+                  readOnly 
+                />
+                <button 
+                  className={`copy-btn ${copied ? "copied" : ""}`}
+                  onClick={copyToClipboard}
+                >
+                  {copied ? <><Check size={14} /> Kopiert</> : <><Copy size={14} /> Kopieren</>}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
