@@ -11,7 +11,7 @@ const CeoKiAccelerator = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Willkommen! Ich bin dein persönlicher KI-Assistent für den CEO AI Accelerator. Lass uns gemeinsam herausfinden, wo du mit deinen KI-Initiativen stehst.\n\n_Hinweis: Diese Unterhaltung wird nicht gespeichert._\n\nWas ist deine Rolle im Unternehmen?' }
+    { role: 'assistant', content: 'Willkommen, ich bin dein persönlicher KI-Assistent für den CEO AI Accelerator. Übrigens: Diese Unterhaltung wird nicht gespeichert. Lass uns jetzt gemeinsam herausfinden, wo du mit deinen KI-Initiativen stehst.\n\nWas ist deine Rolle im Unternehmen?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
