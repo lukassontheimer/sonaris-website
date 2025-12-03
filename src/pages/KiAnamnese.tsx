@@ -1141,7 +1141,7 @@ const KiAnamnese = () => {
                 <div className="fact-group">
                   <div className="fact">
                     <span className="f-label">INVESTITION (FESTPREIS)</span>
-                    <span className="f-val">7.500 € *</span>
+                    <span className="f-val">6.500 € *</span>
                     <span className="f-sub">
                       *je nach Unternehmensgröße & Tiefe
                     </span>
