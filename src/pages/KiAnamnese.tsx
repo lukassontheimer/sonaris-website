@@ -22,11 +22,11 @@ const KiAnamnese = () => {
   };
 
   const depthLabels = [
-    { id: "start", label: "START", position: "5%" },
-    { id: "evo", label: "STATUS", position: "25%" },
-    { id: "scan", label: "SCAN", position: "50%" },
-    { id: "flow", label: "ABLAUF", position: "70%" },
-    { id: "res", label: "POTENZIAL", position: "95%" },
+    { id: "surface", label: "SURFACE", position: "5%" },
+    { id: "shallow", label: "SHALLOW", position: "25%" },
+    { id: "mid", label: "MID", position: "50%" },
+    { id: "deep", label: "DEEP", position: "70%" },
+    { id: "core", label: "CORE", position: "95%" },
   ];
 
   return (
