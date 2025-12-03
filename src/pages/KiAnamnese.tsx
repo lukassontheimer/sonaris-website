@@ -114,12 +114,17 @@ const KiAnamnese = () => {
           border-right: 1px solid var(--glass-border);
           display: flex;
           flex-direction: column;
-          padding-top: 15mm;
-          position: sticky;
-          top: 0;
-          height: 100vh;
           z-index: 10;
           backdrop-filter: blur(10px);
+        }
+
+        .anamnese-page .sidebar-inner {
+          position: sticky;
+          top: 0;
+          padding-top: 15mm;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
         }
 
         .anamnese-page .logo-area {
@@ -934,29 +939,31 @@ const KiAnamnese = () => {
         <div className="sheet">
           {/* Sidebar */}
           <div className="sidebar">
-            <div className="logo-area">
-              <div className="sonar-logo">
-                <div className="pulse-ring"></div>
-              </div>
-              <div className="brand-name">SONARIS</div>
-              <div className="brand-sub">SYSTEM TIEFE</div>
-            </div>
-
-            <div className="depth-track-container">
-              <div 
-                className="depth-marker" 
-                style={{ top: depthLabels[activeDepth].position }}
-              ></div>
-              
-              {depthLabels.map((label, index) => (
-                <div
-                  key={label.id}
-                  className={`depth-label ${activeDepth === index ? 'active' : ''}`}
-                  style={{ top: label.position }}
-                >
-                  {label.label}
+            <div className="sidebar-inner">
+              <div className="logo-area">
+                <div className="sonar-logo">
+                  <div className="pulse-ring"></div>
                 </div>
-              ))}
+                <div className="brand-name">SONARIS</div>
+                <div className="brand-sub">SYSTEM TIEFE</div>
+              </div>
+
+              <div className="depth-track-container">
+                <div 
+                  className="depth-marker" 
+                  style={{ top: depthLabels[activeDepth].position }}
+                ></div>
+                
+                {depthLabels.map((label, index) => (
+                  <div
+                    key={label.id}
+                    className={`depth-label ${activeDepth === index ? 'active' : ''}`}
+                    style={{ top: label.position }}
+                  >
+                    {label.label}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
