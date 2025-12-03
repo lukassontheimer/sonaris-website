@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { Share2, X, Copy, Check } from "lucide-react";
 
@@ -11,10 +11,6 @@ const KiAnamnese = () => {
     ? `${window.location.origin}/ki-anamnese` 
     : "https://sonaris.de/ki-anamnese";
 
-  const setDepth = (level: number) => {
-    setActiveDepth(level);
-  };
-
   const copyToClipboard = () => {
     navigator.clipboard.writeText(pageUrl);
     setCopied(true);
@@ -23,25 +19,40 @@ const KiAnamnese = () => {
 
   const depthLabels = [
     { id: "surface", label: "SURFACE", position: "5%" },
-    { id: "shallow", label: "SHALLOW", position: "25%" },
-    { id: "mid", label: "MID", position: "50%" },
-    { id: "deep", label: "DEEP", position: "70%" },
+    { id: "dash", label: "-10m", position: "15%" },
+    { id: "scan", label: "-50m", position: "30%" },
+    { id: "anom", label: "-100m", position: "50%" },
+    { id: "lead", label: "-200m", position: "75%" },
     { id: "core", label: "CORE", position: "95%" },
   ];
+
+  // Animate dashboard stats on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const statTech = document.getElementById('stat-tech');
+      const statOrg = document.getElementById('stat-org');
+      const statCult = document.getElementById('stat-cult');
+      if (statTech) statTech.style.width = '100%';
+      if (statOrg) statOrg.style.width = '40%';
+      if (statCult) statCult.style.width = '20%';
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
       <style>{`
-        .anamnese-page {
+        @page { size: A4; margin: 0; }
+        
+        :root {
           --bg-deep: #020617;
-          --glass-bg: rgba(15, 23, 42, 0.65);
+          --glass-bg: rgba(15, 23, 42, 0.7);
           --glass-border: rgba(34, 211, 238, 0.2);
           --cyan-glow: #22d3ee;
           --cyan-dim: #0891b2;
           --color-warn: #fbbf24;
-          --color-offline: #64748b;
-          --color-safe: #10b981;
-          --color-safe-dim: #064e3b;
+          --color-alert: #f87171;
+          --color-safe: #4ade80;
           --text-white: #f8fafc;
           --text-mute: #94a3b8;
           --font-ui: 'Segoe UI', Inter, Helvetica, Arial, sans-serif;
@@ -56,7 +67,6 @@ const KiAnamnese = () => {
           padding: 0;
           display: flex;
           justify-content: center;
-          min-height: 100vh;
           overflow-x: hidden;
         }
 
@@ -65,7 +75,7 @@ const KiAnamnese = () => {
           max-width: 210mm;
           min-height: 100vh;
           background-color: var(--bg-deep);
-          background-image: radial-gradient(circle at 80% 10%, #1e293b 0%, var(--bg-deep) 60%);
+          background-image: radial-gradient(circle at 70% 0%, #1e293b 0%, var(--bg-deep) 60%);
           color: var(--text-white);
           position: relative;
           box-shadow: 0 0 60px rgba(0,0,0,0.8);
@@ -100,15 +110,16 @@ const KiAnamnese = () => {
 
         .anamnese-page .sidebar {
           width: 50mm;
-          background: rgba(2, 6, 23, 0.95);
+          background: rgba(2, 6, 23, 0.9);
           border-right: 1px solid var(--glass-border);
           display: flex;
           flex-direction: column;
           padding-top: 15mm;
-          position: relative;
+          position: sticky;
+          top: 0;
+          height: 100vh;
           z-index: 10;
-          backdrop-filter: blur(12px);
-          align-self: stretch;
+          backdrop-filter: blur(10px);
         }
 
         .anamnese-page .logo-area {
@@ -178,7 +189,7 @@ const KiAnamnese = () => {
         .anamnese-page .depth-marker {
           position: absolute;
           left: -5px;
-          transition: top 0.6s var(--ease-out);
+          transition: top 0.5s var(--ease-out);
           width: 9px;
           height: 9px;
           background: var(--cyan-glow);
@@ -206,11 +217,11 @@ const KiAnamnese = () => {
 
         .anamnese-page .main-content {
           flex: 1;
-          padding: 15mm 25mm 25mm 25mm;
+          padding: 15mm 20mm;
           z-index: 2;
           display: flex;
           flex-direction: column;
-          gap: 22mm;
+          gap: 15mm;
         }
 
         .anamnese-page h1 {
@@ -232,7 +243,6 @@ const KiAnamnese = () => {
           color: var(--text-mute);
           margin-bottom: 30px;
           font-weight: 400;
-          letter-spacing: 0.5px;
         }
 
         .anamnese-page .intro-lead {
@@ -247,6 +257,20 @@ const KiAnamnese = () => {
           padding-bottom: 10px;
         }
 
+        .anamnese-page .system-note {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          color: var(--text-mute);
+          padding: 12px;
+          border: 1px dashed rgba(255, 255, 255, 0.2);
+          background: rgba(0, 0, 0, 0.3);
+          border-radius: 4px;
+        }
+
+        .anamnese-page .system-note span {
+          color: var(--cyan-glow);
+        }
+
         .anamnese-page .section-header {
           font-family: var(--font-mono);
           color: var(--cyan-glow);
@@ -254,401 +278,473 @@ const KiAnamnese = () => {
           letter-spacing: 1px;
           border-bottom: 1px solid var(--glass-border);
           padding-bottom: 10px;
-          margin-bottom: 25px;
+          margin-bottom: 20px;
           display: block;
         }
 
-        .anamnese-page .evolution-container {
+        .anamnese-page .dashboard-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          gap: 20px;
-          position: relative;
+          gap: 15px;
           margin-top: 20px;
         }
 
-        .anamnese-page .evo-line {
-          position: absolute;
-          top: 40px;
-          left: 10%;
-          right: 10%;
-          height: 2px;
-          background: linear-gradient(to right, var(--color-offline), var(--color-warn), var(--cyan-glow));
-          z-index: 0;
-          opacity: 0.3;
-        }
-
-        .anamnese-page .evo-card {
+        .anamnese-page .dash-card {
           background: var(--glass-bg);
-          border: 1px solid;
-          border-radius: 8px;
-          padding: 25px 20px;
-          position: relative;
-          z-index: 2;
-          backdrop-filter: blur(5px);
+          border: 1px solid var(--glass-border);
+          padding: 15px;
+          border-radius: 6px;
           transition: all 0.3s;
-          cursor: pointer;
-          min-height: 180px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+          position: relative;
+          overflow: hidden;
         }
 
-        .anamnese-page .evo-card .entry-point {
-          margin-top: auto;
-          padding-top: 15px;
-          border-top: 1px dashed rgba(255,255,255,0.2);
-          font-size: 10px;
-          color: var(--text-white);
-          opacity: 0.5;
-          transition: opacity 0.3s;
+        .anamnese-page .dash-card:hover {
+          border-color: var(--cyan-glow);
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
         }
 
-        .anamnese-page .evo-card:hover .entry-point {
-          opacity: 1;
-        }
-
-        .anamnese-page .evo-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .anamnese-page .evo-1 { border-color: var(--color-offline); }
-        .anamnese-page .evo-1 .e-head { color: var(--color-offline); }
-        .anamnese-page .evo-2 { border-color: var(--color-warn); }
-        .anamnese-page .evo-2 .e-head { color: var(--color-warn); }
-        .anamnese-page .evo-3 { border-color: var(--cyan-glow); }
-        .anamnese-page .evo-3 .e-head { color: var(--cyan-glow); }
-
-        .anamnese-page .e-head {
+        .anamnese-page .db-head {
           font-family: var(--font-mono);
           font-size: 10px;
           font-weight: bold;
-          text-transform: uppercase;
-          margin-bottom: 10px;
+          color: var(--text-white);
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: space-between;
         }
 
-        .anamnese-page .e-title {
-          font-weight: bold;
-          font-size: 14px;
-          color: white;
+        .anamnese-page .db-status {
+          color: var(--cyan-glow);
+        }
+
+        .anamnese-page .db-stat-bar {
+          height: 3px;
+          width: 100%;
+          background: rgba(255,255,255,0.1);
+          border-radius: 2px;
           margin-bottom: 8px;
         }
 
-        .anamnese-page .e-desc {
+        .anamnese-page .db-stat-fill {
+          height: 100%;
+          border-radius: 2px;
+          width: 0;
+          transition: width 1s ease-out;
+        }
+
+        .anamnese-page .db-desc {
+          font-size: 11px;
+          line-height: 1.4;
+          color: var(--text-mute);
+        }
+
+        .anamnese-page .layers-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+        }
+
+        .anamnese-page .layer-card {
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          padding: 20px;
+          border-radius: 6px;
+          transition: all 0.3s;
+          position: relative;
+          overflow: hidden;
+          backdrop-filter: blur(5px);
+        }
+
+        .anamnese-page .layer-card:hover {
+          border-color: var(--cyan-glow);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          background: rgba(30, 41, 59, 0.8);
+        }
+
+        .anamnese-page .layer-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 10px;
+          gap: 10px;
+        }
+
+        .anamnese-page .l-title {
+          font-weight: bold;
+          font-size: 13px;
+          color: var(--text-white);
+          text-transform: uppercase;
+          margin: 0;
+        }
+
+        .anamnese-page .l-desc {
           font-size: 12px;
           color: var(--text-mute);
           line-height: 1.5;
-          margin-bottom: 15px;
         }
 
-        .anamnese-page .e-status {
-          font-size: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          font-weight: bold;
-          display: block;
-          margin-bottom: 10px;
+        .anamnese-page .l-badge {
+          font-family: var(--font-mono);
+          font-size: 9px;
+          padding: 2px 6px;
+          border-radius: 4px;
+          border: 1px solid;
+          white-space: nowrap;
         }
 
-        .anamnese-page .scan-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 20px;
+        .anamnese-page .stat-ok {
+          color: #4ade80;
+          border-color: #4ade80;
+          background: rgba(74, 222, 128, 0.1);
         }
 
-        .anamnese-page .scan-card {
-          background: rgba(15, 23, 42, 0.6);
-          border: 1px solid var(--glass-border);
+        .anamnese-page .stat-warn {
+          color: #fbbf24;
+          border-color: #fbbf24;
+          background: rgba(251, 191, 36, 0.1);
+        }
+
+        .anamnese-page .stat-crit {
+          color: #f87171;
+          border-color: #f87171;
+          background: rgba(248, 113, 113, 0.1);
+        }
+
+        .anamnese-page .security-box {
+          border: 1px solid var(--color-safe);
+          background: linear-gradient(135deg, rgba(74, 222, 128, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%);
+          border-radius: 8px;
           padding: 25px;
-          border-radius: 6px;
+          margin-top: 20px;
           position: relative;
+          overflow: hidden;
+        }
+
+        .anamnese-page .security-box::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: var(--color-safe);
+        }
+
+        .anamnese-page .sec-header {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+          padding-bottom: 15px;
+        }
+
+        .anamnese-page .sec-icon-large {
+          color: var(--color-safe);
+        }
+
+        .anamnese-page .sec-title-block h4 {
+          margin: 0;
+          color: var(--color-safe);
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .anamnese-page .sec-subtitle {
+          font-family: var(--font-mono);
+          font-size: 9px;
+          color: var(--text-mute);
+        }
+
+        .anamnese-page .sec-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 15px 30px;
+        }
+
+        .anamnese-page .sec-item {
+          display: flex;
+          gap: 10px;
+          font-size: 12px;
+          line-height: 1.5;
+          color: var(--text-mute);
+        }
+
+        .anamnese-page .sec-item strong {
+          color: var(--text-white);
+        }
+
+        .anamnese-page .sec-check {
+          color: var(--color-safe);
+          font-weight: bold;
+        }
+
+        .anamnese-page .sec-tags {
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+          flex-wrap: wrap;
+        }
+
+        .anamnese-page .sec-tag {
+          font-family: var(--font-mono);
+          font-size: 9px;
+          color: var(--color-safe);
+          background: rgba(74, 222, 128, 0.1);
+          padding: 4px 10px;
+          border-radius: 4px;
+          border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .anamnese-page .anomaly-card {
+          background: rgba(255, 0, 0, 0.05);
+          border: 1px solid rgba(248, 113, 113, 0.3);
+          border-left: 3px solid var(--color-alert);
+          border-radius: 4px;
+          padding: 15px;
+          margin-bottom: 15px;
+          transition: all 0.3s;
+        }
+
+        .anamnese-page .anomaly-card:hover {
+          background: rgba(255, 0, 0, 0.1);
+          box-shadow: 0 0 20px rgba(248, 113, 113, 0.15);
+        }
+
+        .anamnese-page .ac-head {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+          font-family: var(--font-mono);
+          font-size: 10px;
+          color: var(--color-alert);
+        }
+
+        .anamnese-page .ac-body {
+          display: flex;
+          gap: 20px;
+          font-size: 12px;
+        }
+
+        .anamnese-page .ac-problem {
+          flex: 1;
+          border-right: 1px solid rgba(255,255,255,0.1);
+          padding-right: 15px;
+          color: var(--text-mute);
+        }
+
+        .anamnese-page .ac-fix {
+          flex: 1;
+          color: var(--text-white);
+        }
+
+        .anamnese-page .ac-fix strong {
+          color: var(--cyan-glow);
+        }
+
+        .anamnese-page .warning-box {
+          border: 1px dashed var(--color-warn);
+          background: rgba(251, 191, 36, 0.05);
+          padding: 20px;
+          display: flex;
+          gap: 15px;
+          align-items: center;
+          border-radius: 6px;
+        }
+
+        .anamnese-page .warn-icon {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .anamnese-page .warn-text {
+          color: var(--text-white);
+          font-size: 12px;
+          line-height: 1.5;
+          opacity: 0.9;
+        }
+
+        .anamnese-page .leadership-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .anamnese-page .leader-step {
+          display: flex;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          border-radius: 8px;
           overflow: hidden;
           transition: all 0.3s;
         }
 
-        .anamnese-page .scan-card:hover {
+        .anamnese-page .leader-step:hover {
           border-color: var(--cyan-glow);
+          box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+          transform: scale(1.01);
+        }
+
+        .anamnese-page .ls-num {
           background: rgba(34, 211, 238, 0.05);
-        }
-
-        .anamnese-page .s-visual {
-          height: 40px;
-          width: 100%;
-          margin-bottom: 20px;
-          position: relative;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .anamnese-page .wf-chip {
-          width: 24px;
-          height: 24px;
-          border: 1px solid var(--cyan-glow);
-          position: absolute;
-          top: 5px;
-          left: 0;
-          box-shadow: 0 0 5px var(--cyan-glow);
-        }
-
-        .anamnese-page .wf-chip::after {
-          content: '';
-          position: absolute;
-          top: 4px;
-          left: 4px;
-          width: 14px;
-          height: 14px;
-          border: 1px dashed var(--cyan-dim);
-        }
-
-        .anamnese-page .wf-bio {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          border: 1px solid var(--color-warn);
-          position: absolute;
-          top: 5px;
-          left: 0;
-        }
-
-        .anamnese-page .wf-bio::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          background: var(--color-warn);
-        }
-
-        .anamnese-page .wf-bio::after {
-          content: '';
-          position: absolute;
-          left: 50%;
-          top: 0;
-          height: 100%;
-          width: 1px;
-          background: var(--color-warn);
-        }
-
-        .anamnese-page .wf-shield {
-          width: 22px;
-          height: 26px;
-          border: 1px solid var(--color-safe);
-          position: absolute;
-          top: 5px;
-          left: 0;
-          border-radius: 0 0 11px 11px;
-        }
-
-        .anamnese-page .wf-shield::after {
-          content: '';
-          position: absolute;
-          top: 4px;
-          left: 4px;
-          width: 12px;
-          height: 8px;
-          border: 1px solid var(--color-safe);
-        }
-
-        .anamnese-page .s-title {
-          font-weight: bold;
-          font-size: 13px;
-          color: white;
-          text-transform: uppercase;
-          margin-bottom: 5px;
-        }
-
-        .anamnese-page .s-method {
+          color: var(--cyan-glow);
           font-family: var(--font-mono);
-          font-size: 10px;
-          color: var(--cyan-dim);
-          margin-bottom: 10px;
-          display: block;
-        }
-
-        .anamnese-page .s-list {
-          margin: 0;
-          padding-left: 15px;
-          font-size: 12px;
-          line-height: 1.6;
-          color: var(--text-mute);
-        }
-
-        .anamnese-page .workflow-container {
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border);
-          border-radius: 8px;
-          padding: 25px;
-        }
-
-        .anamnese-page .wf-row {
-          display: flex;
-          align-items: flex-start;
-          margin-bottom: 20px;
-          position: relative;
-        }
-
-        .anamnese-page .wf-row:last-child {
-          margin-bottom: 0;
-        }
-
-        .anamnese-page .wf-row:not(:last-child)::after {
-          content: '';
-          position: absolute;
-          left: 15px;
-          top: 35px;
-          bottom: -25px;
-          width: 1px;
-          background: linear-gradient(to bottom, var(--cyan-dim), transparent);
-        }
-
-        .anamnese-page .wf-num {
-          width: 30px;
-          height: 30px;
-          border: 1px solid var(--cyan-glow);
-          border-radius: 50%;
+          font-size: 24px;
+          font-weight: bold;
+          padding: 0 20px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-mono);
-          font-size: 12px;
-          color: var(--cyan-glow);
-          margin-right: 20px;
-          flex-shrink: 0;
-          background: var(--bg-deep);
-          z-index: 2;
+          border-right: 1px solid var(--glass-border);
         }
 
-        .anamnese-page .wf-content {
+        .anamnese-page .ls-content {
+          padding: 15px;
           flex: 1;
-          padding-top: 5px;
         }
 
-        .anamnese-page .wf-head {
+        .anamnese-page .ls-head {
           font-weight: bold;
-          color: white;
-          font-size: 13px;
+          color: var(--text-white);
           text-transform: uppercase;
+          font-size: 13px;
           margin-bottom: 5px;
         }
 
-        .anamnese-page .wf-text {
+        .anamnese-page .ls-desc {
+          font-size: 12px;
           color: var(--text-mute);
-          font-size: 13px;
+          margin-bottom: 10px;
           line-height: 1.5;
         }
 
-        .anamnese-page .roi-container {
-          display: flex;
-          gap: 60px;
-          align-items: center;
-          justify-content: space-between;
-          background: linear-gradient(90deg, var(--color-safe-dim) 0%, transparent 100%);
-          border: 1px solid var(--color-safe);
-          border-radius: 8px;
-          padding: 35px;
-        }
-
-        .anamnese-page .triangle-vis {
-          width: 160px;
-          height: 160px;
-          position: relative;
-          flex-shrink: 0;
-        }
-
-        .anamnese-page .tri-svg {
-          width: 100%;
-          height: 100%;
-          filter: drop-shadow(0 0 2px var(--color-safe));
-        }
-
-        .anamnese-page .roi-content {
-          flex: 1;
-        }
-
-        .anamnese-page .roi-content h4 {
-          margin: 0 0 10px 0;
-          color: var(--color-safe);
-          text-transform: uppercase;
-          font-size: 14px;
-          letter-spacing: 1px;
-        }
-
-        .anamnese-page .roi-content p {
-          margin: 0;
-          font-size: 13px;
-          color: var(--text-mute);
-          line-height: 1.6;
-        }
-
-        .anamnese-page .roi-badges {
-          margin-top: 20px;
-          display: flex;
-          gap: 15px;
-        }
-
-        .anamnese-page .roi-badge {
-          background: rgba(16, 185, 129, 0.1);
-          color: var(--color-safe);
-          padding: 6px 12px;
-          font-size: 10px;
-          border-radius: 4px;
-          font-weight: bold;
-          border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .anamnese-page .facts-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          margin-top: 60px;
-          padding-top: 30px;
-          border-top: 1px solid var(--glass-border);
-        }
-
-        .anamnese-page .fact-group {
-          display: flex;
-          gap: 50px;
-        }
-
-        .anamnese-page .fact {
-          display: flex;
-          flex-direction: column;
-          gap: 5px;
-        }
-
-        .anamnese-page .f-label {
+        .anamnese-page .ls-badge {
           font-family: var(--font-mono);
-          font-size: 10px;
-          color: var(--cyan-dim);
-          letter-spacing: 1px;
+          font-size: 9px;
+          color: var(--cyan-glow);
+          border: 1px solid var(--cyan-dim);
+          padding: 4px 8px;
+          border-radius: 4px;
+          display: inline-block;
+          background: rgba(34, 211, 238, 0.05);
         }
 
-        .anamnese-page .f-val {
-          font-size: 20px;
+        .anamnese-page .ls-badge span {
+          font-weight: bold;
+          opacity: 0.7;
+          margin-right: 5px;
+        }
+
+        .anamnese-page .quote-box {
+          text-align: center;
+          font-style: italic;
+          color: var(--text-white);
+          padding: 20px;
+          border-top: 1px solid var(--glass-border);
+          margin-top: 20px;
+          font-size: 14px;
+          opacity: 0.8;
+        }
+
+        .anamnese-page .timeline-container {
+          position: relative;
+          margin-top: 20px;
+        }
+
+        .anamnese-page .tl-line {
+          position: absolute;
+          left: 19px;
+          top: 10px;
+          bottom: 10px;
+          width: 2px;
+          background: linear-gradient(to bottom, var(--cyan-glow), rgba(34, 211, 238, 0.1));
+        }
+
+        .anamnese-page .tl-item {
+          display: flex;
+          margin-bottom: 20px;
+          position: relative;
+          transition: opacity 0.3s;
+        }
+
+        .anamnese-page .tl-item:hover .tl-dot {
+          box-shadow: 0 0 15px var(--cyan-glow);
+          transform: scale(1.2);
+          background: var(--cyan-glow);
+        }
+
+        .anamnese-page .tl-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--bg-deep);
+          border: 2px solid var(--cyan-glow);
+          margin: 5px 15px 0 15px;
+          z-index: 2;
+          transition: all 0.3s;
+        }
+
+        .anamnese-page .tl-content {
+          flex: 1;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          padding: 15px;
+          border-radius: 6px;
+          backdrop-filter: blur(5px);
+        }
+
+        .anamnese-page .tl-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+        }
+
+        .anamnese-page .tl-title {
           font-weight: bold;
           color: var(--text-white);
+          font-size: 13px;
         }
 
-        .anamnese-page .f-sub {
-          font-size: 10px;
+        .anamnese-page .tl-time {
+          font-family: var(--font-mono);
+          color: var(--cyan-glow);
+          font-size: 11px;
+        }
+
+        .anamnese-page .tl-text {
+          font-size: 12px;
           color: var(--text-mute);
-          font-style: italic;
+        }
+
+        .anamnese-page .cta-box {
+          margin-top: 40px;
+          text-align: center;
+          background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(34, 211, 238, 0.1) 100%);
+          border: 1px solid var(--cyan-dim);
+          padding: 30px;
+          border-radius: 8px;
         }
 
         .anamnese-page .cta-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
           background: var(--cyan-glow);
           color: #000;
           text-decoration: none;
-          padding: 12px 30px;
+          padding: 12px 25px;
           font-weight: bold;
           border-radius: 4px;
-          font-size: 12px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
           transition: all 0.2s;
-          display: flex;
-          align-items: center;
-          gap: 10px;
+          margin-right: 15px;
+          font-size: 13px;
         }
 
         .anamnese-page .cta-btn:hover {
@@ -656,96 +752,80 @@ const KiAnamnese = () => {
           box-shadow: 0 0 20px var(--cyan-glow);
         }
 
-        @media (max-width: 768px) {
-          .anamnese-page .sidebar {
-            display: none;
-          }
-          
-          .anamnese-page .main-content {
-            padding: 20px;
-          }
-          
-          .anamnese-page .evolution-container,
-          .anamnese-page .scan-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .anamnese-page .roi-container {
-            flex-direction: column;
-            gap: 30px;
-          }
-          
-          .anamnese-page .facts-bar {
-            flex-direction: column;
-            gap: 30px;
-            align-items: flex-start;
-          }
-          
-          .anamnese-page .fact-group {
-            flex-direction: column;
-            gap: 20px;
-          }
+        .anamnese-page .cta-sub {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          color: var(--text-white);
+          text-decoration: none;
+          border: 1px solid var(--text-mute);
+          padding: 12px 25px;
+          font-weight: bold;
+          border-radius: 4px;
+          font-size: 13px;
+          transition: all 0.2s;
         }
 
-        .anamnese-page .share-btn {
+        .anamnese-page .cta-sub:hover {
+          border-color: white;
+          background: rgba(255,255,255,0.1);
+        }
+
+        .anamnese-page .footer {
+          margin-top: 30px;
+          border-top: 1px solid var(--glass-border);
+          padding-top: 20px;
+          font-family: var(--font-mono);
+          font-size: 10px;
+          color: var(--text-mute);
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .anamnese-page .share-button {
           position: fixed;
           top: 20px;
           right: 20px;
           z-index: 100;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
           background: var(--glass-bg);
           border: 1px solid var(--glass-border);
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          color: var(--cyan-glow);
+          padding: 10px;
+          border-radius: 50%;
           cursor: pointer;
           transition: all 0.3s;
           backdrop-filter: blur(10px);
         }
 
-        .anamnese-page .share-btn:hover {
-          border-color: var(--cyan-glow);
-          box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
-        }
-
-        .anamnese-page .share-btn svg {
-          color: var(--cyan-glow);
-        }
-
-        .anamnese-page .share-modal-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.85);
-          backdrop-filter: blur(10px);
-          z-index: 200;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: fadeIn 0.2s ease-out;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+        .anamnese-page .share-button:hover {
+          background: var(--cyan-glow);
+          color: #000;
+          box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
         }
 
         .anamnese-page .share-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+          backdrop-filter: blur(5px);
+        }
+
+        .anamnese-page .share-modal-content {
           background: var(--bg-deep);
           border: 1px solid var(--glass-border);
           border-radius: 12px;
-          padding: 40px;
+          padding: 30px;
           max-width: 400px;
           width: 90%;
           text-align: center;
           position: relative;
-          animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
         }
 
         .anamnese-page .share-modal-close {
@@ -754,21 +834,13 @@ const KiAnamnese = () => {
           right: 15px;
           background: none;
           border: none;
-          cursor: pointer;
           color: var(--text-mute);
-          transition: color 0.2s;
+          cursor: pointer;
+          transition: color 0.3s;
         }
 
         .anamnese-page .share-modal-close:hover {
-          color: white;
-        }
-
-        .anamnese-page .share-modal h3 {
-          color: var(--cyan-glow);
-          font-size: 14px;
-          letter-spacing: 2px;
-          margin: 0 0 30px 0;
-          text-transform: uppercase;
+          color: var(--text-white);
         }
 
         .anamnese-page .qr-container {
@@ -776,7 +848,7 @@ const KiAnamnese = () => {
           padding: 20px;
           border-radius: 8px;
           display: inline-block;
-          margin-bottom: 25px;
+          margin: 20px 0;
         }
 
         .anamnese-page .share-url {
@@ -786,7 +858,8 @@ const KiAnamnese = () => {
           background: var(--glass-bg);
           border: 1px solid var(--glass-border);
           border-radius: 6px;
-          padding: 12px 15px;
+          padding: 10px 15px;
+          margin-top: 15px;
         }
 
         .anamnese-page .share-url input {
@@ -800,26 +873,24 @@ const KiAnamnese = () => {
         }
 
         .anamnese-page .copy-btn {
-          background: var(--cyan-glow);
+          background: none;
           border: none;
-          border-radius: 4px;
-          padding: 8px 12px;
+          color: var(--cyan-glow);
           cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          color: #000;
-          font-size: 11px;
-          font-weight: bold;
-          transition: all 0.2s;
+          padding: 5px;
+          transition: all 0.3s;
         }
 
         .anamnese-page .copy-btn:hover {
-          background: white;
+          transform: scale(1.1);
         }
 
-        .anamnese-page .copy-btn.copied {
-          background: var(--color-safe);
+        @media print {
+          .anamnese-page { background: white; display: block; padding: 0; }
+          .anamnese-page .sheet { background: white; color: #000; box-shadow: none; display: block; width: 100%; max-width: 100%; height: auto; }
+          .anamnese-page .sonar-grid, .anamnese-page .particulate, .anamnese-page .sidebar, .anamnese-page .share-button { display: none; }
+          .anamnese-page .main-content { padding: 20px 40px; display: block; }
+          .anamnese-page h1, .anamnese-page h1 strong { color: #000; text-shadow: none; font-size: 28px; }
         }
       `}</style>
 
@@ -827,342 +898,9 @@ const KiAnamnese = () => {
         <div className="sonar-grid"></div>
         <div className="particulate"></div>
 
-        <div className="sheet">
-          {/* SIDEBAR */}
-          <div className="sidebar">
-            <div className="logo-area">
-              <div className="sonar-logo">
-                <div className="pulse-ring"></div>
-              </div>
-              <div className="brand-name">SONARIS</div>
-              <div className="brand-sub">ANAMNESE</div>
-            </div>
-            <div className="depth-track-container">
-              <div
-                className="depth-marker"
-                style={{ top: depthLabels[activeDepth].position }}
-              ></div>
-              {depthLabels.map((item, index) => (
-                <div
-                  key={item.id}
-                  className={`depth-label ${activeDepth === index ? "active" : ""}`}
-                  style={{ top: item.position }}
-                >
-                  {item.label}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* MAIN CONTENT */}
-          <div className="main-content">
-            {/* 1. INTRO */}
-            <div className="section-intro" onMouseEnter={() => setDepth(0)}>
-              <h1>
-                KI-Anamnese: <strong>Deine Ortung.</strong>
-              </h1>
-              <div className="sub-headline">
-                Bestandsaufnahme & Roadmap für den Mittelstand
-              </div>
-
-              <div className="intro-lead">
-                Klarheit statt Vermutung. Wir liefern die exakten Koordinaten
-                deines Unternehmens. Eine strukturierte Diagnose des
-                KI-Reifegrades als verlässliche Entscheidungsgrundlage.
-              </div>
-            </div>
-
-            {/* 2. EVOLUTION (3-PHASEN) */}
-            <div onMouseEnter={() => setDepth(1)}>
-              <span className="section-header">
-                {">> REIFEGRAD-ORTUNG & EINSTIEG"}
-              </span>
-              <div className="evolution-container">
-                <div className="evo-line"></div>
-
-                {/* Phase 1 */}
-                <div className="evo-card evo-1">
-                  <div>
-                    <div className="e-head">PHASE 1</div>
-                    <div className="e-title">Initiierung</div>
-                    <div className="e-desc">
-                      Traditionelles Arbeiten. KI findet nicht statt. Gefahr des
-                      Anschlussverlusts.
-                    </div>
-                    <span
-                      className="e-status"
-                      style={{ color: "var(--color-offline)" }}
-                    >
-                      OFFLINE
-                    </span>
-                  </div>
-                  <div className="entry-point">
-                    <strong>SONARIS EINSTIEG:</strong>
-                    <br />
-                    Initialzündung & Setup
-                  </div>
-                </div>
-
-                {/* Phase 2 */}
-                <div className="evo-card evo-2">
-                  <div>
-                    <div className="e-head">PHASE 2</div>
-                    <div className="e-title">Anarchie</div>
-                    <div className="e-desc">
-                      Wildwuchs. KI übernimmt Aufgaben (ungesteuert). Hohes
-                      Risiko durch Schatten-IT.
-                    </div>
-                    <span
-                      className="e-status"
-                      style={{ color: "var(--color-warn)" }}
-                    >
-                      UNGESTEUERT
-                    </span>
-                  </div>
-                  <div className="entry-point">
-                    <strong>SONARIS EINSTIEG:</strong>
-                    <br />
-                    Konsolidierung & Sicherheit
-                  </div>
-                </div>
-
-                {/* Phase 3 */}
-                <div className="evo-card evo-3">
-                  <div>
-                    <div className="e-head">PHASE 3</div>
-                    <div className="e-title">Strukturierung</div>
-                    <div className="e-desc">
-                      Professionalisierung. Governance & Sicherheit. Mensch & KI
-                      arbeiten Hand in Hand.
-                    </div>
-                    <span
-                      className="e-status"
-                      style={{
-                        color: "var(--color-safe)",
-                        border: "1px solid var(--color-safe)",
-                      }}
-                    >
-                      HYBRIDER FLOW
-                    </span>
-                  </div>
-                  <div className="entry-point">
-                    <strong>SONARIS EINSTIEG:</strong>
-                    <br />
-                    Skalierung & Deep Dive
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 3. DER SCAN */}
-            <div onMouseEnter={() => setDepth(2)}>
-              <span className="section-header">
-                {">> 3-DIMENSIONALER TIEFEN-SCAN"}
-              </span>
-              <div className="scan-grid">
-                {/* Tech Scan */}
-                <div className="scan-card">
-                  <div className="s-visual">
-                    <div className="wf-chip"></div>
-                  </div>
-                  <div className="s-title">Tech-Scan</div>
-                  <span className="s-method">METHODE: TECHNISCHE INVENTUR</span>
-                  <ul className="s-list">
-                    <li>Infrastruktur-Check</li>
-                    <li>Datenzugang prüfen</li>
-                    <li>Tool-Inventur</li>
-                  </ul>
-                </div>
-
-                {/* People Scan */}
-                <div className="scan-card">
-                  <div className="s-visual">
-                    <div className="wf-bio"></div>
-                  </div>
-                  <div className="s-title">People-Scan</div>
-                  <span className="s-method">METHODE: INTERVIEWS</span>
-                  <ul className="s-list">
-                    <li>Kompetenz & Haltung</li>
-                    <li>Ängste identifizieren</li>
-                    <li>Prompting-Skills</li>
-                  </ul>
-                </div>
-
-                {/* Legal Scan */}
-                <div className="scan-card">
-                  <div className="s-visual">
-                    <div className="wf-shield"></div>
-                  </div>
-                  <div className="s-title">Legal-Scan</div>
-                  <span className="s-method">METHODE: COMPLIANCE CHECK</span>
-                  <ul className="s-list">
-                    <li>Datenschutz-Status</li>
-                    <li>Governance-Regeln</li>
-                    <li>Risiko-Bewertung</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* 4. WORKFLOW */}
-            <div onMouseEnter={() => setDepth(3)}>
-              <span className="section-header">
-                {">> ABLAUF DER UNTERSUCHUNG"}
-              </span>
-              <div className="workflow-container">
-                <div className="wf-row">
-                  <div className="wf-num">01</div>
-                  <div className="wf-content">
-                    <div className="wf-head">Schriftliche Befragung</div>
-                    <div className="wf-text">
-                      Erste Datenerhebung im Team via Online-Tool. Erfassung des
-                      Status Quo.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="wf-row">
-                  <div className="wf-num">02</div>
-                  <div className="wf-content">
-                    <div className="wf-head">Deep Dive Interviews</div>
-                    <div className="wf-text">
-                      Persönliche Gespräche mit Key-Playern, um kulturelle
-                      Blockaden zu finden.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="wf-row">
-                  <div className="wf-num">03</div>
-                  <div className="wf-content">
-                    <div className="wf-head">Analyse & Einordnung</div>
-                    <div className="wf-text">
-                      Auswertung aller Datenpunkte und Verortung im Phasenmodell.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="wf-row">
-                  <div className="wf-num">04</div>
-                  <div className="wf-content">
-                    <div className="wf-head">Ergebnis & Roadmap</div>
-                    <div className="wf-text">
-                      Präsentation der Findings und Übergabe der konkreten
-                      Handlungsempfehlung.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 5. DELIVERABLES & FACTS */}
-            <div onMouseEnter={() => setDepth(4)}>
-              <span className="section-header">
-                {">> OUTPUT: DEINE POTENZIALE"}
-              </span>
-
-              <div className="roi-container">
-                {/* Triangle SVG */}
-                <div className="triangle-vis">
-                  <svg viewBox="0 0 100 100" className="tri-svg">
-                    <polygon
-                      points="50,5 95,95 5,95"
-                      fill="none"
-                      stroke="#10b981"
-                      strokeWidth="0.8"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="50" cy="5" r="1.5" fill="#10b981" />
-                    <circle cx="95" cy="95" r="1.5" fill="#10b981" />
-                    <circle cx="5" cy="95" r="1.5" fill="#10b981" />
-                    <text
-                      x="50"
-                      y="65"
-                      fontFamily="Courier New"
-                      fontSize="6"
-                      fill="#e0e0e0"
-                      textAnchor="middle"
-                      fontWeight="bold"
-                      letterSpacing="1"
-                    >
-                      POTENZIAL
-                    </text>
-                    <text
-                      x="50"
-                      y="-2"
-                      fontFamily="Courier New"
-                      fontSize="6"
-                      fill="#10b981"
-                      textAnchor="middle"
-                    >
-                      QUALITÄT
-                    </text>
-                    <text
-                      x="0"
-                      y="105"
-                      fontFamily="Courier New"
-                      fontSize="6"
-                      fill="#10b981"
-                      textAnchor="start"
-                    >
-                      KOSTEN
-                    </text>
-                    <text
-                      x="100"
-                      y="105"
-                      fontFamily="Courier New"
-                      fontSize="6"
-                      fill="#10b981"
-                      textAnchor="end"
-                    >
-                      ZEIT
-                    </text>
-                  </svg>
-                </div>
-
-                <div className="roi-content">
-                  <h4>Klarheit für Entscheider</h4>
-                  <p>
-                    Du erhältst eine konkrete Berechnung deiner
-                    Optimierungspotenziale. Wir balancieren Kosten, Qualität und
-                    Zeitersparnis für deinen Case.
-                  </p>
-                  <div className="roi-badges">
-                    <span className="roi-badge">STATUS-BERICHT</span>
-                    <span className="roi-badge">180-TAGE-FAHRPLAN</span>
-                    <span className="roi-badge">ROI-ANALYSE</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* FOOTER FACTS */}
-              <div className="facts-bar">
-                <div className="fact-group">
-                  <div className="fact">
-                    <span className="f-label">INVESTITION (FESTPREIS)</span>
-                    <span className="f-val">6.500 € *</span>
-                    <span className="f-sub">
-                      *je nach Unternehmensgröße & Tiefe
-                    </span>
-                  </div>
-                  <div className="fact">
-                    <span className="f-label">DURCHLAUFZEIT</span>
-                    <span className="f-val">ca. 4 Wochen</span>
-                    <span className="f-sub">Effizienter Prozess</span>
-                  </div>
-                </div>
-
-                <a href="mailto:oliver@sonaris.de" className="cta-btn">
-                  <span>✉️</span> E-MAIL SENDEN
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Share Button */}
         <button 
-          className="share-btn" 
+          className="share-button"
           onClick={() => setShowShareModal(true)}
           title="Seite teilen"
         >
@@ -1171,36 +909,297 @@ const KiAnamnese = () => {
 
         {/* Share Modal */}
         {showShareModal && (
-          <div className="share-modal-overlay" onClick={() => setShowShareModal(false)}>
-            <div className="share-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="share-modal" onClick={() => setShowShareModal(false)}>
+            <div className="share-modal-content" onClick={e => e.stopPropagation()}>
               <button className="share-modal-close" onClick={() => setShowShareModal(false)}>
                 <X size={20} />
               </button>
-              <h3>Seite teilen</h3>
+              <h3 style={{ color: 'var(--cyan-glow)', marginBottom: '10px' }}>Seite teilen</h3>
+              <p style={{ color: 'var(--text-mute)', fontSize: '12px' }}>
+                Scanne den QR-Code oder kopiere den Link
+              </p>
               <div className="qr-container">
-                <QRCodeSVG 
-                  value={pageUrl} 
-                  size={180}
-                  level="H"
-                  includeMargin={false}
-                />
+                <QRCodeSVG value={pageUrl} size={150} />
               </div>
               <div className="share-url">
-                <input 
-                  type="text" 
-                  value={pageUrl} 
-                  readOnly 
-                />
-                <button 
-                  className={`copy-btn ${copied ? "copied" : ""}`}
-                  onClick={copyToClipboard}
-                >
-                  {copied ? <><Check size={14} /> Kopiert</> : <><Copy size={14} /> Kopieren</>}
+                <input type="text" value={pageUrl} readOnly />
+                <button className="copy-btn" onClick={copyToClipboard}>
+                  {copied ? <Check size={18} /> : <Copy size={18} />}
                 </button>
               </div>
             </div>
           </div>
         )}
+
+        <div className="sheet">
+          {/* Sidebar */}
+          <div className="sidebar">
+            <div className="logo-area">
+              <div className="sonar-logo">
+                <div className="pulse-ring"></div>
+              </div>
+              <div className="brand-name">SONARIS</div>
+              <div className="brand-sub">SYSTEM TIEFE</div>
+            </div>
+
+            <div className="depth-track-container">
+              <div 
+                className="depth-marker" 
+                style={{ top: depthLabels[activeDepth].position }}
+              ></div>
+              
+              {depthLabels.map((label, index) => (
+                <div
+                  key={label.id}
+                  className={`depth-label ${activeDepth === index ? 'active' : ''}`}
+                  style={{ top: label.position }}
+                >
+                  {label.label}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="main-content">
+            {/* 1. INTRO */}
+            <div className="section-intro" onMouseEnter={() => setActiveDepth(0)}>
+              <h1>KI als <strong>sozialer Lernprozess.</strong></h1>
+              <div className="sub-headline">Wie gelingt deine KI-Initiative?</div>
+              
+              <div className="intro-lead">
+                <strong>Management Summary:</strong><br />
+                Euer Unternehmen ist bereit für KI. Die Technik ist nicht das Hindernis.
+                Unsere Diagnose zeigt jedoch: Ihr steht vor einem <strong>sozialen Lernprozess</strong>, nicht vor einem IT-Projekt.
+                Damit KI nicht im "Dauer-Pilotstatus" stecken bleibt, <strong>empfehlen wir die folgende strategische Vorgehensweise.</strong>
+              </div>
+
+              <div className="system-note">
+                <span>* HINWEIS:</span> Das hier skizzierte 180-Tage-Programm ist beispielhaft und als Mindestanforderung für eine nachhaltige Implementierung zu verstehen.
+              </div>
+            </div>
+
+            {/* 1.5 DIAGNOSTIC DASHBOARD */}
+            <div onMouseEnter={() => setActiveDepth(1)}>
+              <span className="section-header">&gt;&gt; DIAGNOSTIC DASHBOARD</span>
+              <div className="dashboard-grid">
+                <div className="dash-card">
+                  <div className="db-head"><span>01 TECHNIK</span><span className="db-status">READY</span></div>
+                  <div className="db-stat-bar"><div id="stat-tech" className="db-stat-fill" style={{ background: 'var(--cyan-glow)' }}></div></div>
+                  <div className="db-desc">Modelle & Hardware verfügbar. Langdock sichert Basis ab.</div>
+                </div>
+                <div className="dash-card">
+                  <div className="db-head"><span>02 ORG</span><span className="db-status" style={{ color: 'var(--color-warn)' }}>ADAPTING</span></div>
+                  <div className="db-stat-bar"><div id="stat-org" className="db-stat-fill" style={{ background: 'var(--color-warn)' }}></div></div>
+                  <div className="db-desc">Prozesse starr. Governance fehlt. Unsicherheit bremst.</div>
+                </div>
+                <div className="dash-card">
+                  <div className="db-head"><span>03 KULTUR</span><span className="db-status" style={{ color: 'var(--color-alert)' }}>LOADING</span></div>
+                  <div className="db-stat-bar"><div id="stat-cult" className="db-stat-fill" style={{ background: 'var(--color-alert)' }}></div></div>
+                  <div className="db-desc">Fehlertoleranz zu niedrig für kreative KI-Systeme.</div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. LAYERS (-50m) */}
+            <div onMouseEnter={() => setActiveDepth(2)}>
+              <span className="section-header">&gt;&gt; SYSTEM LAYER INSPECTION</span>
+              <div className="layers-grid">
+                <div className="layer-card">
+                  <div className="layer-header">
+                    <span className="l-title">TECHNIK</span>
+                    <span className="l-badge stat-ok">READY</span>
+                  </div>
+                  <div className="l-desc">Das Fundament. Modelle (GPT-5.1, Claude Opus 4.5) via Langdock verfügbar. Die "Hardware" steht.</div>
+                </div>
+                <div className="layer-card">
+                  <div className="layer-header">
+                    <span className="l-title">INDIVIDUUM</span>
+                    <span className="l-badge stat-warn">TRAIN</span>
+                  </div>
+                  <div className="l-desc">Kompetenz-Gap. Mitarbeiter schwanken zwischen Faszination und Angst ("Black Box"). Training nötig.</div>
+                </div>
+                <div className="layer-card">
+                  <div className="layer-header">
+                    <span className="l-title">ORG</span>
+                    <span className="l-badge stat-warn">ADAPT</span>
+                  </div>
+                  <div className="l-desc">Prozesse sind noch starr. Es fehlen klare Governance-Regeln. Unsicherheit bremst die Anwendung.</div>
+                </div>
+                <div className="layer-card">
+                  <div className="layer-header">
+                    <span className="l-title">KULTUR</span>
+                    <span className="l-badge stat-crit">CRIT</span>
+                  </div>
+                  <div className="l-desc">Kritischster Punkt. Fehlertoleranz oft zu niedrig für probabilistische (kreative) KI-Systeme.</div>
+                </div>
+              </div>
+
+              {/* Security Box */}
+              <div className="security-box">
+                <div className="sec-header">
+                  <div className="sec-icon-large">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div className="sec-title-block">
+                    <h4>Secure Data Environment & Compliance</h4>
+                    <span className="sec-subtitle">TRUST CENTER PROTOCOL // LANGDOCK</span>
+                  </div>
+                </div>
+                
+                <div className="sec-grid">
+                  <div className="sec-item">
+                    <span className="sec-check">✓</span>
+                    <div><strong>Standort & Recht:</strong> Langdock sitzt in der EU. App & Datenbanken werden ausschließlich in der EU gehostet. Volle DSGVO-Konformität.</div>
+                  </div>
+                  <div className="sec-item">
+                    <span className="sec-check">✓</span>
+                    <div><strong>Rechtssicherheit (AVV):</strong> Der Auftragsverarbeitungsvertrag (DPA) ist fester Bestandteil der AGB. Keine separaten Verträge nötig.</div>
+                  </div>
+                  <div className="sec-item">
+                    <span className="sec-check">✓</span>
+                    <div><strong>Geprüfte Qualität:</strong> Rechtstexte von EU-Anwälten erstellt und durch hunderte Rechtsabteilungen (Konzern bis KMU) validiert.</div>
+                  </div>
+                  <div className="sec-item">
+                    <span className="sec-check">✓</span>
+                    <div><strong>Kettenverantwortung:</strong> Datenschutzpflichten werden lückenlos an alle Sub-Unternehmer weitergegeben.</div>
+                  </div>
+                  <div className="sec-item">
+                    <span className="sec-check">✓</span>
+                    <div><strong>Interne Sicherheit:</strong> Über 50 interne Kontrollmechanismen für DSGVO-Compliance (Verschlüsselung, Mitarbeiterschulungen).</div>
+                  </div>
+                </div>
+
+                <div className="sec-tags">
+                  <span className="sec-tag">EU-HOSTING</span>
+                  <span className="sec-tag">NO-TRAINING POLICY</span>
+                  <span className="sec-tag">ENCRYPTED AT REST</span>
+                  <span className="sec-tag">SOC 2 / ISO READY</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. ANOMALIES (-100m) */}
+            <div onMouseEnter={() => setActiveDepth(3)}>
+              <span className="section-header">&gt;&gt; ANOMALY DETECTION: GERMAN FACTOR</span>
+              
+              <div className="anomaly-card">
+                <div className="ac-head"><span>DETECTED: PERFECTIONISM_LOOP</span><span>IMPACT: HIGH</span></div>
+                <div className="ac-body">
+                  <div className="ac-problem">"Knapp daneben ist auch vorbei." Wir warten auf 100% Perfektion vor Go-Live. KI lernt aber erst im Betrieb.</div>
+                  <div className="ac-fix">Lösung: <strong>Mut zur "Beta-Phase".</strong> Geschützte Räume für Fehler schaffen.</div>
+                </div>
+              </div>
+
+              <div className="anomaly-card">
+                <div className="ac-head"><span>DETECTED: GOVERNANCE_LATENCY</span><span>IMPACT: MEDIUM</span></div>
+                <div className="ac-body">
+                  <div className="ac-problem">Gremienbeschlüsse dauern länger als Tech-Zyklen. Bis der Case erlaubt ist, ist er veraltet.</div>
+                  <div className="ac-fix">Lösung: <strong>Schnellboote.</strong> Task-Forces mit Mandat für Experimente.</div>
+                </div>
+              </div>
+
+              <div className="warning-box">
+                <div className="warn-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fbbf24" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+                <div className="warn-text">
+                  Je stärker diese Muster, desto wichtiger die bewusste Gestaltung. Diese kulturellen Prägungen sind nicht gut oder schlecht – sie sind Realität. Erfolgreiche KI-Einführung ignoriert sie nicht, sondern rechnet mit ihnen und gestaltet Lernräume entsprechend.
+                </div>
+              </div>
+            </div>
+
+            {/* 4. LEADERSHIP (-200m) */}
+            <div onMouseEnter={() => setActiveDepth(4)}>
+              <span className="section-header">&gt;&gt; LEADERSHIP MIGRATION PROTOCOL</span>
+              
+              <div className="leadership-grid">
+                <div className="leader-step">
+                  <div className="ls-num">01</div>
+                  <div className="ls-content">
+                    <div className="ls-head">Rahmen setzen</div>
+                    <div className="ls-desc">Klare Leitplanken statt Mikromanagement. Definition von "No-Go-Areas" (Datenschutz) und "Go-Areas" (Experimente).</div>
+                    <div className="ls-badge"><span>SONARIS FORMAT:</span> GOVERNANCE WORKSHOP & HUB SETUP</div>
+                  </div>
+                </div>
+                
+                <div className="leader-step">
+                  <div className="ls-num">02</div>
+                  <div className="ls-content">
+                    <div className="ls-head">Lernräume schaffen</div>
+                    <div className="ls-desc">Zeit und Ressourcen für Experimente bereitstellen. "Spielwiesen", in denen Produktivität kurzfristig sinken darf.</div>
+                    <div className="ls-badge"><span>SONARIS FORMAT:</span> USE-CASE-SPRINTS & PROMPT-LABOR</div>
+                  </div>
+                </div>
+
+                <div className="leader-step">
+                  <div className="ls-num">03</div>
+                  <div className="ls-content">
+                    <div className="ls-head">Fehlerkultur gestalten</div>
+                    <div className="ls-desc">Vorbildfunktion: Eigene Unsicherheit zeigen. Fehler nicht bestrafen, sondern als Datenpunkte behandeln.</div>
+                    <div className="ls-badge"><span>SONARIS FORMAT:</span> KI-FÜHRUNGSKRÄFTE-TRAINING</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="quote-box">
+                "Führung in der KI-Einführung heißt nicht Antworten haben, sondern Räume schaffen, in denen Antworten entstehen können."
+              </div>
+            </div>
+
+            {/* 5. TIMELINE (CORE) */}
+            <div onMouseEnter={() => setActiveDepth(5)}>
+              <span className="section-header">&gt;&gt; INITIATING 180-DAY PROTOCOL</span>
+              
+              <div className="timeline-container">
+                <div className="tl-line"></div>
+                
+                <div className="tl-item">
+                  <div className="tl-dot"></div>
+                  <div className="tl-content">
+                    <div className="tl-header"><span className="tl-title">FUNDAMENT</span><span className="tl-time">TAG 01-30</span></div>
+                    <div className="tl-text"><strong>Sicherheit & Zugriff.</strong> Setup SONARIS Hub (Langdock). Klären von DSGVO & Governance. Ergebnis: Legale, sichere Umgebung.</div>
+                  </div>
+                </div>
+
+                <div className="tl-item">
+                  <div className="tl-dot"></div>
+                  <div className="tl-content">
+                    <div className="tl-header"><span className="tl-title">LERNRAUM</span><span className="tl-time">TAG 31-90</span></div>
+                    <div className="tl-text"><strong>Erfahrungswerte.</strong> 3 Use Cases (z.B. Marketing, Support). Intensive Begleitung. Fehler gemeinsam analysieren.</div>
+                  </div>
+                </div>
+
+                <div className="tl-item">
+                  <div className="tl-dot"></div>
+                  <div className="tl-content">
+                    <div className="tl-header"><span className="tl-title">ROUTINE</span><span className="tl-time">TAG 91-180</span></div>
+                    <div className="tl-text"><strong>Skalierung.</strong> Aus Experimenten werden Prozesse. Interne Prompt-Bibliothek. KI wird Standard.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="cta-box">
+              <div style={{ marginBottom: '20px', fontSize: '14px', color: 'white' }}>
+                Starte jetzt die Transformation zur lernenden Organisation.
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <a href="mailto:oliver@sonaris.de" className="cta-btn">✉️ E-MAIL SENDEN</a>
+                <a href="https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-" target="_blank" rel="noopener noreferrer" className="cta-sub">📅 ESPRESSO BUCHEN</a>
+              </div>
+              <div style={{ marginTop: '20px', fontSize: '10px', color: 'var(--text-mute)', fontFamily: 'var(--font-mono)' }}>
+                DIRECT LINE: +49 30 120 877 14 // OLIVER@SONARIS.DE
+              </div>
+            </div>
+
+            <div className="footer">
+              <span>SONARIS AI CONSULTING</span>
+              <span>SYSTEM DIAGNOSTIC COMPLETE</span>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
