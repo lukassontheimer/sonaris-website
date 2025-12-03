@@ -847,7 +847,7 @@ const EnterpriseKiHub = () => {
         )}
 
         <footer className="footer">
-          SONARIS · sonaris.de · Enterprise KI Hub
+          SONARIS · sonaris.de · Enterprise KI Hub · <a href="https://sonaris.de/impressum" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'none' }}>Impressum</a>
         </footer>
       </div>
     </div>
