@@ -1203,6 +1203,7 @@ const KiAnamnese = () => {
 
             <div className="footer">
               <span>SONARIS AI CONSULTING</span>
+              <a href="https://sonaris.de/impressum" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan-glow)', textDecoration: 'none' }}>Impressum</a>
               <span>SYSTEM DIAGNOSTIC COMPLETE</span>
             </div>
           </div>
