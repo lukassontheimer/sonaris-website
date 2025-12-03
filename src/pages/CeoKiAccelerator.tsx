@@ -508,7 +508,7 @@ const CeoKiAccelerator = () => {
         </button>
         
         {/* Chat Window */}
-        <div className={`fixed left-4 right-4 sm:left-auto sm:right-4 lg:right-[50px] bottom-20 lg:bottom-[110px] sm:w-[320px] lg:w-[400px] h-[400px] sm:h-[450px] lg:h-[550px] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
+        <div className={`fixed left-4 right-4 sm:left-auto sm:right-4 lg:right-[50px] bottom-20 lg:bottom-[110px] sm:w-[320px] lg:w-[400px] h-[350px] sm:h-[450px] lg:h-[550px] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
           <div className="bg-[rgba(255,255,255,0.03)] px-4 lg:px-5 py-3 lg:py-4 flex items-center justify-between border-b border-[rgba(34,211,238,0.3)]">
             <h2 className="text-[#f8fafc] text-base lg:text-[1.1rem] font-semibold m-0 tracking-[0.5px]">SONARIS Assistant</h2>
             <button onClick={() => setChatOpen(false)} className="text-[#22d3ee] cursor-pointer text-2xl transition-colors duration-200 hover:text-white bg-transparent border-none">
