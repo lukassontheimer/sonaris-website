@@ -160,22 +160,22 @@ const CeoKiAccelerator = () => {
             
             {/* Title */}
             <div>
-              <h1 className="font-light text-[40px] m-0 mb-2.5 leading-[1.1] text-[#f8fafc]">
+              <h1 className="font-light text-[48px] m-0 mb-3 leading-[1.1] text-[#f8fafc]">
                 CEO AI Accelerator: <strong className="text-[#22d3ee] font-bold" style={{ textShadow: '0 0 30px rgba(34, 211, 238, 0.2)' }}>Souveränität.</strong>
               </h1>
-              <div className="text-base text-[#94a3b8]">Vom Getriebenen zum Gestalter. Strategische Exzellenz in 12 Wochen.</div>
+              <div className="text-lg text-[#94a3b8]">Vom Getriebenen zum Gestalter. Strategische Exzellenz in 12 Wochen.</div>
             </div>
             
             {/* Executive Summary */}
             <div id="summary">
-              <span className="font-mono text-[#22d3ee] text-[10px] border-b border-[rgba(34,211,238,0.25)] pb-[5px] mb-[25px] block tracking-[1px]">&gt;&gt; EXECUTIVE SUMMARY</span>
-              <div className="grid grid-cols-2 gap-5">
+              <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 mb-8 block tracking-[1px]">&gt;&gt; EXECUTIVE SUMMARY</span>
+              <div className="grid grid-cols-2 gap-6">
                 {execCards.map((card, i) => (
-                  <div key={i} className="exec-card bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-[25px] rounded-md transition-all duration-300 relative overflow-hidden min-h-[120px] hover:border-[#22d3ee] hover:bg-[rgba(34,211,238,0.1)] hover:-translate-y-0.5 cursor-default">
-                    <div className="text-[#22d3ee] mb-[15px]">{card.icon}</div>
-                    <div className="text-sm leading-[1.5] text-[#f8fafc] font-semibold">{card.title}</div>
-                    <div className="exec-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md flex flex-col justify-center items-start text-left box-border">
-                      <p className="text-[#f8fafc] text-xs leading-[1.5] m-0">{card.hover}</p>
+                  <div key={i} className="exec-card bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md transition-all duration-300 relative overflow-hidden min-h-[150px] hover:border-[#22d3ee] hover:bg-[rgba(34,211,238,0.1)] hover:-translate-y-0.5 cursor-default">
+                    <div className="text-[#22d3ee] mb-5">{card.icon}</div>
+                    <div className="text-base leading-[1.5] text-[#f8fafc] font-semibold">{card.title}</div>
+                    <div className="exec-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md flex flex-col justify-center items-start text-left box-border">
+                      <p className="text-[#f8fafc] text-sm leading-[1.5] m-0">{card.hover}</p>
                     </div>
                   </div>
                 ))}
@@ -184,17 +184,17 @@ const CeoKiAccelerator = () => {
             
             {/* Team Section */}
             <div id="team">
-              <span className="font-mono text-[#22d3ee] text-[10px] border-b border-[rgba(34,211,238,0.25)] pb-[5px] mb-[25px] block tracking-[1px]">&gt;&gt; EXPERTEN TEAM [YOUR TASK FORCE]</span>
+              <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 mb-8 block tracking-[1px]">&gt;&gt; EXPERTEN TEAM [YOUR TASK FORCE]</span>
               
               <div className="grid grid-cols-3 gap-6 mb-6">
                 {teamRow1.map((member, i) => (
-                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-6 relative transition-all duration-300 min-h-[200px] flex flex-col items-center text-center z-[1] hover:border-[#22d3ee] hover:z-50">
-                    <div className="w-12 h-12 rounded-full bg-[#111] border border-[#0891b2] mb-4 flex items-center justify-center text-lg font-bold text-[#22d3ee]">{member.initials}</div>
-                    <span className="text-sm font-bold text-white block mb-1 leading-tight">{member.name}</span>
-                    <span className="font-mono text-[9px] text-[#0891b2] uppercase tracking-wider block break-words">{member.title}</span>
-                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
-                      <strong className="text-[#22d3ee] block mb-2 font-mono text-[10px] uppercase">Fokus:</strong>
-                      <p className="text-[#f8fafc] text-xs leading-[1.5] m-0">{member.focus}</p>
+                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-8 relative transition-all duration-300 min-h-[220px] flex flex-col items-center text-center z-[1] hover:border-[#22d3ee] hover:z-50">
+                    <div className="w-14 h-14 rounded-full bg-[#111] border border-[#0891b2] mb-5 flex items-center justify-center text-xl font-bold text-[#22d3ee]">{member.initials}</div>
+                    <span className="text-base font-bold text-white block mb-2 leading-tight">{member.name}</span>
+                    <span className="font-mono text-[10px] text-[#0891b2] uppercase tracking-wider block break-words">{member.title}</span>
+                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-8 flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
+                      <strong className="text-[#22d3ee] block mb-2 font-mono text-xs uppercase">Fokus:</strong>
+                      <p className="text-[#f8fafc] text-sm leading-[1.5] m-0">{member.focus}</p>
                     </div>
                   </div>
                 ))}
@@ -202,13 +202,13 @@ const CeoKiAccelerator = () => {
               
               <div className="grid grid-cols-2 gap-6 w-[70%] mx-auto">
                 {teamRow2.map((member, i) => (
-                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-6 relative transition-all duration-300 min-h-[200px] flex flex-col items-center text-center z-[1] hover:border-[#22d3ee] hover:z-50">
-                    <div className="w-12 h-12 rounded-full bg-[#111] border border-[#0891b2] mb-4 flex items-center justify-center text-lg font-bold text-[#22d3ee]">{member.initials}</div>
-                    <span className="text-sm font-bold text-white block mb-1 leading-tight">{member.name}</span>
-                    <span className="font-mono text-[9px] text-[#0891b2] uppercase tracking-wider block break-words">{member.title}</span>
-                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
-                      <strong className="text-[#22d3ee] block mb-2 font-mono text-[10px] uppercase">Fokus:</strong>
-                      <p className="text-[#f8fafc] text-xs leading-[1.5] m-0">{member.focus}</p>
+                  <div key={i} className="expert-card bg-[rgba(255,255,255,0.03)] border border-[rgba(34,211,238,0.25)] rounded-md p-8 relative transition-all duration-300 min-h-[220px] flex flex-col items-center text-center z-[1] hover:border-[#22d3ee] hover:z-50">
+                    <div className="w-14 h-14 rounded-full bg-[#111] border border-[#0891b2] mb-5 flex items-center justify-center text-xl font-bold text-[#22d3ee]">{member.initials}</div>
+                    <span className="text-base font-bold text-white block mb-2 leading-tight">{member.name}</span>
+                    <span className="font-mono text-[10px] text-[#0891b2] uppercase tracking-wider block break-words">{member.title}</span>
+                    <div className="expert-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-8 flex flex-col justify-center items-start text-left opacity-0 invisible transition-all duration-300 border border-[#22d3ee] rounded-md box-border z-[100]">
+                      <strong className="text-[#22d3ee] block mb-2 font-mono text-xs uppercase">Fokus:</strong>
+                      <p className="text-[#f8fafc] text-sm leading-[1.5] m-0">{member.focus}</p>
                     </div>
                   </div>
                 ))}
@@ -217,88 +217,88 @@ const CeoKiAccelerator = () => {
             
             {/* Curriculum */}
             <div id="curriculum">
-              <span className="font-mono text-[#22d3ee] text-[10px] border-b border-[rgba(34,211,238,0.25)] pb-[5px] mb-[25px] block tracking-[1px]">&gt;&gt; CURRICULUM & MODULE</span>
+              <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 mb-8 block tracking-[1px]">&gt;&gt; CURRICULUM & MODULE</span>
               
               {/* Module I */}
-              <div className="mb-10">
-                <div className="text-base font-bold text-white mb-[15px] border-l-[3px] border-[#22d3ee] pl-[15px]">I. KI-GRUNDLAGENTRAINING</div>
-                <div className="grid grid-cols-3 gap-5">
+              <div className="mb-12">
+                <div className="text-lg font-bold text-white mb-5 border-l-[3px] border-[#22d3ee] pl-5">I. KI-GRUNDLAGENTRAINING</div>
+                <div className="grid grid-cols-3 gap-6">
                   {[
                     { num: '01', title: 'Einführung LLMs', hover: 'Was sind LLMs? Funktionsweise, Grenzen und Potenziale verstehen.' },
                     { num: '02', title: 'Kommunikation mit LLM', hover: 'Die Kunst der richtigen Anweisung. Zero-Shot, Few-Shot, Chain-of-Thought.' },
                     { num: '03', title: 'KI im Führungskontext', hover: 'Wie führe ich in der KI-Ära? Change Management und Vorbildfunktion.' },
                   ].map((item, i) => (
-                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-[25px] rounded-md relative transition-all duration-300 cursor-default min-h-[140px] text-left hover:border-[#22d3ee]">
-                      <span className="font-mono text-[10px] text-[#0891b2] mb-2 block text-left">{item.num}</span>
-                      <span className="text-[13px] font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
-                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 text-[11px] text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
+                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md relative transition-all duration-300 cursor-default min-h-[160px] text-left hover:border-[#22d3ee]">
+                      <span className="font-mono text-xs text-[#0891b2] mb-3 block text-left">{item.num}</span>
+                      <span className="text-base font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
+                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 text-sm text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
                         <p className="m-0 leading-[1.5]">{item.hover}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-[15px] border border-dashed border-[rgba(255,255,255,0.2)] p-[15px] rounded font-mono text-[11px] text-[#94a3b8] bg-[rgba(0,0,0,0.3)] text-left">
-                  <strong className="text-[#22d3ee] block mb-[5px]">DELIVERABLES:</strong>
+                <div className="mt-5 border border-dashed border-[rgba(255,255,255,0.2)] p-5 rounded font-mono text-sm text-[#94a3b8] bg-[rgba(0,0,0,0.3)] text-left">
+                  <strong className="text-[#22d3ee] block mb-2">DELIVERABLES:</strong>
                   fundiertes Verständnis von KI-Technologien, Fähigkeit zur effektiven Kommunikation mit KI-Systemen, Schulungsunterlagen, erste erfolgreiche praktische Anwendungen.
                 </div>
               </div>
               
               {/* Module II */}
-              <div className="mb-10">
-                <div className="text-base font-bold text-white mb-[15px] border-l-[3px] border-[#22d3ee] pl-[15px]">II. KI-VERTIEFUNG & USE-CASE IDENTIFIKATION</div>
-                <div className="grid grid-cols-2 gap-5">
+              <div className="mb-12">
+                <div className="text-lg font-bold text-white mb-5 border-l-[3px] border-[#22d3ee] pl-5">II. KI-VERTIEFUNG & USE-CASE IDENTIFIKATION</div>
+                <div className="grid grid-cols-2 gap-6">
                   {[
                     { num: '04', title: 'Vertiefung', hover: ['Fortgeschrittenes Prompt-Engineering', 'Predictive AI-Anwendungen', 'Komplexe Aufgaben in KI'] },
                     { num: '05', title: 'Praktische Anwendung', hover: ['Geeignete Technik auswählen', 'Teilschritte zerlegen', 'Aufbau eines persönlichen Second Brain', 'DSGVO-konforme Nutzung'] },
                   ].map((item, i) => (
-                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-[25px] rounded-md relative transition-all duration-300 cursor-default min-h-[140px] text-left hover:border-[#22d3ee]">
-                      <span className="font-mono text-[10px] text-[#0891b2] mb-2 block text-left">{item.num}</span>
-                      <span className="text-[13px] font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
-                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 text-[11px] text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
-                        <ul className="m-0 pl-[15px] list-square text-[#22d3ee] text-left">
+                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md relative transition-all duration-300 cursor-default min-h-[160px] text-left hover:border-[#22d3ee]">
+                      <span className="font-mono text-xs text-[#0891b2] mb-3 block text-left">{item.num}</span>
+                      <span className="text-base font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
+                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 text-sm text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
+                        <ul className="m-0 pl-5 list-square text-[#22d3ee] text-left">
                           {item.hover.map((h, j) => <li key={j}><span className="text-[#f8fafc]">{h}</span></li>)}
                         </ul>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-[15px] border border-dashed border-[rgba(255,255,255,0.2)] p-[15px] rounded font-mono text-[11px] text-[#94a3b8] bg-[rgba(0,0,0,0.3)] text-left">
-                  <strong className="text-[#22d3ee] block mb-[5px]">DELIVERABLES:</strong>
+                <div className="mt-5 border border-dashed border-[rgba(255,255,255,0.2)] p-5 rounded font-mono text-sm text-[#94a3b8] bg-[rgba(0,0,0,0.3)] text-left">
+                  <strong className="text-[#22d3ee] block mb-2">DELIVERABLES:</strong>
                   Vertieftes KI-Anwendungswissen, Use-Case-Sammlung mit Bewertungsmatrix, priorisierte Roadmap, Second-Brain-Wissensbasis, DSGVO-Leitfaden.
                 </div>
               </div>
               
               {/* Module III */}
-              <div className="mb-10">
-                <div className="text-base font-bold text-white mb-[15px] border-l-[3px] border-[#22d3ee] pl-[15px]">III. IMPLEMENTIERUNG VON PROZESSAUTOMATISIERUNG</div>
-                <div className="grid grid-cols-2 gap-5">
+              <div className="mb-12">
+                <div className="text-lg font-bold text-white mb-5 border-l-[3px] border-[#22d3ee] pl-5">III. IMPLEMENTIERUNG VON PROZESSAUTOMATISIERUNG</div>
+                <div className="grid grid-cols-2 gap-6">
                   {[
                     { num: '06', title: 'Automatisierung & Anwendungsfelder', hover: ['Vorbereitung & Aufbereitung von Präsentationen / Visualisierungen', 'Automatisierte Markt- und Wettbewerbsanalysen', 'Meeting-Protokolle & Follow-up-Kommunikation', 'Content (Vertrieb, E-Mails, LinkedIn)', 'CRM-Workflows', 'Interne Recherche & Dokumentenanalyse'] },
                     { num: '07', title: 'Technischer Ansatz', hover: ['Primärnutzung MS Copilot-Infrastruktur', 'Optional: Alternative Enterprise-KI (z.B. Langdock)', 'Methodik: Augmentation vor Automatisierung (Human-in-the-Loop)'] },
                   ].map((item, i) => (
-                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-[25px] rounded-md relative transition-all duration-300 cursor-default min-h-[140px] text-left hover:border-[#22d3ee]">
-                      <span className="font-mono text-[10px] text-[#0891b2] mb-2 block text-left">{item.num}</span>
-                      <span className="text-[13px] font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
-                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 text-[11px] text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
-                        <ul className="m-0 pl-[15px] list-square text-[#22d3ee] text-left text-[10px] leading-[1.3]">
+                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md relative transition-all duration-300 cursor-default min-h-[160px] text-left hover:border-[#22d3ee]">
+                      <span className="font-mono text-xs text-[#0891b2] mb-3 block text-left">{item.num}</span>
+                      <span className="text-base font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
+                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 text-sm text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
+                        <ul className="m-0 pl-5 list-square text-[#22d3ee] text-left text-xs leading-[1.4]">
                           {item.hover.map((h, j) => <li key={j}><span className="text-[#f8fafc]">{h}</span></li>)}
                         </ul>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-[15px] border border-dashed border-[rgba(255,255,255,0.2)] p-[15px] rounded font-mono text-[11px] text-[#94a3b8] bg-[rgba(0,0,0,0.3)] text-left">
-                  <strong className="text-[#22d3ee] block mb-[5px]">DELIVERABLES:</strong>
+                <div className="mt-5 border border-dashed border-[rgba(255,255,255,0.2)] p-5 rounded font-mono text-sm text-[#94a3b8] bg-[rgba(0,0,0,0.3)] text-left">
+                  <strong className="text-[#22d3ee] block mb-2">DELIVERABLES:</strong>
                   1–3 funktionsfähige Prozessautomatisierungen, dokumentierte System-Prompts, Prompt-Bibliothek, Second-Brain-Wissensdatenbank.
                 </div>
               </div>
               
               {/* Module IV */}
-              <div className="mb-10">
-                <div className="text-base font-bold text-white mb-[15px] border-l-[3px] border-[#22d3ee] pl-[15px]">IV. ABSCHLUSS & ÜBERGABE</div>
-                <div className="grid grid-cols-2 gap-2.5 text-xs text-[#f8fafc]">
+              <div className="mb-12">
+                <div className="text-lg font-bold text-white mb-5 border-l-[3px] border-[#22d3ee] pl-5">IV. ABSCHLUSS & ÜBERGABE</div>
+                <div className="grid grid-cols-2 gap-4 text-sm text-[#f8fafc]">
                   {['Vollständige Projektdokumentation', 'Best-Practice-Leitfaden', 'KI-Nutzungsrichtlinien', 'Übergabeprotokoll'].map((item, i) => (
-                    <div key={i} className="border border-[rgba(34,211,238,0.25)] p-2">{item}</div>
+                    <div key={i} className="border border-[rgba(34,211,238,0.25)] p-3">{item}</div>
                   ))}
                 </div>
               </div>
@@ -306,15 +306,15 @@ const CeoKiAccelerator = () => {
             
             {/* Timeline */}
             <div id="timeline">
-              <span className="font-mono text-[#22d3ee] text-[10px] border-b border-[rgba(34,211,238,0.25)] pb-[5px] mb-[25px] block tracking-[1px]">&gt;&gt; PROJEKTVERLAUF (MEILENSTEINE)</span>
-              <div className="relative mt-2.5">
-                <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#22d3ee] to-transparent" />
+              <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 mb-8 block tracking-[1px]">&gt;&gt; PROJEKTVERLAUF (MEILENSTEINE)</span>
+              <div className="relative mt-3">
+                <div className="absolute left-[22px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#22d3ee] to-transparent" />
                 {timelineEvents.map((event, i) => (
-                  <div key={i} className="flex mb-[25px] relative">
-                    <div className="w-2.5 h-2.5 bg-[#020617] border-2 border-[#22d3ee] rounded-full mt-[5px] mx-[15px] z-[2] flex-shrink-0" />
-                    <div className="flex-1 bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] p-[15px] rounded text-left">
-                      <span className="font-mono text-[#22d3ee] text-[11px] font-bold block mb-[5px]">{event.time}</span>
-                      <div className="text-[13px] text-[#f8fafc] leading-[1.5] font-bold mb-[5px]">{event.desc}</div>
+                  <div key={i} className="flex mb-8 relative">
+                    <div className="w-3 h-3 bg-[#020617] border-2 border-[#22d3ee] rounded-full mt-1.5 mx-4 z-[2] flex-shrink-0" />
+                    <div className="flex-1 bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] p-5 rounded text-left">
+                      <span className="font-mono text-[#22d3ee] text-sm font-bold block mb-2">{event.time}</span>
+                      <div className="text-base text-[#f8fafc] leading-[1.5] font-bold">{event.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -323,40 +323,40 @@ const CeoKiAccelerator = () => {
             
             {/* Tech Stack */}
             <div id="tech">
-              <span className="font-mono text-[#22d3ee] text-[10px] border-b border-[rgba(34,211,238,0.25)] pb-[5px] mb-[25px] block tracking-[1px]">&gt;&gt; TECHNOLOGIE & PLATTFORMEN</span>
-              <div className="grid grid-cols-2 gap-[30px]">
-                <div className="border border-[rgba(34,211,238,0.25)] p-[25px] rounded-md text-left" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%)' }}>
-                  <div className="font-bold text-white text-[13px] border-b border-[rgba(255,255,255,0.1)] pb-2.5 mb-[15px] uppercase">LANGDOCK ENTERPRISE READY PLATTFORM</div>
+              <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 mb-8 block tracking-[1px]">&gt;&gt; TECHNOLOGIE & PLATTFORMEN</span>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="border border-[rgba(34,211,238,0.25)] p-8 rounded-md text-left" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%)' }}>
+                  <div className="font-bold text-white text-base border-b border-[rgba(255,255,255,0.1)] pb-3 mb-5 uppercase">LANGDOCK ENTERPRISE READY PLATTFORM</div>
                   <ul className="list-none p-0 m-0">
                     {['DSGVO-konform & Serverstandort Deutschland', 'Modell-Agnostisch (Alle Top-Modelle)', 'Kein Training mit deinen Daten', 'Umfangreiche Team-Funktionen & Rechteverwaltung'].map((item, i) => (
-                      <li key={i} className="text-xs text-[#94a3b8] mb-2 relative pl-[15px] before:content-['>'] before:absolute before:left-0 before:text-[#0891b2] before:font-mono">{item}</li>
+                      <li key={i} className="text-sm text-[#94a3b8] mb-3 relative pl-5 before:content-['>'] before:absolute before:left-0 before:text-[#0891b2] before:font-mono">{item}</li>
                     ))}
                   </ul>
-                  <div className="mt-2.5 text-[10px] text-[#0891b2]">FAQ: Ist das sicher? Ja. ISO 27001 zertifiziert.</div>
+                  <div className="mt-4 text-xs text-[#0891b2]">FAQ: Ist das sicher? Ja. ISO 27001 zertifiziert.</div>
                 </div>
-                <div className="border border-[rgba(34,211,238,0.25)] p-[25px] rounded-md text-left" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%)' }}>
-                  <div className="font-bold text-white text-[13px] border-b border-[rgba(255,255,255,0.1)] pb-2.5 mb-[15px] uppercase">MICROSOFT 365 & COPILOT INTEGRATION</div>
+                <div className="border border-[rgba(34,211,238,0.25)] p-8 rounded-md text-left" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%)' }}>
+                  <div className="font-bold text-white text-base border-b border-[rgba(255,255,255,0.1)] pb-3 mb-5 uppercase">MICROSOFT 365 & COPILOT INTEGRATION</div>
                   <ul className="list-none p-0 m-0">
                     {['Technische Highlights: Nahtlose Office-Integration', 'Semantische Suche im SharePoint', 'Automatisierte Protokolle in Teams', 'Sichere Auth via Active Directory'].map((item, i) => (
-                      <li key={i} className="text-xs text-[#94a3b8] mb-2 relative pl-[15px] before:content-['>'] before:absolute before:left-0 before:text-[#0891b2] before:font-mono">{item}</li>
+                      <li key={i} className="text-sm text-[#94a3b8] mb-3 relative pl-5 before:content-['>'] before:absolute before:left-0 before:text-[#0891b2] before:font-mono">{item}</li>
                     ))}
                   </ul>
                 </div>
               </div>
               
               {/* FAQ */}
-              <div className="mt-[30px] flex flex-col gap-2.5">
+              <div className="mt-10 flex flex-col gap-3">
                 {faqs.map((faq, i) => (
                   <div key={i} className={`bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] rounded overflow-hidden transition-colors duration-300 ${openFaq === i ? 'border-[#0891b2]' : 'hover:border-[#0891b2]'}`}>
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="w-full p-[15px] bg-transparent border-none text-left flex justify-between items-center cursor-pointer text-[#f8fafc] text-xs font-bold outline-none"
+                      className="w-full p-5 bg-transparent border-none text-left flex justify-between items-center cursor-pointer text-[#f8fafc] text-sm font-bold outline-none"
                     >
                       {faq.q}
-                      <span className={`text-[#22d3ee] text-base transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
+                      <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
                     </button>
                     <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-[200px]' : 'max-h-0'}`}>
-                      <div className="px-[15px] pb-[15px] text-[11px] text-[#94a3b8] leading-[1.5] text-left">{faq.a}</div>
+                      <div className="px-5 pb-5 text-sm text-[#94a3b8] leading-[1.5] text-left">{faq.a}</div>
                     </div>
                   </div>
                 ))}
@@ -364,14 +364,14 @@ const CeoKiAccelerator = () => {
             </div>
             
             {/* Investment */}
-            <div id="invest" className="bg-[rgba(34,211,238,0.05)] border border-[#22d3ee] p-[30px] rounded-lg text-center mt-5">
-              <div className="font-mono text-[11px] text-[#0891b2] uppercase tracking-[1px]">INVESTITION (PAUSCHAL)</div>
-              <span className="text-4xl font-bold text-white my-2.5 block">7.500 €</span>
-              <div className="font-mono text-[11px] text-[#0891b2] uppercase tracking-[1px]">NETTO (zzgl. 19% MwSt. = 8.925 € Brutto)</div>
+            <div id="invest" className="bg-[rgba(34,211,238,0.05)] border border-[#22d3ee] p-10 rounded-lg text-center mt-6">
+              <div className="font-mono text-sm text-[#0891b2] uppercase tracking-[1px]">INVESTITION (PAUSCHAL)</div>
+              <span className="text-5xl font-bold text-white my-4 block">7.500 €</span>
+              <div className="font-mono text-sm text-[#0891b2] uppercase tracking-[1px]">NETTO (zzgl. 19% MwSt. = 8.925 € Brutto)</div>
             </div>
             
             {/* Footer */}
-            <footer className="mt-8 pt-8 border-t border-[rgba(34,211,238,0.25)] flex justify-between items-center text-sm text-[#94a3b8]">
+            <footer className="mt-10 pt-10 border-t border-[rgba(34,211,238,0.25)] flex justify-between items-center text-base text-[#94a3b8]">
               <span>SONARIS AI CONSULTING</span>
               <a 
                 href="https://sonaris.de/impressum" 
@@ -388,13 +388,13 @@ const CeoKiAccelerator = () => {
         {/* Chatbot Toggler */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          className="chat-toggler fixed bottom-[30px] right-[35px] w-[70px] h-[70px] rounded-full bg-[#1e293b] border-2 border-[#22d3ee] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+          className="chat-toggler fixed bottom-[30px] right-[10px] w-[70px] h-[70px] rounded-full bg-[#1e293b] border-2 border-[#22d3ee] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
         >
           {chatOpen ? <X className="w-6 h-6 text-[#22d3ee]" /> : <Sparkles className="w-6 h-6 text-[#22d3ee]" />}
         </button>
         
         {/* Chat Window */}
-        <div className={`fixed right-[35px] bottom-[100px] w-[400px] h-[550px] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
+        <div className={`fixed right-[10px] bottom-[110px] w-[400px] h-[550px] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
           <div className="bg-[rgba(255,255,255,0.03)] px-5 py-4 flex items-center justify-between border-b border-[rgba(34,211,238,0.3)]">
             <h2 className="text-[#f8fafc] text-[1.1rem] font-semibold m-0 tracking-[0.5px]">SONARIS Assistant</h2>
             <button onClick={() => setChatOpen(false)} className="text-[#22d3ee] cursor-pointer text-2xl transition-colors duration-200 hover:text-white bg-transparent border-none">
