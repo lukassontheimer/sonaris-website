@@ -200,28 +200,28 @@ const CeoKiAccelerator = () => {
         <div className="w-full max-w-[1200px] min-h-screen bg-[#020617] text-[#f8fafc] relative shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-row" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, #111827 0%, #020617 80%)' }}>
           
           {/* Sidebar */}
-          <div className="w-[200px] min-w-[200px] bg-[rgba(2,6,23,0.95)] border-r border-[rgba(34,211,238,0.25)] flex flex-col pt-14 sticky top-0 h-screen z-10 backdrop-blur-[12px]">
-            <div className="text-center mb-14">
-              <div className="w-10 h-10 mx-auto mb-2.5 border-2 border-[#22d3ee] rounded-full relative flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-                <div className="w-1.5 h-1.5 bg-[#22d3ee] rounded-full" />
+          <div className="w-[250px] min-w-[250px] bg-[rgba(2,6,23,0.95)] border-r border-[rgba(34,211,238,0.25)] flex flex-col pt-16 sticky top-0 h-screen z-10 backdrop-blur-[12px]">
+            <div className="text-center mb-16">
+              <div className="w-14 h-14 mx-auto mb-3 border-2 border-[#22d3ee] rounded-full relative flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                <div className="w-2 h-2 bg-[#22d3ee] rounded-full" />
               </div>
-              <div className="font-extrabold text-sm tracking-[2px] text-white">SONARIS</div>
-              <div className="text-[9px] text-[#22d3ee] tracking-[1px] font-mono">ACCELERATOR</div>
+              <div className="font-extrabold text-lg tracking-[2px] text-white">SONARIS</div>
+              <div className="text-[11px] text-[#22d3ee] tracking-[1px] font-mono">ACCELERATOR</div>
             </div>
             
-            <div className="flex flex-col gap-5 pl-14 mt-5 border-l border-[rgba(255,255,255,0.1)] ml-4">
+            <div className="flex flex-col gap-6 pl-16 mt-6 border-l border-[rgba(255,255,255,0.1)] ml-5">
               {navItems.map(item => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={() => setActiveNav(item.id)}
-                  className={`font-mono text-[10px] text-[#22d3ee] relative cursor-pointer transition-opacity duration-300 no-underline ${
+                  className={`font-mono text-[13px] text-[#22d3ee] relative cursor-pointer transition-opacity duration-300 no-underline ${
                     activeNav === item.id ? 'opacity-100 font-bold' : 'opacity-50 hover:opacity-100'
                   }`}
                   style={{ textShadow: activeNav === item.id ? '0 0 5px #22d3ee' : 'none' }}
                 >
                   {activeNav === item.id && (
-                    <span className="absolute -left-[19px] top-0.5 w-[7px] h-[7px] bg-[#22d3ee] rounded-full shadow-[0_0_10px_#22d3ee]" />
+                    <span className="absolute -left-[22px] top-0.5 w-[9px] h-[9px] bg-[#22d3ee] rounded-full shadow-[0_0_10px_#22d3ee]" />
                   )}
                   {item.label}
                 </a>
@@ -302,10 +302,10 @@ const CeoKiAccelerator = () => {
                     { num: '02', title: 'Kommunikation mit LLM', hover: 'Die Kunst der richtigen Anweisung. Zero-Shot, Few-Shot, Chain-of-Thought.' },
                     { num: '03', title: 'KI im Führungskontext', hover: 'Wie führe ich in der KI-Ära? Change Management und Vorbildfunktion.' },
                   ].map((item, i) => (
-                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md relative transition-all duration-300 cursor-default min-h-[160px] text-left hover:border-[#22d3ee]">
-                      <span className="font-mono text-xs text-[#0891b2] mb-3 block text-left">{item.num}</span>
-                      <span className="text-base font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
-                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 text-sm text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
+                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-6 rounded-md relative transition-all duration-300 cursor-default min-h-[180px] text-left hover:border-[#22d3ee]">
+                      <span className="font-mono text-xs text-[#0891b2] mb-2 block text-left">{item.num}</span>
+                      <span className="text-sm font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
+                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 text-xs text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
                         <p className="m-0 leading-[1.5]">{item.hover}</p>
                       </div>
                     </div>
@@ -323,13 +323,13 @@ const CeoKiAccelerator = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {[
                     { num: '04', title: 'Vertiefung', hover: ['Fortgeschrittenes Prompt-Engineering', 'Predictive AI-Anwendungen', 'Komplexe Aufgaben in KI'] },
-                    { num: '05', title: 'Praktische Anwendung', hover: ['Geeignete Technik auswählen', 'Teilschritte zerlegen', 'Aufbau eines persönlichen Second Brain', 'DSGVO-konforme Nutzung'] },
+                    { num: '05', title: 'Praktische Anwendung', hover: ['Geeignete Technik auswählen', 'Aufbau eines Second Brain', 'DSGVO-konforme Nutzung'] },
                   ].map((item, i) => (
-                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md relative transition-all duration-300 cursor-default min-h-[160px] text-left hover:border-[#22d3ee]">
-                      <span className="font-mono text-xs text-[#0891b2] mb-3 block text-left">{item.num}</span>
-                      <span className="text-base font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
-                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 text-sm text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
-                        <ul className="m-0 pl-5 list-square text-[#22d3ee] text-left">
+                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-6 rounded-md relative transition-all duration-300 cursor-default min-h-[200px] text-left hover:border-[#22d3ee]">
+                      <span className="font-mono text-xs text-[#0891b2] mb-2 block text-left">{item.num}</span>
+                      <span className="text-sm font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
+                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
+                        <ul className="m-0 pl-4 list-square text-[#22d3ee] text-left text-[11px] leading-[1.6] space-y-1">
                           {item.hover.map((h, j) => <li key={j}><span className="text-[#f8fafc]">{h}</span></li>)}
                         </ul>
                       </div>
@@ -347,14 +347,14 @@ const CeoKiAccelerator = () => {
                 <div className="text-lg font-bold text-white mb-5 border-l-[3px] border-[#22d3ee] pl-5">III. IMPLEMENTIERUNG VON PROZESSAUTOMATISIERUNG</div>
                 <div className="grid grid-cols-2 gap-6">
                   {[
-                    { num: '06', title: 'Automatisierung & Anwendungsfelder', hover: ['Vorbereitung & Aufbereitung von Präsentationen / Visualisierungen', 'Automatisierte Markt- und Wettbewerbsanalysen', 'Meeting-Protokolle & Follow-up-Kommunikation', 'Content (Vertrieb, E-Mails, LinkedIn)', 'CRM-Workflows', 'Interne Recherche & Dokumentenanalyse'] },
-                    { num: '07', title: 'Technischer Ansatz', hover: ['Primärnutzung MS Copilot-Infrastruktur', 'Optional: Alternative Enterprise-KI (z.B. Langdock)', 'Methodik: Augmentation vor Automatisierung (Human-in-the-Loop)'] },
+                    { num: '06', title: 'Automatisierung & Anwendungsfelder', hover: ['Präsentationen & Visualisierungen', 'Markt- & Wettbewerbsanalysen', 'Meeting-Protokolle & Follow-ups', 'Content & CRM-Workflows', 'Recherche & Dokumentenanalyse'] },
+                    { num: '07', title: 'Technischer Ansatz', hover: ['MS Copilot-Infrastruktur', 'Alternative Enterprise-KI (Langdock)', 'Human-in-the-Loop Methodik'] },
                   ].map((item, i) => (
-                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-8 rounded-md relative transition-all duration-300 cursor-default min-h-[160px] text-left hover:border-[#22d3ee]">
-                      <span className="font-mono text-xs text-[#0891b2] mb-3 block text-left">{item.num}</span>
-                      <span className="text-base font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
-                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-6 z-10 text-sm text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
-                        <ul className="m-0 pl-5 list-square text-[#22d3ee] text-left text-xs leading-[1.4]">
+                    <div key={i} className="baustein bg-[rgba(15,23,42,0.8)] border border-[rgba(34,211,238,0.25)] p-6 rounded-md relative transition-all duration-300 cursor-default min-h-[200px] text-left hover:border-[#22d3ee]">
+                      <span className="font-mono text-xs text-[#0891b2] mb-2 block text-left">{item.num}</span>
+                      <span className="text-sm font-bold text-[#f8fafc] leading-[1.4] block text-left">{item.title}</span>
+                      <div className="b-hover absolute top-0 left-0 w-full h-full bg-[#0f172a] p-5 z-10 text-[#f8fafc] rounded-md opacity-0 invisible transition-all duration-300 flex flex-col justify-center items-start border border-[#22d3ee] text-left box-border">
+                        <ul className="m-0 pl-4 list-square text-[#22d3ee] text-left text-[11px] leading-[1.6] space-y-1">
                           {item.hover.map((h, j) => <li key={j}><span className="text-[#f8fafc]">{h}</span></li>)}
                         </ul>
                       </div>
@@ -462,13 +462,13 @@ const CeoKiAccelerator = () => {
         {/* Chatbot Toggler */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          className="chat-toggler fixed bottom-[30px] right-[10px] w-[70px] h-[70px] rounded-full bg-[#1e293b] border-2 border-[#22d3ee] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+          className="chat-toggler fixed bottom-[30px] right-[50px] w-[70px] h-[70px] rounded-full bg-[#1e293b] border-2 border-[#22d3ee] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
         >
           {chatOpen ? <X className="w-6 h-6 text-[#22d3ee]" /> : <Sparkles className="w-6 h-6 text-[#22d3ee]" />}
         </button>
         
         {/* Chat Window */}
-        <div className={`fixed right-[10px] bottom-[110px] w-[400px] h-[550px] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
+        <div className={`fixed right-[50px] bottom-[110px] w-[400px] h-[550px] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
           <div className="bg-[rgba(255,255,255,0.03)] px-5 py-4 flex items-center justify-between border-b border-[rgba(34,211,238,0.3)]">
             <h2 className="text-[#f8fafc] text-[1.1rem] font-semibold m-0 tracking-[0.5px]">SONARIS Assistant</h2>
             <button onClick={() => setChatOpen(false)} className="text-[#22d3ee] cursor-pointer text-2xl transition-colors duration-200 hover:text-white bg-transparent border-none">
