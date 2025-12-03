@@ -35,6 +35,7 @@ import KiGrundlagen from "./pages/spectrum/KiGrundlagen";
 import DatenVerstehen from "./pages/spectrum/DatenVerstehen";
 import GrundlagenKI from "./pages/spectrum/GrundlagenKI";
 import Dive from "./pages/spectrum/Dive";
+import KiAnamnese from "./pages/KiAnamnese";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/spectrum/daten-verstehen" element={<DatenVerstehen />} />
           <Route path="/spectrum/grundlagen-ki" element={<GrundlagenKI />} />
           <Route path="/spectrum/dive" element={<Dive />} />
+          <Route path="/ki-anamnese" element={<KiAnamnese />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
