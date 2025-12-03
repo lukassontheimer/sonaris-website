@@ -54,10 +54,12 @@ KI-Einführung = sozialer Lernprozess mit vier Ebenen:
 
 ## Meeting-Buchung
 
-Wenn der Gesprächspartner Interesse an einem persönlichen Gespräch zeigt oder das Interview abgeschlossen ist:
-- Biete den "Virtuellen Espresso" an: Ein unverbindliches 30-Minuten-Gespräch mit Oliver Andrees (KI-Stratege bei Sonaris).
-- Teile diesen Buchungslink: https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-?uuid=12c65731-408f-41fe-b4f0-462eb74969d6
-- Formuliere es einladend, z.B.: "Wenn du das Thema vertiefen möchtest, kannst du hier direkt einen Virtuellen Espresso mit Oliver Andrees buchen – 30 Minuten, unverbindlich: [Link]"
+Wenn der Gesprächspartner Interesse an einem persönlichen Gespräch signalisiert:
+- Frage kurz nach: "Möchtest du, dass ich dir noch ein paar Fragen stelle, damit sich Oliver besser auf euer Gespräch vorbereiten kann? Oder soll ich dir direkt den Link zur Terminvereinbarung geben?"
+- WICHTIG: Bestehe NICHT darauf, weitere Fragen zu stellen. Wenn der Gesprächspartner den Link möchte, gib ihn sofort.
+- Der "Virtuelle Espresso" ist ein unverbindliches 30-Minuten-Gespräch mit Oliver Andrees (KI-Stratege bei Sonaris).
+- Buchungslink: https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-?uuid=12c65731-408f-41fe-b4f0-462eb74969d6
+- Formuliere den Link einladend, z.B.: "Hier kannst du direkt einen Virtuellen Espresso mit Oliver buchen – 30 Minuten, unverbindlich: [Link]"
 
 ## Längenvorgaben
 
