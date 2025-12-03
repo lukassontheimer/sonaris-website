@@ -5,6 +5,29 @@ import { useToast } from "@/hooks/use-toast";
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
+// Helper function to render text with clickable links
+const renderMessageContent = (content: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = content.split(urlRegex);
+  
+  return parts.map((part, index) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a 
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#22d3ee] underline hover:text-white transition-colors"
+        >
+          Termin vereinbaren
+        </a>
+      );
+    }
+    return part;
+  });
+};
+
 const CeoKiAccelerator = () => {
   const [activeNav, setActiveNav] = useState("summary");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -519,13 +542,13 @@ const CeoKiAccelerator = () => {
             {messages.map((msg, i) => (
               <div 
                 key={i} 
-                className={`max-w-[85%] lg:max-w-[80%] p-2.5 lg:p-3 px-3 lg:px-4 rounded-xl text-sm lg:text-[0.95rem] leading-[1.5] ${
+                className={`max-w-[85%] lg:max-w-[80%] p-2.5 lg:p-3 px-3 lg:px-4 rounded-xl text-sm lg:text-[0.95rem] leading-[1.5] whitespace-pre-wrap ${
                   msg.role === 'user' 
                     ? 'self-end bg-[#22d3ee] text-[#020617] font-medium shadow-[0_0_15px_rgba(34,211,238,0.2)] rounded-br-sm' 
                     : 'self-start bg-[rgba(255,255,255,0.05)] text-[#f8fafc] border border-[rgba(255,255,255,0.1)] rounded-bl-sm'
                 }`}
               >
-                {msg.content}
+                {renderMessageContent(msg.content)}
               </div>
             ))}
             {isLoading && (
