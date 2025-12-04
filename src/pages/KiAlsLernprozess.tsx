@@ -1,12 +1,55 @@
 import { useState, useEffect, useRef } from "react";
+import { Send, X, Loader2, Sparkles } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+
+type Message = { role: 'user' | 'assistant'; content: string };
+
+const renderMessageContent = (content: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = content.split(urlRegex);
+  
+  return parts.map((part, index) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a 
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#22d3ee] underline hover:text-white transition-colors"
+        >
+          Termin vereinbaren
+        </a>
+      );
+    }
+    return part;
+  });
+};
 
 const KiAlsLernprozess = () => {
   const [activeDepth, setActiveDepth] = useState(0);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'assistant', content: 'Willkommen! Ich bin dein SONARIS KI-Assistent. Diese Unterhaltung wird nicht gespeichert.\n\nWie kann ich dir helfen, KI als sozialen Lernprozess in deinem Unternehmen zu verstehen und umzusetzen?' }
+  ]);
+  const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
   
   const depthLabels = ["SURFACE", "-50m", "-100m", "-200m", "CORE"];
   const depthPositions = ["5%", "25%", "50%", "75%", "95%"];
   
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     const observerOptions = {
@@ -37,6 +80,61 @@ const KiAlsLernprozess = () => {
     const section = sectionRefs.current[index];
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const sendMessage = async () => {
+    if (!inputValue.trim() || isLoading) return;
+
+    const userMessage: Message = { role: 'user', content: inputValue.trim() };
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInputValue('');
+    setIsLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('ceo-chat', {
+        body: { messages: updatedMessages }
+      });
+
+      if (error) {
+        console.error('Chat error:', error);
+        toast({
+          title: "Fehler",
+          description: "Es gab ein Problem mit der Verbindung zum Assistenten.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (data?.error) {
+        toast({
+          title: "Fehler",
+          description: data.error,
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (data?.message) {
+        setMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
+      }
+    } catch (err) {
+      console.error('Chat error:', err);
+      toast({
+        title: "Fehler",
+        description: "Ein unerwarteter Fehler ist aufgetreten.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
     }
   };
 
@@ -967,6 +1065,64 @@ const KiAlsLernprozess = () => {
               <a href="/impressum">IMPRESSUM</a>
               <span>SYSTEM DIAGNOSTIC COMPLETE</span>
             </div>
+          </div>
+        </div>
+
+        {/* Chatbot Toggler */}
+        <button
+          onClick={() => setChatOpen(!chatOpen)}
+          className="fixed bottom-4 md:bottom-[30px] right-4 md:right-[50px] w-12 h-12 md:w-[70px] md:h-[70px] rounded-full bg-[#1e293b] border-2 border-[#22d3ee] shadow-[0_0_20px_rgba(34,211,238,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 z-[9999] hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] touch-manipulation"
+        >
+          {chatOpen ? <X className="w-5 h-5 md:w-6 md:h-6 text-[#22d3ee]" /> : <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-[#22d3ee]" />}
+        </button>
+        
+        {/* Chat Window */}
+        <div className={`fixed left-3 right-3 md:left-auto md:right-[50px] bottom-[72px] md:bottom-[110px] md:w-[400px] h-[280px] md:h-[550px] max-h-[60vh] md:max-h-[70vh] bg-[rgba(30,41,59,0.98)] backdrop-blur-[10px] border border-[rgba(34,211,238,0.3)] rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.5),0_0_10px_rgba(34,211,238,0.1)] overflow-hidden flex flex-col z-[9999] transition-all duration-300 touch-manipulation ${chatOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-5 scale-95 pointer-events-none'}`}>
+          <div className="bg-[rgba(255,255,255,0.03)] px-3 md:px-5 py-2.5 md:py-4 flex items-center justify-between border-b border-[rgba(34,211,238,0.3)] shrink-0">
+            <h2 className="text-[#f8fafc] text-sm md:text-[1.1rem] font-semibold m-0 tracking-[0.5px]">SONARIS Assistant</h2>
+            <button onClick={() => setChatOpen(false)} className="text-[#22d3ee] cursor-pointer text-xl md:text-2xl transition-colors duration-200 hover:text-white bg-transparent border-none touch-manipulation p-1">
+              <X className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+          </div>
+          <div className="flex-1 p-3 md:p-5 overflow-y-auto flex flex-col gap-2 md:gap-[15px] overscroll-contain">
+            {messages.map((msg, i) => (
+              <div 
+                key={i} 
+                className={`max-w-[88%] md:max-w-[80%] p-2 md:p-3 px-2.5 md:px-4 rounded-xl text-xs md:text-[0.95rem] leading-[1.4] md:leading-[1.5] whitespace-pre-wrap ${
+                  msg.role === 'user' 
+                    ? 'self-end bg-[#22d3ee] text-[#020617] font-medium shadow-[0_0_15px_rgba(34,211,238,0.2)] rounded-br-sm' 
+                    : 'self-start bg-[rgba(255,255,255,0.05)] text-[#f8fafc] border border-[rgba(255,255,255,0.1)] rounded-bl-sm'
+                }`}
+              >
+                {renderMessageContent(msg.content)}
+              </div>
+            ))}
+            {isLoading && (
+              <div className="self-start flex items-center gap-2 text-[#94a3b8] text-xs md:text-sm">
+                <Loader2 className="w-3 h-3 md:w-4 md:h-4 animate-spin" />
+                <span>Denkt nach...</span>
+              </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+          <div className="p-2.5 md:p-[15px_20px] border-t border-[rgba(34,211,238,0.3)] flex gap-2 md:gap-2.5 bg-[rgba(0,0,0,0.2)] shrink-0">
+            <input 
+              type="text"
+              placeholder="Schreibe eine Nachricht..." 
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={handleKeyPress}
+              disabled={isLoading}
+              className="flex-1 bg-transparent border-none outline-none text-[#f8fafc] text-xs md:text-[0.95rem] h-6 p-0 placeholder:text-[rgba(255,255,255,0.3)] disabled:opacity-50"
+              style={{ fontSize: '16px' }}
+            />
+            <button 
+              onClick={sendMessage}
+              disabled={isLoading || !inputValue.trim()}
+              className="bg-transparent border-none outline-none text-[#22d3ee] cursor-pointer text-lg md:text-xl transition-transform duration-200 p-1 flex items-center hover:translate-x-[3px] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 touch-manipulation"
+            >
+              {isLoading ? <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" /> : <Send className="w-4 h-4 md:w-5 md:h-5" />}
+            </button>
           </div>
         </div>
       </div>
