@@ -36,6 +36,7 @@ import DatenVerstehen from "./pages/spectrum/DatenVerstehen";
 import GrundlagenKI from "./pages/spectrum/GrundlagenKI";
 import Dive from "./pages/spectrum/Dive";
 import KiAnamnese from "./pages/KiAnamnese";
+import KiAlsLernprozess from "./pages/KiAlsLernprozess";
 import EnterpriseKiHub from "./pages/EnterpriseKiHub";
 import CeoKiAccelerator from "./pages/CeoKiAccelerator";
 import NotFound from "./pages/NotFound";
@@ -80,6 +81,7 @@ const App = () => (
           <Route path="/spectrum/grundlagen-ki" element={<GrundlagenKI />} />
           <Route path="/spectrum/dive" element={<Dive />} />
           <Route path="/ki-anamnese" element={<KiAnamnese />} />
+          <Route path="/ki-als-lernprozess" element={<KiAlsLernprozess />} />
           <Route path="/enterprise-ki-hub" element={<EnterpriseKiHub />} />
           <Route path="/ceo-ki-accelerator" element={<CeoKiAccelerator />} />
           <Route path="/impressum" element={<Impressum />} />
