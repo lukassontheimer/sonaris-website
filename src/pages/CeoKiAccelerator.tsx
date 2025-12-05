@@ -503,8 +503,20 @@ const CeoKiAccelerator = () => {
             {/* Investment */}
             <div id="invest" className="bg-[rgba(34,211,238,0.05)] border border-[#22d3ee] p-6 lg:p-10 rounded-lg text-center mt-4 lg:mt-6">
               <div className="font-mono text-xs lg:text-sm text-[#0891b2] uppercase tracking-[1px]">INVESTITION (PAUSCHAL)</div>
-              <span className="text-3xl lg:text-5xl font-bold text-white my-3 lg:my-4 block">7.500 €</span>
-              <div className="font-mono text-xs lg:text-sm text-[#0891b2] uppercase tracking-[1px]">NETTO (zzgl. 19% MwSt. = 8.925 € Brutto)</div>
+              <span className="text-3xl lg:text-5xl font-bold text-white my-3 lg:my-4 block">XY Euro*</span>
+              <div className="font-mono text-xs lg:text-sm text-[#0891b2] uppercase tracking-[1px]">NETTO (zzgl. 19% MwSt.)</div>
+            </div>
+            
+            {/* CTA Button */}
+            <div className="flex justify-center mt-6">
+              <a 
+                href="https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-?uuid=55e61166-a55a-4de9-a31f-f964e507a90e" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-transparent border-2 border-[#22d3ee] text-[#22d3ee] px-6 py-3 rounded-lg font-mono text-sm uppercase tracking-wider transition-all duration-300 hover:bg-[rgba(34,211,238,0.1)] hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+              >
+                📅 VIRTUELLEN ESPRESSO BUCHEN
+              </a>
             </div>
             
             {/* Footer */}
