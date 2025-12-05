@@ -507,6 +507,9 @@ const CeoKiAccelerator = () => {
               <div className="font-mono text-xs lg:text-sm text-[#0891b2] uppercase tracking-[1px]">NETTO (zzgl. 19% MwSt.)</div>
             </div>
             
+            {/* Price footnote */}
+            <p className="text-xs text-white/70 text-center mt-3">*Preiskalkulation in Abhängigkeit Anzahl Teilnehmer und Menge Usecases</p>
+            
             {/* CTA Button */}
             <div className="flex justify-center mt-6">
               <a 
