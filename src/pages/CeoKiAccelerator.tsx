@@ -31,6 +31,7 @@ const renderMessageContent = (content: string) => {
 const CeoKiAccelerator = () => {
   const [activeNav, setActiveNav] = useState("summary");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [faqSectionOpen, setFaqSectionOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -491,22 +492,30 @@ const CeoKiAccelerator = () => {
               
               {/* FAQ */}
               <div className="mt-6 lg:mt-10">
-                <h2 className="text-xl lg:text-2xl font-bold text-[#f8fafc] mb-4 lg:mb-6">FAQ</h2>
-                <div className="flex flex-col gap-3">
-                  {faqs.map((faq, i) => (
-                    <div key={i} className={`bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] rounded overflow-hidden transition-colors duration-300 ${openFaq === i ? 'border-[#0891b2]' : 'hover:border-[#0891b2]'}`}>
-                      <button
-                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                        className="w-full p-4 lg:p-5 bg-transparent border-none text-left flex justify-between items-center cursor-pointer text-[#f8fafc] text-xs lg:text-sm font-bold outline-none"
-                      >
-                        {faq.q}
-                        <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
-                      </button>
-                      <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-[300px]' : 'max-h-0'}`}>
-                        <div className="px-4 lg:px-5 pb-4 lg:pb-5 text-xs lg:text-sm text-[#94a3b8] leading-[1.5] text-left">{faq.a}</div>
+                <button 
+                  onClick={() => setFaqSectionOpen(!faqSectionOpen)}
+                  className="w-full flex items-center justify-between bg-transparent border-none cursor-pointer mb-4 lg:mb-6 group"
+                >
+                  <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 tracking-[1px]">&gt;&gt; FAQ</span>
+                  <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${faqSectionOpen ? 'rotate-45' : ''}`}>+</span>
+                </button>
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${faqSectionOpen ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="flex flex-col gap-3">
+                    {faqs.map((faq, i) => (
+                      <div key={i} className={`bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] rounded overflow-hidden transition-colors duration-300 ${openFaq === i ? 'border-[#0891b2]' : 'hover:border-[#0891b2]'}`}>
+                        <button
+                          onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                          className="w-full p-4 lg:p-5 bg-transparent border-none text-left flex justify-between items-center cursor-pointer text-[#f8fafc] text-xs lg:text-sm font-bold outline-none"
+                        >
+                          {faq.q}
+                          <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
+                        </button>
+                        <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-[300px]' : 'max-h-0'}`}>
+                          <div className="px-4 lg:px-5 pb-4 lg:pb-5 text-xs lg:text-sm text-[#94a3b8] leading-[1.5] text-left">{faq.a}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
