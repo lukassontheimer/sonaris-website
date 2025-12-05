@@ -492,13 +492,17 @@ const CeoKiAccelerator = () => {
               
               {/* FAQ */}
               <div className="mt-6 lg:mt-10">
-                <button 
-                  onClick={() => setFaqSectionOpen(!faqSectionOpen)}
-                  className="w-full flex items-center justify-between bg-transparent border-none cursor-pointer mb-4 lg:mb-6 group"
-                >
-                  <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 tracking-[1px]">&gt;&gt; FAQ</span>
-                  <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${faqSectionOpen ? 'rotate-45' : ''}`}>+</span>
-                </button>
+                <span className="font-mono text-[#22d3ee] text-xs border-b border-[rgba(34,211,238,0.25)] pb-1.5 mb-4 lg:mb-6 block tracking-[1px]">&gt;&gt; FAQ</span>
+                
+                {!faqSectionOpen && (
+                  <button 
+                    onClick={() => setFaqSectionOpen(true)}
+                    className="bg-transparent border border-[rgba(34,211,238,0.25)] text-[#22d3ee] px-5 py-3 rounded font-mono text-xs uppercase tracking-wider cursor-pointer transition-all duration-300 hover:bg-[rgba(34,211,238,0.1)] hover:border-[#22d3ee]"
+                  >
+                    Häufige Fragen anzeigen
+                  </button>
+                )}
+                
                 <div className={`overflow-hidden transition-all duration-500 ease-in-out ${faqSectionOpen ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="flex flex-col gap-3">
                     {faqs.map((faq, i) => (
