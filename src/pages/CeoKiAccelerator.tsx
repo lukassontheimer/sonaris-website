@@ -158,8 +158,16 @@ const CeoKiAccelerator = () => {
   ];
 
   const faqs = [
-    { q: 'Wie viel Zeit muss ich einplanen?', a: 'Rechne mit ca. 1–3 Stunden pro Woche für die gemeinsamen Trainings, Sessions und Feedback inklusive Umsetzung.' },
-    { q: 'Technisches Vorwissen?', a: 'Nein, wir holen dich dort ab, wo du stehst.' },
+    { q: 'Brauche ich technisches Vorwissen?', a: 'Der Einstieg erfolgt genau auf deinem aktuellen Kenntnisstand. Wir entwickeln gemeinsam "Task Monkeys" – digitale Assistenten, die auf klaren sprachlichen Anweisungen (Prompts) basieren. Die Bedienung erfolgt rein über natürliche Sprache und ist für jeden Anwender zugänglich.' },
+    { q: 'Wir nutzen schon Copilot/ChatGPT. Lohnt sich das trotzdem?', a: 'Die Nutzung bestehender Tools bildet eine hervorragende Grundlage. Darauf aufbauend integrieren wir diese Instrumente fest in deine Unternehmensprozesse. Wir etablieren zusätzlich eine zentrale Wissensbasis und dokumentierte System-Prompts, um eine einheitliche und skalierbare Lösung für das gesamte Team zu schaffen.' },
+    { q: 'Ist KI nicht nur ein vorübergehender Hype?', a: 'Diese Technologie ist langfristig relevant und etabliert sich fest im Markt. Der Fokus liegt bei uns auf der konkreten Anwendung und Wertschöpfung. Wir konzentrieren uns auf die Lösung realer Engpässe im Tagesgeschäft. Damit stärken wir die nachhaltige Wettbewerbsfähigkeit deines Unternehmens.' },
+    { q: 'Wie steht es um Datenschutz & DSGVO?', a: 'Datensicherheit steht an erster Stelle. Wir nutzen Enterprise-Ready Plattformen (z.B. Langdock) mit voller DSGVO-Konformität. Deine Daten verbleiben im geschützten Raum und dienen ausschließlich internen Zwecken und der Nutzung durch dein Unternehmen.' },
+    { q: 'Wir haben aktuell wenig Zeit für neue Projekte.', a: 'Dieses Programm dient explizit dem Zeitgewinn. Eine Einsparung von einer Stunde pro Woche je Mitarbeiter summiert sich auf tausende Stunden im Jahr. Das Ziel ist die unmittelbare Entlastung und eine spürbare Effizienzsteigerung im laufenden Betrieb.' },
+    { q: 'Können wir das intern lernen?', a: 'Internes Engagement ergänzen wir optimal durch externe Expertise. Wir stellen bewährte Playbooks und eine klare Architektur bereit. Damit sichern wir von Beginn an eine strukturierte Vorgehensweise und beschleunigen den Lernerfolg durch erprobte Standards.' },
+    { q: 'Wann sehen wir die ersten Ergebnisse (ROI)?', a: 'Unser Fokus liegt auf "Quick Wins". Bereits in den ersten Wochen setzen wir konkrete Use-Cases um. Messbare Ergebnisse und erste Effizienzgewinne sind innerhalb von 60 Tagen zu erwarten.' },
+    { q: 'Wie viel Zeit muss ich investieren?', a: 'Für die persönlichen Trainingssessions sind 1–2 Stunden pro Woche einzuplanen.' },
+    { q: 'Was passiert nach den 12 Wochen?', a: 'Innerhalb der 12 Wochen erwerbt ihr fundiertes Wissen, erstellt eigene Assistenten und etabliert erste Workflows. Auf dieser starken Basis bereiten wir einen konkreten Vorschlag für die weitere Zusammenarbeit und den Ausbau der Lösungen vor.' },
+    { q: 'Welche Software wird genutzt?', a: 'Wir arbeiten flexibel und binden verschiedene Technologien ein. Dazu nutzen wir modell-agnostische Plattformen wie Langdock (für GPT-4, Claude 3 etc.) sowie auch die Microsoft-Umgebung mit Copilot. Wir wählen die Technologie, die deine Strategie optimal unterstützt.' },
   ];
 
   return (
@@ -482,21 +490,24 @@ const CeoKiAccelerator = () => {
               </div>
               
               {/* FAQ */}
-              <div className="mt-6 lg:mt-10 flex flex-col gap-3">
-                {faqs.map((faq, i) => (
-                  <div key={i} className={`bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] rounded overflow-hidden transition-colors duration-300 ${openFaq === i ? 'border-[#0891b2]' : 'hover:border-[#0891b2]'}`}>
-                    <button
-                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="w-full p-4 lg:p-5 bg-transparent border-none text-left flex justify-between items-center cursor-pointer text-[#f8fafc] text-xs lg:text-sm font-bold outline-none"
-                    >
-                      {faq.q}
-                      <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
-                    </button>
-                    <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-[200px]' : 'max-h-0'}`}>
-                      <div className="px-4 lg:px-5 pb-4 lg:pb-5 text-xs lg:text-sm text-[#94a3b8] leading-[1.5] text-left">{faq.a}</div>
+              <div className="mt-6 lg:mt-10">
+                <h2 className="text-xl lg:text-2xl font-bold text-[#f8fafc] mb-4 lg:mb-6">FAQ</h2>
+                <div className="flex flex-col gap-3">
+                  {faqs.map((faq, i) => (
+                    <div key={i} className={`bg-[rgba(255,255,255,0.02)] border border-[rgba(34,211,238,0.25)] rounded overflow-hidden transition-colors duration-300 ${openFaq === i ? 'border-[#0891b2]' : 'hover:border-[#0891b2]'}`}>
+                      <button
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        className="w-full p-4 lg:p-5 bg-transparent border-none text-left flex justify-between items-center cursor-pointer text-[#f8fafc] text-xs lg:text-sm font-bold outline-none"
+                      >
+                        {faq.q}
+                        <span className={`text-[#22d3ee] text-lg transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
+                      </button>
+                      <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-[300px]' : 'max-h-0'}`}>
+                        <div className="px-4 lg:px-5 pb-4 lg:pb-5 text-xs lg:text-sm text-[#94a3b8] leading-[1.5] text-left">{faq.a}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
             
