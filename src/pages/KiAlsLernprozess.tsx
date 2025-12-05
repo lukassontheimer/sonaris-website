@@ -1052,7 +1052,7 @@ const KiAlsLernprozess = () => {
               </div>
               <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px' }}>
                 <a href="mailto:oliver@sonaris.de" className="lernprozess-cta-btn">✉️ E-MAIL SENDEN</a>
-                <a href="https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-" target="_blank" rel="noopener noreferrer" className="lernprozess-cta-sub">📅 VIRTUELLEN ESPRESSO BUCHEN</a>
+                <a href="https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-?uuid=55e61166-a55a-4de9-a31f-f964e507a90e" target="_blank" rel="noopener noreferrer" className="lernprozess-cta-sub">📅 VIRTUELLEN ESPRESSO BUCHEN</a>
               </div>
               <div style={{ marginTop: '20px', fontSize: '10px', color: 'var(--text-mute)', fontFamily: 'var(--font-mono)' }}>
                 OLIVER ANDREES // KONTAKTARCHITEKT @ SONARIS<br/>
