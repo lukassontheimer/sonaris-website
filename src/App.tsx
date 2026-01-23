@@ -39,6 +39,7 @@ import KiAnamnese from "./pages/KiAnamnese";
 import KiAlsLernprozess from "./pages/KiAlsLernprozess";
 import EnterpriseKiHub from "./pages/EnterpriseKiHub";
 import CeoKiAccelerator from "./pages/CeoKiAccelerator";
+import KiLeverageEffekt from "./pages/KiLeverageEffekt";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -82,6 +83,7 @@ const App = () => (
           <Route path="/spectrum/dive" element={<Dive />} />
           <Route path="/ki-anamnese" element={<KiAnamnese />} />
           <Route path="/ki-als-lernprozess" element={<KiAlsLernprozess />} />
+          <Route path="/ki-leverage-effekt" element={<KiLeverageEffekt />} />
           <Route path="/enterprise-ki-hub" element={<EnterpriseKiHub />} />
           <Route path="/ceo-ki-accelerator" element={<CeoKiAccelerator />} />
           <Route path="/impressum" element={<Impressum />} />
