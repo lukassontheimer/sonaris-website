@@ -779,7 +779,7 @@ const KiCoaching = () => {
             Fragen? Gesprächsbedarf?
           </h2>
           <p style={{ fontSize: 15, color: '#A0B9D7', lineHeight: 1.7, maxWidth: 480, margin: '0 auto 32px', opacity: 0.85 }}>
-            Bei einem virtuellen Espresso – Kurz und knackig besprechen wir auf Augenhöhe dein Anliegen.
+            Ein virtueller Espresso – kurz, knackig und inspirierend. Und immer auf Augenhöhe.
           </p>
 
           <a
