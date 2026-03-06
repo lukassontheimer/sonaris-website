@@ -58,14 +58,14 @@ const teamMembers = [
     name: "Lukas Sontheimer",
     role: "KI-Stratege",
     bio: "Ich schaffe Klarheit im KI-Chaos durch systematische Prozessintegration.",
-    photo: "/lovable-uploads/64310054-52e7-48af-ba44-b16e7e1a919f.png",
+    photo: "/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png",
     colorClass: "tc-lukas",
   },
   {
     name: "Lorenz Surkemper",
     role: "Technologie-Experte",
     bio: "Ich finde den Weg, damit eure Ideen auch technisch Wirklichkeit werden.",
-    photo: "/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png",
+    photo: "/lovable-uploads/64310054-52e7-48af-ba44-b16e7e1a919f.png",
     colorClass: "tc-lorenz",
   },
   {
