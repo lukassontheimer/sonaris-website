@@ -40,6 +40,7 @@ import KiAlsLernprozess from "./pages/KiAlsLernprozess";
 import EnterpriseKiHub from "./pages/EnterpriseKiHub";
 import CeoKiAccelerator from "./pages/CeoKiAccelerator";
 import KiLeverageEffekt from "./pages/KiLeverageEffekt";
+import KiCoaching from "./pages/KiCoaching";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
