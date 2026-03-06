@@ -701,9 +701,127 @@ const KiCoaching = () => {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="kic-footer-note">
-          Die Beispiele sind Illustrationen typischer Leistungen. Konkrete Agenten und Workflows werden gemeinsam mit dir auf Basis deiner Prozesse und Ziele entwickelt und priorisiert.
+        {/* Illustration disclaimer - moved up */}
+        <div style={{ textAlign: 'center', maxWidth: 720, marginBottom: 48 }}>
+          <p style={{ fontSize: 13, color: '#8CA0BE', lineHeight: 1.7, opacity: 0.7 }}>
+            Die Beispiele sind Illustrationen typischer Leistungen. Konkrete Agenten und Workflows werden gemeinsam mit dir auf Basis deiner Prozesse und Ziele entwickelt und priorisiert.
+          </p>
+        </div>
+
+        {/* Virtueller Espresso CTA */}
+        <div style={{
+          maxWidth: 720, width: '100%',
+          background: 'rgba(225,185,145,0.04)',
+          border: '1px solid rgba(225,185,145,0.18)',
+          borderRadius: 20,
+          padding: '48px 40px',
+          textAlign: 'center',
+          marginBottom: 64,
+          position: 'relative',
+          overflow: 'hidden',
+        }}>
+          {/* Subtle glow */}
+          <div style={{
+            position: 'absolute', top: -60, left: '50%', transform: 'translateX(-50%)',
+            width: 320, height: 200,
+            background: 'radial-gradient(ellipse at center, rgba(225,185,145,0.07) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+
+          {/* Espresso Icon */}
+          <div style={{ width: 96, height: 96, margin: '0 auto 24px' }}>
+            <svg viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="g-espresso-cta" cx="50%" cy="60%" r="40%">
+                  <stop offset="0%" stopColor="rgba(225,185,145,0.08)"/>
+                  <stop offset="100%" stopColor="rgba(225,185,145,0)"/>
+                </radialGradient>
+              </defs>
+              <circle cx="60" cy="65" r="45" fill="url(#g-espresso-cta)"/>
+              <path d="M 38 58 L 35 88 Q 35 95, 45 96 L 75 96 Q 85 95, 85 88 L 82 58"
+                fill="none" stroke="rgba(225,185,145,0.55)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M 35 58 Q 60 54, 85 58" fill="none" stroke="rgba(225,185,145,0.6)" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M 82 63 Q 98 63, 98 76 Q 98 88, 85 88"
+                fill="none" stroke="rgba(225,185,145,0.4)" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M 25 100 Q 60 106, 95 100" fill="none" stroke="rgba(225,185,145,0.25)" strokeWidth="1" strokeLinecap="round"/>
+              <path d="M 48 55 Q 44 42, 50 32 Q 56 22, 48 12" fill="none" stroke="rgba(225,185,145,0.2)" strokeWidth="0.8" strokeLinecap="round">
+                <animate attributeName="d" values="M 48 55 Q 44 42, 50 32 Q 56 22, 48 12;M 48 55 Q 52 40, 46 30 Q 40 20, 48 10;M 48 55 Q 44 42, 50 32 Q 56 22, 48 12" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.2;0.08;0.2" dur="4s" repeatCount="indefinite"/>
+              </path>
+              <path d="M 60 52 Q 56 38, 62 28 Q 68 18, 60 8" fill="none" stroke="rgba(225,185,145,0.18)" strokeWidth="0.8" strokeLinecap="round">
+                <animate attributeName="d" values="M 60 52 Q 56 38, 62 28 Q 68 18, 60 8;M 60 52 Q 64 36, 58 26 Q 52 16, 60 6;M 60 52 Q 56 38, 62 28 Q 68 18, 60 8" dur="4.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.18;0.06;0.18" dur="4.5s" repeatCount="indefinite"/>
+              </path>
+              <path d="M 72 55 Q 68 44, 74 34 Q 80 24, 72 16" fill="none" stroke="rgba(225,185,145,0.15)" strokeWidth="0.8" strokeLinecap="round">
+                <animate attributeName="d" values="M 72 55 Q 68 44, 74 34 Q 80 24, 72 16;M 72 55 Q 76 42, 70 32 Q 64 22, 72 14;M 72 55 Q 68 44, 74 34 Q 80 24, 72 16" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.15;0.05;0.15" dur="5s" repeatCount="indefinite"/>
+              </path>
+              <circle cx="48" cy="10" r="1.5" fill="rgba(110,145,180,0.4)">
+                <animate attributeName="cy" values="10;6;10" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="60" cy="6" r="1.8" fill="rgba(110,145,180,0.45)">
+                <animate attributeName="cy" values="6;2;6" dur="3.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.45;0.15;0.45" dur="3.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="72" cy="12" r="1.3" fill="rgba(110,145,180,0.35)">
+                <animate attributeName="cy" values="12;7;12" dur="4s" repeatCount="indefinite"/>
+              </circle>
+              <line x1="48" y1="10" x2="60" y2="6" stroke="rgba(110,145,180,0.15)" strokeWidth="0.4"/>
+              <line x1="60" y1="6" x2="72" y2="12" stroke="rgba(110,145,180,0.12)" strokeWidth="0.4"/>
+            </svg>
+          </div>
+
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6E91B4', marginBottom: 12 }}>
+            Kontakt
+          </div>
+          <h2 style={{ fontSize: 28, fontWeight: 700, color: '#C8DCF0', marginBottom: 12, letterSpacing: '-0.02em', lineHeight: 1.25 }}>
+            Fragen? Gesprächsbedarf?
+          </h2>
+          <p style={{ fontSize: 15, color: '#A0B9D7', lineHeight: 1.7, maxWidth: 480, margin: '0 auto 32px', opacity: 0.85 }}>
+            Dann lass uns einen virtuellen Espresso trinken – 20 Minuten, unverbindlich, auf Augenhöhe.
+          </p>
+
+          <a
+            href="https://sonaris.de/first-contact#virtueller-espresso"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              background: 'rgba(225,185,145,0.12)',
+              border: '1px solid rgba(225,185,145,0.35)',
+              borderRadius: 12,
+              padding: '14px 28px',
+              fontSize: 15,
+              fontWeight: 600,
+              color: '#E1B991',
+              textDecoration: 'none',
+              transition: 'all 0.25s ease',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(225,185,145,0.2)';
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(225,185,145,0.6)';
+              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-2px)';
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 8px 24px rgba(225,185,145,0.15)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(225,185,145,0.12)';
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(225,185,145,0.35)';
+              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
+            }}
+          >
+            <svg viewBox="0 0 120 120" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 38 58 L 35 88 Q 35 95, 45 96 L 75 96 Q 85 95, 85 88 L 82 58" fill="none" stroke="rgba(225,185,145,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M 35 58 Q 60 54, 85 58" fill="none" stroke="rgba(225,185,145,0.8)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 82 63 Q 98 63, 98 76 Q 98 88, 85 88" fill="none" stroke="rgba(225,185,145,0.6)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 25 100 Q 60 106, 95 100" fill="none" stroke="rgba(225,185,145,0.3)" strokeWidth="1" strokeLinecap="round"/>
+            </svg>
+            Virtuellen Espresso buchen
+          </a>
         </div>
 
         <div className="kic-footer-contact">
