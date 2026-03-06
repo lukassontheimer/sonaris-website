@@ -87,6 +87,7 @@ const App = () => (
           <Route path="/ki-leverage-effekt" element={<KiLeverageEffekt />} />
           <Route path="/enterprise-ki-hub" element={<EnterpriseKiHub />} />
           <Route path="/ceo-ki-accelerator" element={<CeoKiAccelerator />} />
+          <Route path="/ki-coaching" element={<KiCoaching />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
