@@ -23,8 +23,8 @@ const Impressum = () => {
             <h2 className="text-2xl font-semibold text-foreground mb-4">Angaben gemäß § 5 TMG</h2>
             <div className="space-y-2">
               <p className="font-semibold text-foreground">Remote Sourcing GmbH</p>
-              <p className="text-muted-foreground">Am Felsenkeller 38a</p>
-              <p className="text-muted-foreground">31867 Lauenau</p>
+              <p className="text-muted-foreground">Wilhelmstr. 15</p>
+              <p className="text-muted-foreground">31542 Bad Nenndorf</p>
             </div>
           </section>
 
