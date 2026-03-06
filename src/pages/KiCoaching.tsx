@@ -497,6 +497,13 @@ const KiCoaching = () => {
           </div>
         </div>
 
+        {/* Section Heading */}
+        <div style={{ textAlign: 'center', marginBottom: 32, maxWidth: 760 }}>
+          <h2 style={{ fontSize: 30, fontWeight: 700, color: '#C8DCF0', letterSpacing: '-0.02em', lineHeight: 1.25 }}>
+            30 Tage Leistung – 30 Tage Pauschale
+          </h2>
+        </div>
+
         {/* Anchor Box */}
         <div className="kic-anchor-box">
           <p>
