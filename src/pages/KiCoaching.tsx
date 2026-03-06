@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Send, X, Loader2 } from "lucide-react";
+import { Send, X, Loader2, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
