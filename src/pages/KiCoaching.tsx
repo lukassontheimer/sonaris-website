@@ -45,6 +45,38 @@ const LogoMark = ({ size = 32 }: { size?: number }) => (
   </svg>
 );
 
+// Team member photos from public uploads
+const teamMembers = [
+  {
+    name: "Oliver Andrees",
+    role: "Gründer & CEO",
+    bio: "Strategie, Vertrieb und KI-Transformation. Verbindet unternehmerisches Denken mit technischer Umsetzungskraft.",
+    photo: "/lovable-uploads/cd70301f-650c-4fa0-8d91-f24e87a9405c.png",
+    colorClass: "tc-oliver",
+  },
+  {
+    name: "Lukas Sontheimer",
+    role: "KI-Architekt",
+    bio: "Entwickelt und implementiert maßgeschneiderte KI-Lösungen – von der Konzeption bis zur produktiven Umsetzung.",
+    photo: "/lovable-uploads/6ecd5e1b-5938-4825-83a1-6463e2b7075b.png",
+    colorClass: "tc-lukas",
+  },
+  {
+    name: "Lorenz Surkemper",
+    role: "Strategie & Operations",
+    bio: "Verbindet operative Exzellenz mit strategischer KI-Roadmap-Entwicklung für nachhaltige Transformation.",
+    photo: "/lovable-uploads/2978bf0f-c48a-4252-99b2-0c893e569892.png",
+    colorClass: "tc-lorenz",
+  },
+  {
+    name: "Christian Müller",
+    role: "KI-Coach & Trainer",
+    bio: "Befähigt Teams durch praxisnahe Workshops und individuelle Begleitung auf dem Weg zur KI-Kompetenz.",
+    photo: "/lovable-uploads/64310054-52e7-48af-ba44-b16e7e1a919f.png",
+    colorClass: "tc-christian",
+  },
+];
+
 const KiCoaching = () => {
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -56,7 +88,7 @@ const KiCoaching = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    document.title = "KI-Coaching | SONARIS – Die drei Säulen unserer Leistung";
+    document.title = "KI-Begleitung | Sonaris";
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
@@ -104,98 +136,146 @@ const KiCoaching = () => {
         }
         .kic-logo-bar {
           position: fixed;
-          top: 28px;
-          left: 32px;
+          top: 28px; left: 32px;
           z-index: 100;
-          display: flex;
-          align-items: center;
-          gap: 10px;
+          display: flex; align-items: center; gap: 10px;
         }
         .kic-logo-text {
-          font-size: 15px;
-          font-weight: 600;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
+          font-size: 15px; font-weight: 600;
+          letter-spacing: 0.08em; text-transform: uppercase;
           color: #C8DCF0;
         }
         .kic-header {
           text-align: center;
-          margin-bottom: 64px;
+          margin-bottom: 56px;
           max-width: 760px;
-          margin-top: 48px;
+          margin-top: 32px;
         }
         .kic-eyebrow {
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #6E91B4;
-          margin-bottom: 16px;
+          font-size: 11px; font-weight: 600;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          color: #6E91B4; margin-bottom: 16px;
         }
         .kic-h1 {
-          font-size: 38px;
-          font-weight: 700;
-          line-height: 1.2;
-          color: #C8DCF0;
-          margin-bottom: 20px;
-          letter-spacing: -0.02em;
+          font-size: 38px; font-weight: 700;
+          line-height: 1.2; color: #C8DCF0;
+          margin-bottom: 20px; letter-spacing: -0.02em;
         }
+        .kic-h1 span { color: #6E91B4; }
         .kic-subtitle {
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 1.7;
-          color: #A0B9D7;
-          max-width: 620px;
-          margin: 0 auto;
-          opacity: 0.8;
+          font-size: 16px; font-weight: 400;
+          line-height: 1.7; color: #A0B9D7;
+          max-width: 620px; margin: 0 auto; opacity: 0.8;
         }
-        .kic-anchor {
-          display: inline-block;
-          margin-top: 28px;
-          background: rgba(110,145,180,0.06);
-          border: 1px solid rgba(110,145,180,0.2);
-          border-radius: 12px;
-          padding: 16px 28px;
-          font-size: 15px;
-          font-weight: 500;
-          color: #B4C8E1;
-          line-height: 1.6;
-          max-width: 680px;
+
+        /* Section header */
+        .kic-section-header {
+          text-align: center; margin-bottom: 32px;
+        }
+        .kic-section-header h2 {
+          font-size: 26px; font-weight: 700;
+          color: #C8DCF0; margin-bottom: 8px;
+        }
+        .kic-section-header h2 span { color: #6E91B4; }
+        .kic-section-header p {
+          font-size: 14px; color: #8CA0BE; line-height: 1.6;
+        }
+
+        /* Team */
+        .kic-team-section {
+          max-width: 1100px; width: 100%; margin-bottom: 72px;
+        }
+        .kic-team-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px; margin-top: 28px;
+        }
+        .kic-team-card {
+          background: #151D28;
+          border: 1px solid rgba(110,145,180,0.12);
+          border-radius: 16px; padding: 32px 20px;
           text-align: center;
+          transition: transform 0.35s cubic-bezier(.25,.8,.25,1), border-color 0.35s ease, box-shadow 0.35s ease;
+          cursor: default;
         }
+        .kic-team-card:hover {
+          transform: translateY(-8px);
+          border-color: var(--tc-accent-strong, rgba(110,145,180,0.3));
+          box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+        .kic-avatar {
+          width: 96px; height: 96px;
+          margin: 0 auto 16px;
+          border-radius: 50%; overflow: hidden;
+          border: 2px solid var(--tc-accent, rgba(110,145,180,0.25));
+          transition: border-color 0.35s ease;
+        }
+        .kic-team-card:hover .kic-avatar {
+          border-color: var(--tc-accent-strong, #6E91B4);
+        }
+        .kic-avatar img {
+          width: 100%; height: 100%;
+          object-fit: cover; display: block;
+        }
+        .kic-member-name {
+          font-size: 15px; font-weight: 600;
+          color: #E1B991; margin-bottom: 3px;
+        }
+        .kic-member-role {
+          font-size: 11px; color: #8CA0BE;
+          letter-spacing: 0.3px; margin-bottom: 14px;
+          text-transform: uppercase;
+        }
+        .kic-member-bio {
+          font-size: 12px; line-height: 1.65; color: #A0B9D7;
+        }
+        .tc-oliver  { --tc-accent: rgba(170,125,85,0.25); --tc-accent-strong: #AA7D55; }
+        .tc-lukas   { --tc-accent: rgba(110,145,180,0.25); --tc-accent-strong: #6E91B4; }
+        .tc-lorenz  { --tc-accent: rgba(59,130,246,0.25);  --tc-accent-strong: #3B82F6; }
+        .tc-christian { --tc-accent: rgba(110,180,140,0.25); --tc-accent-strong: #6EB48C; }
+
+        /* Anchor box */
+        .kic-anchor-box {
+          max-width: 720px; width: 100%;
+          text-align: center; margin-bottom: 48px;
+          background: rgba(110,145,180,0.04);
+          border: 1px solid rgba(110,145,180,0.15);
+          border-radius: 14px; padding: 20px 32px;
+        }
+        .kic-anchor-box p {
+          font-size: 15px; font-weight: 500;
+          color: #B4C8E1; line-height: 1.65;
+        }
+
+        /* 3 Säulen */
         .kic-columns {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          max-width: 1100px;
-          width: 100%;
-          margin-bottom: 56px;
+          gap: 24px; max-width: 1100px;
+          width: 100%; margin-bottom: 64px;
         }
         .kic-card {
           background: #151D28;
           border: 1px solid rgba(110,145,180,0.12);
-          border-radius: 20px;
-          padding: 36px 28px;
-          position: relative;
-          overflow: hidden;
-          transition: transform 0.3s ease, border-color 0.3s ease;
+          border-radius: 20px; padding: 36px 28px;
+          position: relative; overflow: hidden;
+          transition: transform 0.35s cubic-bezier(.25,.8,.25,1), border-color 0.35s ease, box-shadow 0.35s ease;
+          cursor: default;
         }
         .kic-card:hover {
-          transform: translateY(-6px);
+          transform: translateY(-8px);
           border-color: var(--kic-accent);
+          box-shadow: 0 16px 40px rgba(0,0,0,0.25);
         }
         .kic-card::before {
           content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 3px;
-          background: var(--kic-accent);
+          position: absolute; top: 0; left: 0; right: 0;
+          height: 3px; background: var(--kic-accent);
           border-radius: 20px 20px 0 0;
         }
         .kic-card::after {
           content: '';
-          position: absolute;
-          top: -60px; right: -60px;
+          position: absolute; top: -60px; right: -60px;
           width: 160px; height: 160px;
           background: radial-gradient(circle, var(--kic-accent-soft) 0%, transparent 70%);
           pointer-events: none;
@@ -204,13 +284,11 @@ const KiCoaching = () => {
         .kic-card-2 { --kic-accent: #3B82F6; --kic-accent-soft: rgba(59,130,246,0.08); }
         .kic-card-3 { --kic-accent: #AA7D55; --kic-accent-soft: rgba(170,125,85,0.08); }
         .kic-card-icon {
-          width: 64px; height: 64px;
-          border-radius: 14px;
+          width: 64px; height: 64px; border-radius: 14px;
           background: var(--kic-accent-soft);
           border: 1px solid rgba(110,145,180,0.15);
           display: flex; align-items: center; justify-content: center;
-          margin-bottom: 20px;
-          overflow: hidden;
+          margin-bottom: 20px; overflow: hidden;
         }
         .kic-card-number {
           font-size: 11px; font-weight: 600;
@@ -235,17 +313,13 @@ const KiCoaching = () => {
         }
         .kic-items li::before {
           content: '';
-          width: 6px; height: 6px;
-          border-radius: 50%;
+          width: 6px; height: 6px; border-radius: 50%;
           background: var(--kic-accent);
           margin-top: 6px; flex-shrink: 0;
         }
+
+        /* Beispiele */
         .kic-examples-section { max-width: 1100px; width: 100%; margin-bottom: 56px; }
-        .kic-examples-header { text-align: center; margin-bottom: 32px; }
-        .kic-examples-header h2 {
-          font-size: 22px; font-weight: 700; color: #C8DCF0; margin-bottom: 8px;
-        }
-        .kic-examples-header p { font-size: 14px; color: #8CA0BE; }
         .kic-examples-grid {
           display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
         }
@@ -254,9 +328,14 @@ const KiCoaching = () => {
           border: 1px solid rgba(110,145,180,0.12);
           border-radius: 14px; padding: 24px;
           display: flex; gap: 16px; align-items: flex-start;
-          transition: border-color 0.3s ease;
+          transition: transform 0.35s cubic-bezier(.25,.8,.25,1), border-color 0.35s ease, box-shadow 0.35s ease;
+          cursor: default;
         }
-        .kic-example-card:hover { border-color: rgba(110,145,180,0.3); }
+        .kic-example-card:hover {
+          transform: translateY(-6px);
+          border-color: rgba(110,145,180,0.3);
+          box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+        }
         .kic-example-icon { width: 48px; height: 48px; flex-shrink: 0; margin-top: 2px; }
         .kic-example-content h3 {
           font-size: 15px; font-weight: 600; color: #C8DCF0; margin-bottom: 6px;
@@ -265,32 +344,52 @@ const KiCoaching = () => {
         .kic-example-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
         .kic-tag {
           font-size: 11px; font-weight: 500;
-          padding: 3px 10px; border-radius: 20px;
-          background: rgba(110,145,180,0.08);
-          color: #6E91B4;
-          border: 1px solid rgba(110,145,180,0.15);
+          padding: 3px 10px; border-radius: 20px; border: 1px solid;
+          transition: transform 0.2s ease;
         }
+        .kic-tag:hover { transform: scale(1.06); }
+        .kic-tag-steel    { background: rgba(110,145,180,0.1); color: #A0B9D7;  border-color: rgba(110,145,180,0.25); }
+        .kic-tag-copper   { background: rgba(170,125,85,0.1);  color: #E1B991;  border-color: rgba(170,125,85,0.25); }
+        .kic-tag-electric { background: rgba(59,130,246,0.1);  color: #8CB4DC;  border-color: rgba(59,130,246,0.25); }
+        .kic-tag-purple   { background: rgba(139,92,246,0.1);  color: #A78BFA;  border-color: rgba(139,92,246,0.25); }
+        .kic-tag-green    { background: rgba(110,180,140,0.1); color: #6EB48C;  border-color: rgba(110,180,140,0.25); }
+        .kic-tag-coral    { background: rgba(160,85,95,0.1);   color: #DC8C96;  border-color: rgba(160,85,95,0.25); }
+
+        /* Footer */
         .kic-footer-note {
           text-align: center; max-width: 620px;
           font-size: 13px; color: #8CA0BE; line-height: 1.7;
           border-top: 1px solid rgba(110,145,180,0.1);
           padding-top: 32px; margin-top: 8px; opacity: 0.7;
         }
+        .kic-footer-contact {
+          margin-top: 32px; padding-top: 14px;
+          border-top: 1px solid rgba(110,145,180,0.08);
+          display: flex; flex-wrap: wrap; gap: 4px 8px;
+          font-size: 9px; color: rgba(140,160,190,0.35);
+          line-height: 1.5; justify-content: center;
+          max-width: 800px; margin-bottom: 16px;
+        }
+        .kic-footer-contact a {
+          color: rgba(140,160,190,0.4); text-decoration: none;
+        }
+        .kic-footer-contact a:hover { color: rgba(140,160,190,0.7); }
+        .kic-footer-sep { color: rgba(140,160,190,0.2); }
         .kic-logo-footer {
           font-size: 13px; font-weight: 600;
           letter-spacing: 0.12em; text-transform: uppercase;
           color: rgba(110,145,180,0.25); margin-top: 24px;
         }
+
+        /* Chat */
         .kic-chat-btn {
           position: fixed; bottom: 32px; right: 32px;
           width: 56px; height: 56px;
-          background: #6E91B4;
-          border-radius: 50%;
+          background: #6E91B4; border-radius: 50%;
           border: none; cursor: pointer;
           display: flex; align-items: center; justify-content: center;
           box-shadow: 0 4px 24px rgba(110,145,180,0.4);
-          z-index: 200;
-          transition: transform 0.2s ease;
+          z-index: 200; transition: transform 0.2s ease;
         }
         .kic-chat-btn:hover { transform: scale(1.08); }
         .kic-chat-window {
@@ -311,7 +410,8 @@ const KiCoaching = () => {
           display: flex; align-items: center; justify-content: space-between;
         }
         .kic-chat-messages {
-          flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px;
+          flex: 1; overflow-y: auto; padding: 16px;
+          display: flex; flex-direction: column; gap: 12px;
         }
         .kic-chat-msg-user {
           align-self: flex-end; max-width: 80%;
@@ -336,20 +436,22 @@ const KiCoaching = () => {
           flex: 1; background: rgba(110,145,180,0.06);
           border: 1px solid rgba(110,145,180,0.2);
           border-radius: 8px; padding: 8px 12px;
-          font-size: 13px; color: #C8DCF0;
-          outline: none; font-family: inherit;
+          color: #C8DCF0; outline: none; font-family: inherit;
           font-size: 16px;
         }
         .kic-chat-input::placeholder { color: #6E91B4; }
         .kic-chat-send {
           background: #6E91B4; border: none; border-radius: 8px;
-          width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+          width: 36px; height: 36px;
+          display: flex; align-items: center; justify-content: center;
           cursor: pointer; transition: background 0.2s; flex-shrink: 0;
         }
         .kic-chat-send:hover { background: #8CA8C8; }
+
         @media (max-width: 900px) {
           .kic-columns { grid-template-columns: 1fr; }
           .kic-examples-grid { grid-template-columns: 1fr; }
+          .kic-team-grid { grid-template-columns: repeat(2, 1fr); }
           .kic-h1 { font-size: 28px; }
           .kic-logo-bar { left: 16px; top: 16px; }
           .kic-chat-window { right: 16px; left: 16px; width: auto; }
@@ -367,15 +469,40 @@ const KiCoaching = () => {
 
         {/* Header */}
         <div className="kic-header">
-          <div className="kic-eyebrow">Sales Sonaris · KI-Begleitung</div>
-          <h1 className="kic-h1">Was die monatliche Pauschale umfasst</h1>
+          <div className="kic-eyebrow">KI-Begleitung</div>
+          <h1 className="kic-h1">Strategische <span>KI-Begleitung</span> für euer Unternehmen</h1>
           <p className="kic-subtitle">
-            Die Pauschale sichert dir ein dediziertes Team, das sich kontinuierlich in deine Prozesse hineindenkt, Lösungen entwickelt und dein Team befähigt – in drei gleichwertigen Leistungsbereichen.
+            Ein dediziertes Team, das sich kontinuierlich in eure Prozesse hineindenkt, Lösungen entwickelt und euer Team befähigt – strukturiert, praxisnah und auf Augenhöhe.
           </p>
-          <div className="kic-anchor">
+        </div>
+
+        {/* Team Section */}
+        <div className="kic-team-section">
+          <div className="kic-section-header">
+            <div className="kic-eyebrow">Euer Projektteam</div>
+            <h2>Die Menschen hinter <span>Sonaris</span></h2>
+            <p>Vier Perspektiven, ein gemeinsames Ziel: KI-Transformation greifbar machen.</p>
+          </div>
+          <div className="kic-team-grid">
+            {teamMembers.map((member) => (
+              <div key={member.name} className={`kic-team-card ${member.colorClass}`}>
+                <div className="kic-avatar">
+                  <img src={member.photo} alt={member.name} />
+                </div>
+                <div className="kic-member-name">{member.name}</div>
+                <div className="kic-member-role">{member.role}</div>
+                <div className="kic-member-bio">{member.bio}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Anchor Box */}
+        <div className="kic-anchor-box">
+          <p>
             Die monatliche Pauschale ist ein Retainer für ein Bündel an Leistungen –<br/>
             die gemeinsamen Sessions sind der sichtbare Teil davon.
-          </div>
+          </p>
         </div>
 
         {/* 3 Säulen Cards */}
@@ -464,7 +591,7 @@ const KiCoaching = () => {
 
         {/* Beispiele aus der Praxis */}
         <div className="kic-examples-section">
-          <div className="kic-examples-header">
+          <div className="kic-section-header">
             <h2>Was zwischen den Sessions entsteht – Beispiele aus der Praxis</h2>
             <p>Jedes dieser Beispiele steht für mehrere Stunden Konzeption, Entwicklung, Testing und Iteration.</p>
           </div>
@@ -485,10 +612,10 @@ const KiCoaching = () => {
                 <h3>Darlehenssalden- und Finanz-Assistent</h3>
                 <p>Ein Agent, der aus Rohdaten strukturierte Auswertungen erstellt und Abstimmungsprozesse automatisiert.</p>
                 <div className="kic-example-tags">
-                  <span className="kic-tag">Konzeption</span>
-                  <span className="kic-tag">Prompt-Engineering</span>
-                  <span className="kic-tag">Testläufe</span>
-                  <span className="kic-tag">Iteration</span>
+                  <span className="kic-tag kic-tag-steel">Konzeption</span>
+                  <span className="kic-tag kic-tag-purple">Prompt-Engineering</span>
+                  <span className="kic-tag kic-tag-electric">Testläufe</span>
+                  <span className="kic-tag kic-tag-green">Iteration</span>
                 </div>
               </div>
             </div>
@@ -508,9 +635,9 @@ const KiCoaching = () => {
                 <h3>Vertragsanalyse-Agent</h3>
                 <p>Automatisierte Prüfung von Vertragsunterlagen gegen definierte Standards und Checklisten.</p>
                 <div className="kic-example-tags">
-                  <span className="kic-tag">Regelwerk-Definition</span>
-                  <span className="kic-tag">Agent-Bau</span>
-                  <span className="kic-tag">Testing</span>
+                  <span className="kic-tag kic-tag-copper">Regelwerk-Definition</span>
+                  <span className="kic-tag kic-tag-electric">Agent-Bau</span>
+                  <span className="kic-tag kic-tag-green">Testing</span>
                 </div>
               </div>
             </div>
@@ -518,22 +645,22 @@ const KiCoaching = () => {
             <div className="kic-example-card">
               <div className="kic-example-icon">
                 <svg viewBox="0 0 120 120" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="60" cy="60" r="40" fill="rgba(160,165,160,0.03)"/>
-                  <circle cx="60" cy="60" r="2" fill="rgba(225,185,145,0.5)"/>
-                  <circle cx="60" cy="60" r="18" fill="none" stroke="rgba(110,145,180,0.1)" strokeWidth="0.5"/>
+                  <circle cx="60" cy="60" r="40" fill="rgba(170,125,85,0.03)"/>
+                  <circle cx="60" cy="60" r="2" fill="rgba(170,125,85,0.5)"/>
+                  <circle cx="60" cy="60" r="18" fill="none" stroke="rgba(170,125,85,0.1)" strokeWidth="0.5"/>
                   <circle cx="60" cy="42" r="1.5" fill="rgba(110,145,180,0.35)"/>
                   <circle cx="78" cy="60" r="1.5" fill="rgba(110,145,180,0.3)"/>
-                  <circle cx="60" cy="78" r="1.5" fill="rgba(225,185,145,0.3)"/>
-                  <circle cx="42" cy="60" r="1.5" fill="rgba(225,185,145,0.35)"/>
+                  <circle cx="60" cy="78" r="1.5" fill="rgba(170,125,85,0.3)"/>
+                  <circle cx="42" cy="60" r="1.5" fill="rgba(170,125,85,0.35)"/>
                 </svg>
               </div>
               <div className="kic-example-content">
                 <h3>Reporting-Workflow</h3>
                 <p>Automatisierte Erstellung von Berichten und Zusammenfassungen aus bestehenden Datenquellen.</p>
                 <div className="kic-example-tags">
-                  <span className="kic-tag">Workflow-Design</span>
-                  <span className="kic-tag">Anbindung</span>
-                  <span className="kic-tag">Feintuning</span>
+                  <span className="kic-tag kic-tag-steel">Workflow-Design</span>
+                  <span className="kic-tag kic-tag-purple">Anbindung</span>
+                  <span className="kic-tag kic-tag-copper">Feintuning</span>
                 </div>
               </div>
             </div>
@@ -541,25 +668,25 @@ const KiCoaching = () => {
             <div className="kic-example-card">
               <div className="kic-example-icon">
                 <svg viewBox="0 0 120 120" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="60" cy="60" r="42" fill="rgba(110,145,180,0.04)"/>
-                  <rect x="25" y="45" width="70" height="22" rx="4" fill="rgba(110,145,180,0.06)" stroke="rgba(110,145,180,0.15)" strokeWidth="0.5"/>
-                  <circle cx="38" cy="56" r="1.5" fill="rgba(110,145,180,0.3)"/>
-                  <circle cx="52" cy="56" r="1.5" fill="rgba(110,145,180,0.35)"/>
+                  <circle cx="60" cy="60" r="42" fill="rgba(139,92,246,0.04)"/>
+                  <rect x="25" y="45" width="70" height="22" rx="4" fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.15)" strokeWidth="0.5"/>
+                  <circle cx="38" cy="56" r="1.5" fill="rgba(139,92,246,0.3)"/>
+                  <circle cx="52" cy="56" r="1.5" fill="rgba(139,92,246,0.35)"/>
                   <circle cx="68" cy="56" r="1.5" fill="rgba(110,145,180,0.3)"/>
                   <circle cx="82" cy="56" r="1.5" fill="rgba(110,145,180,0.25)"/>
                   <rect x="22" y="72" width="76" height="24" rx="5" fill="rgba(110,145,180,0.08)" stroke="rgba(110,145,180,0.25)" strokeWidth="0.6"/>
                   <circle cx="38" cy="84" r="2" fill="rgba(110,145,180,0.45)"/>
-                  <circle cx="55" cy="84" r="2" fill="rgba(110,145,180,0.5)"/>
-                  <circle cx="72" cy="84" r="2" fill="rgba(225,185,145,0.4)"/>
+                  <circle cx="55" cy="84" r="2" fill="rgba(59,130,246,0.5)"/>
+                  <circle cx="72" cy="84" r="2" fill="rgba(170,125,85,0.4)"/>
                 </svg>
               </div>
               <div className="kic-example-content">
                 <h3>Wissensdatenbank mit RAG-Anbindung</h3>
                 <p>Aufbau einer durchsuchbaren Wissensbasis aus Prozessdokumenten, Handbüchern und internen Unterlagen.</p>
                 <div className="kic-example-tags">
-                  <span className="kic-tag">Datenstrukturierung</span>
-                  <span className="kic-tag">Upload-Logik</span>
-                  <span className="kic-tag">Zugriffsrechte</span>
+                  <span className="kic-tag kic-tag-steel">Datenstrukturierung</span>
+                  <span className="kic-tag kic-tag-electric">Upload-Logik</span>
+                  <span className="kic-tag kic-tag-coral">Zugriffsrechte</span>
                 </div>
               </div>
             </div>
@@ -571,10 +698,24 @@ const KiCoaching = () => {
         <div className="kic-footer-note">
           Die Beispiele sind Illustrationen typischer Leistungen. Konkrete Agenten und Workflows werden gemeinsam mit dir auf Basis deiner Prozesse und Ziele entwickelt und priorisiert.
         </div>
-        <div className="kic-logo-footer">Sales Sonaris</div>
-        <div style={{ marginTop: 24, fontSize: 12, color: 'rgba(110,145,180,0.35)' }}>
-          <Link to="/impressum" style={{ color: 'inherit', textDecoration: 'none' }}>Impressum</Link>
+
+        <div className="kic-footer-contact">
+          <span><a href="https://www.sonaris.de" target="_blank" rel="noopener noreferrer">sonaris.de</a></span>
+          <span className="kic-footer-sep">·</span>
+          <span>+49 1577 300 20 11</span>
+          <span className="kic-footer-sep">·</span>
+          <span><a href="mailto:oliver@sonaris.de">oliver@sonaris.de</a></span>
+          <span className="kic-footer-sep">|</span>
+          <span>Remote Sourcing GmbH · Wilhelmstr. 15 · 31542 Bad Nenndorf</span>
+          <span className="kic-footer-sep">|</span>
+          <span>Vertreten durch Lorenz Surkemper (GF)</span>
+          <span className="kic-footer-sep">|</span>
+          <span>USt-ID DE322588403 · HRB 201565 · AG Stadthagen</span>
+          <span className="kic-footer-sep">|</span>
+          <span><Link to="/impressum">Impressum</Link></span>
         </div>
+
+        <div className="kic-logo-footer">Sonaris</div>
 
       </div>
 
@@ -633,6 +774,5 @@ const KiCoaching = () => {
     </>
   );
 };
-
 
 export default KiCoaching;
