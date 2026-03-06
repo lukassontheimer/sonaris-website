@@ -779,11 +779,11 @@ const KiCoaching = () => {
             Fragen? Gesprächsbedarf?
           </h2>
           <p style={{ fontSize: 15, color: '#A0B9D7', lineHeight: 1.7, maxWidth: 480, margin: '0 auto 32px', opacity: 0.85 }}>
-            Dann lass uns einen virtuellen Espresso trinken – 20 Minuten, unverbindlich, auf Augenhöhe.
+            Bei einem virtuellen Espresso – Kurz und knackig besprechen wir auf Augenhöhe dein Anliegen.
           </p>
 
           <a
-            href="https://sonaris.de/first-contact#virtueller-espresso"
+            href="https://meetings-eu1.hubspot.com/oliver-andrees/meeting-link-?uuid=f18c297b-9f0d-4667-a631-d7976258b66a"
             target="_blank"
             rel="noopener noreferrer"
             style={{
