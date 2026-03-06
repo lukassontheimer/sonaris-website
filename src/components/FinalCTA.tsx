@@ -56,7 +56,7 @@ const FinalCTA = () => {
               Bereit für den <span className="gradient-text">nächsten Schritt?</span>
             </h2>
             
-            <p className="text-base sm:text-lg text-body mb-6 sm:mb-8 max-w-2xl mx-auto">Ein viruteller Espesso mit uns könnte der Anfang deiner KI-Reise sein.</p>
+            <p className="text-base sm:text-lg text-body mb-6 sm:mb-8 max-w-2xl mx-auto">Ein virtueller Espresso – kurz, knackig und inspirierend. Und immer auf Augenhöhe.</p>
             
             {/* HubSpot Meeting Booking Form */}
             <div 
