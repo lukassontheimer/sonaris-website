@@ -634,7 +634,5 @@ const KiCoaching = () => {
   );
 };
 
-// Missing import for Sparkles
-import { Sparkles } from "lucide-react";
 
 export default KiCoaching;
