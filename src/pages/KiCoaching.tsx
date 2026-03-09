@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-  return (
+// Team member photos
+const teamMembers = [
     <>
       <style>{`
         .kic-body {
