@@ -1,53 +1,11 @@
 import { useEffect, useState } from "react";
 import { Target, Settings, BookOpen, Shield, X, Menu } from "lucide-react";
 
-// Helper function to render text with clickable links
-const renderMessageContent = (content: string) => content;
-
-// Helper function to render text with clickable links
-const renderMessageContent = (content: string) => {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = content.split(urlRegex);
-  
-  return parts.map((part, index) => {
-    if (part.match(urlRegex)) {
-      return (
-        <a 
-          key={index}
-          href={part}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#22d3ee] underline hover:text-white transition-colors"
-        >
-          Termin vereinbaren
-        </a>
-      );
-    }
-    return part;
-  });
-};
-
 const CeoKiAccelerator = () => {
   const [activeNav, setActiveNav] = useState("summary");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [faqSectionOpen, setFaqSectionOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [chatOpen, setChatOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Willkommen, ich bin dein persönlicher KI-Assistent für den CEO AI Accelerator. Übrigens: Diese Unterhaltung wird nicht gespeichert. Lass uns jetzt gemeinsam herausfinden, wo du mit deinen KI-Initiativen stehst.\n\nWas ist deine Rolle im Unternehmen?' }
-  ]);
-  const [inputValue, setInputValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
 
   useEffect(() => {
     document.title = "CEO AI Accelerator | SONARIS";
@@ -67,61 +25,6 @@ const CeoKiAccelerator = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const sendMessage = async () => {
-    if (!inputValue.trim() || isLoading) return;
-
-    const userMessage: Message = { role: 'user', content: inputValue.trim() };
-    const updatedMessages = [...messages, userMessage];
-    setMessages(updatedMessages);
-    setInputValue('');
-    setIsLoading(true);
-
-    try {
-      const { data, error } = await supabase.functions.invoke('ceo-chat', {
-        body: { messages: updatedMessages }
-      });
-
-      if (error) {
-        console.error('Chat error:', error);
-        toast({
-          title: "Fehler",
-          description: "Es gab ein Problem mit der Verbindung zum Assistenten.",
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (data?.error) {
-        toast({
-          title: "Fehler",
-          description: data.error,
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (data?.message) {
-        setMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
-      }
-    } catch (err) {
-      console.error('Chat error:', err);
-      toast({
-        title: "Fehler",
-        description: "Ein unerwarteter Fehler ist aufgetreten.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  };
 
   const navItems = [
     { id: 'summary', label: 'SUMMARY' },

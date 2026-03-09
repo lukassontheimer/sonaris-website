@@ -2,27 +2,11 @@ import { useState, useEffect, useRef } from "react";
 
 const KiAlsLernprozess = () => {
   const [activeDepth, setActiveDepth] = useState(0);
-  const [chatOpen, setChatOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Willkommen! Ich bin dein SONARIS KI-Assistent. Diese Unterhaltung wird nicht gespeichert.\n\nWie kann ich dir helfen, KI als sozialen Lernprozess in deinem Unternehmen zu verstehen und umzusetzen?' }
-  ]);
-  const [inputValue, setInputValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
   
   const depthLabels = ["SURFACE", "-50m", "-100m", "-200m", "CORE"];
   const depthPositions = ["5%", "25%", "50%", "75%", "95%"];
   
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
 
   useEffect(() => {
     const observerOptions = {
@@ -53,61 +37,6 @@ const KiAlsLernprozess = () => {
     const section = sectionRefs.current[index];
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  const sendMessage = async () => {
-    if (!inputValue.trim() || isLoading) return;
-
-    const userMessage: Message = { role: 'user', content: inputValue.trim() };
-    const updatedMessages = [...messages, userMessage];
-    setMessages(updatedMessages);
-    setInputValue('');
-    setIsLoading(true);
-
-    try {
-      const { data, error } = await supabase.functions.invoke('ceo-chat', {
-        body: { messages: updatedMessages }
-      });
-
-      if (error) {
-        console.error('Chat error:', error);
-        toast({
-          title: "Fehler",
-          description: "Es gab ein Problem mit der Verbindung zum Assistenten.",
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (data?.error) {
-        toast({
-          title: "Fehler",
-          description: data.error,
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (data?.message) {
-        setMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
-      }
-    } catch (err) {
-      console.error('Chat error:', err);
-      toast({
-        title: "Fehler",
-        description: "Ein unerwarteter Fehler ist aufgetreten.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
     }
   };
 
