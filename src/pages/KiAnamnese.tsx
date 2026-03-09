@@ -1,29 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// Helper function to render text with clickable links
-const renderMessageContent = (content: string) => {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = content.split(urlRegex);
-  
-  return parts.map((part, index) => {
-    if (part.match(urlRegex)) {
-      return (
-        <a 
-          key={index}
-          href={part}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#22d3ee] underline hover:text-white transition-colors"
-        >
-          Termin vereinbaren
-        </a>
-      );
-    }
-    return part;
-  });
-};
-
 const KiAnamnese = () => {
   const [activeDepth, setActiveDepth] = useState(0);
   const [chatOpen, setChatOpen] = useState(false);

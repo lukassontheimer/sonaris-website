@@ -1,22 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const _unused = (content: string) => {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = content.split(urlRegex);
-  return parts.map((part, index) => {
-    if (part.match(urlRegex)) {
-      return (
-        <a key={index} href={part} target="_blank" rel="noopener noreferrer"
-          style={{ color: '#6E91B4', textDecoration: 'underline' }}>
-          Termin vereinbaren
-        </a>
-      );
-    }
-    return part;
-  });
-};
-
 const LogoMark = ({ size = 32 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
     <circle cx="60" cy="60" r="40" fill="rgba(110,145,180,0.04)"/>

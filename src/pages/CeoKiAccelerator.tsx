@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Target, Settings, BookOpen, Shield, X, Menu } from "lucide-react";
 
 // Helper function to render text with clickable links
+const renderMessageContent = (content: string) => content;
+
+// Helper function to render text with clickable links
 const renderMessageContent = (content: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   const parts = content.split(urlRegex);
