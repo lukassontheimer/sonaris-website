@@ -1,9 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Send, X, Loader2, Sparkles } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
-
-type Message = { role: 'user' | 'assistant'; content: string };
 
 const renderMessageContent = (content: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;

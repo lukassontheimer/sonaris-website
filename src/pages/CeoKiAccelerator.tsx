@@ -1,9 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { Target, Settings, BookOpen, Shield, Sparkles, Send, X, Loader2, Menu } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
-
-type Message = { role: 'user' | 'assistant'; content: string };
+import { useEffect, useState } from "react";
+import { Target, Settings, BookOpen, Shield, X, Menu } from "lucide-react";
 
 // Helper function to render text with clickable links
 const renderMessageContent = (content: string) => {

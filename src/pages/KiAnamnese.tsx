@@ -1,10 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Send, X, Loader2, Sparkles } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
-
-type Message = { role: 'user' | 'assistant'; content: string };
 
 // Helper function to render text with clickable links
 const renderMessageContent = (content: string) => {

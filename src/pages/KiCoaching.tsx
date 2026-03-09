@@ -1,12 +1,7 @@
-import { useEffect, useState, useRef } from "react";
-import { Send, X, Loader2, Sparkles } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-type Message = { role: 'user' | 'assistant'; content: string };
-
-const renderMessageContent = (content: string) => {
+const _unused = (content: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   const parts = content.split(urlRegex);
   return parts.map((part, index) => {
