@@ -58,6 +58,8 @@ const KiCoaching = () => {
   }, []);
 
   return (
+    <>
+      <style>{`
         .kic-body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
           background: #0C121A;
@@ -101,8 +103,6 @@ const KiCoaching = () => {
           line-height: 1.7; color: #A0B9D7;
           max-width: 620px; margin: 0 auto; opacity: 0.8;
         }
-
-        /* Section header */
         .kic-section-header {
           text-align: center; margin-bottom: 32px;
         }
@@ -114,8 +114,6 @@ const KiCoaching = () => {
         .kic-section-header p {
           font-size: 14px; color: #8CA0BE; line-height: 1.6;
         }
-
-        /* Team */
         .kic-team-section {
           max-width: 1100px; width: 100%; margin-bottom: 72px;
         }
@@ -167,8 +165,6 @@ const KiCoaching = () => {
         .tc-lukas   { --tc-accent: rgba(110,145,180,0.25); --tc-accent-strong: #6E91B4; }
         .tc-lorenz  { --tc-accent: rgba(59,130,246,0.25);  --tc-accent-strong: #3B82F6; }
         .tc-christian { --tc-accent: rgba(110,180,140,0.25); --tc-accent-strong: #6EB48C; }
-
-        /* Anchor box */
         .kic-anchor-box {
           max-width: 720px; width: 100%;
           text-align: center; margin-bottom: 48px;
@@ -180,8 +176,6 @@ const KiCoaching = () => {
           font-size: 15px; font-weight: 500;
           color: #B4C8E1; line-height: 1.65;
         }
-
-        /* 3 Säulen */
         .kic-columns {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -251,8 +245,6 @@ const KiCoaching = () => {
           background: var(--kic-accent);
           margin-top: 6px; flex-shrink: 0;
         }
-
-        /* Beispiele */
         .kic-examples-section { max-width: 1100px; width: 100%; margin-bottom: 56px; }
         .kic-examples-grid {
           display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
@@ -288,14 +280,6 @@ const KiCoaching = () => {
         .kic-tag-purple   { background: rgba(139,92,246,0.1);  color: #A78BFA;  border-color: rgba(139,92,246,0.25); }
         .kic-tag-green    { background: rgba(110,180,140,0.1); color: #6EB48C;  border-color: rgba(110,180,140,0.25); }
         .kic-tag-coral    { background: rgba(160,85,95,0.1);   color: #DC8C96;  border-color: rgba(160,85,95,0.25); }
-
-        /* Footer */
-        .kic-footer-note {
-          text-align: center; max-width: 620px;
-          font-size: 13px; color: #8CA0BE; line-height: 1.7;
-          border-top: 1px solid rgba(110,145,180,0.1);
-          padding-top: 32px; margin-top: 8px; opacity: 0.7;
-        }
         .kic-footer-contact {
           margin-top: 32px; padding-top: 14px;
           border-top: 1px solid rgba(110,145,180,0.08);
@@ -314,82 +298,12 @@ const KiCoaching = () => {
           letter-spacing: 0.12em; text-transform: uppercase;
           color: rgba(110,145,180,0.25); margin-top: 24px;
         }
-
-        /* Chat */
-        .kic-chat-btn {
-          position: fixed; bottom: 32px; right: 32px;
-          width: 56px; height: 56px;
-          background: #6E91B4; border-radius: 50%;
-          border: none; cursor: pointer;
-          display: flex; align-items: center; justify-content: center;
-          box-shadow: 0 4px 24px rgba(110,145,180,0.4);
-          z-index: 200; transition: transform 0.2s ease;
-        }
-        .kic-chat-btn:hover { transform: scale(1.08); }
-        .kic-chat-window {
-          position: fixed; bottom: 100px; right: 32px;
-          width: 360px; height: 500px;
-          background: #151D28;
-          border: 1px solid rgba(110,145,180,0.25);
-          border-radius: 16px;
-          display: flex; flex-direction: column;
-          z-index: 200;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-          overflow: hidden;
-        }
-        .kic-chat-header {
-          background: #0C121A;
-          border-bottom: 1px solid rgba(110,145,180,0.15);
-          padding: 14px 16px;
-          display: flex; align-items: center; justify-content: space-between;
-        }
-        .kic-chat-messages {
-          flex: 1; overflow-y: auto; padding: 16px;
-          display: flex; flex-direction: column; gap: 12px;
-        }
-        .kic-chat-msg-user {
-          align-self: flex-end; max-width: 80%;
-          background: rgba(110,145,180,0.15);
-          border: 1px solid rgba(110,145,180,0.2);
-          border-radius: 12px 12px 0 12px;
-          padding: 10px 14px; font-size: 13px; color: #C8DCF0; line-height: 1.5;
-        }
-        .kic-chat-msg-bot {
-          align-self: flex-start; max-width: 80%;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(110,145,180,0.12);
-          border-radius: 12px 12px 12px 0;
-          padding: 10px 14px; font-size: 13px; color: #A0B9D7; line-height: 1.5;
-          white-space: pre-wrap;
-        }
-        .kic-chat-input-row {
-          padding: 12px; border-top: 1px solid rgba(110,145,180,0.1);
-          display: flex; gap: 8px;
-        }
-        .kic-chat-input {
-          flex: 1; background: rgba(110,145,180,0.06);
-          border: 1px solid rgba(110,145,180,0.2);
-          border-radius: 8px; padding: 8px 12px;
-          color: #C8DCF0; outline: none; font-family: inherit;
-          font-size: 16px;
-        }
-        .kic-chat-input::placeholder { color: #6E91B4; }
-        .kic-chat-send {
-          background: #6E91B4; border: none; border-radius: 8px;
-          width: 36px; height: 36px;
-          display: flex; align-items: center; justify-content: center;
-          cursor: pointer; transition: background 0.2s; flex-shrink: 0;
-        }
-        .kic-chat-send:hover { background: #8CA8C8; }
-
         @media (max-width: 900px) {
           .kic-columns { grid-template-columns: 1fr; }
           .kic-examples-grid { grid-template-columns: 1fr; }
           .kic-team-grid { grid-template-columns: repeat(2, 1fr); }
           .kic-h1 { font-size: 28px; }
           .kic-logo-bar { left: 16px; top: 16px; }
-          .kic-chat-window { right: 16px; left: 16px; width: auto; }
-          .kic-chat-btn { right: 20px; bottom: 20px; }
         }
       `}</style>
 
@@ -567,9 +481,6 @@ const KiCoaching = () => {
                   <circle cx="60" cy="60" r="40" fill="rgba(110,145,180,0.03)"/>
                   <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(110,145,180,0.25)" strokeWidth="1"/>
                   <line x1="64" y1="64" x2="88" y2="88" stroke="rgba(110,145,180,0.3)" strokeWidth="1.5" strokeLinecap="round"/>
-                  <circle cx="42" cy="42" r="1.5" fill="rgba(110,145,180,0.35)"/>
-                  <circle cx="55" cy="45" r="1.5" fill="rgba(110,145,180,0.4)"/>
-                  <circle cx="48" cy="58" r="1.5" fill="rgba(110,145,180,0.3)"/>
                 </svg>
               </div>
               <div className="kic-example-content">
@@ -589,10 +500,6 @@ const KiCoaching = () => {
                   <circle cx="60" cy="60" r="40" fill="rgba(170,125,85,0.03)"/>
                   <circle cx="60" cy="60" r="2" fill="rgba(170,125,85,0.5)"/>
                   <circle cx="60" cy="60" r="18" fill="none" stroke="rgba(170,125,85,0.1)" strokeWidth="0.5"/>
-                  <circle cx="60" cy="42" r="1.5" fill="rgba(110,145,180,0.35)"/>
-                  <circle cx="78" cy="60" r="1.5" fill="rgba(110,145,180,0.3)"/>
-                  <circle cx="60" cy="78" r="1.5" fill="rgba(170,125,85,0.3)"/>
-                  <circle cx="42" cy="60" r="1.5" fill="rgba(170,125,85,0.35)"/>
                 </svg>
               </div>
               <div className="kic-example-content">
@@ -611,14 +518,7 @@ const KiCoaching = () => {
                 <svg viewBox="0 0 120 120" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="60" cy="60" r="42" fill="rgba(139,92,246,0.04)"/>
                   <rect x="25" y="45" width="70" height="22" rx="4" fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.15)" strokeWidth="0.5"/>
-                  <circle cx="38" cy="56" r="1.5" fill="rgba(139,92,246,0.3)"/>
-                  <circle cx="52" cy="56" r="1.5" fill="rgba(139,92,246,0.35)"/>
-                  <circle cx="68" cy="56" r="1.5" fill="rgba(110,145,180,0.3)"/>
-                  <circle cx="82" cy="56" r="1.5" fill="rgba(110,145,180,0.25)"/>
                   <rect x="22" y="72" width="76" height="24" rx="5" fill="rgba(110,145,180,0.08)" stroke="rgba(110,145,180,0.25)" strokeWidth="0.6"/>
-                  <circle cx="38" cy="84" r="2" fill="rgba(110,145,180,0.45)"/>
-                  <circle cx="55" cy="84" r="2" fill="rgba(59,130,246,0.5)"/>
-                  <circle cx="72" cy="84" r="2" fill="rgba(170,125,85,0.4)"/>
                 </svg>
               </div>
               <div className="kic-example-content">
@@ -635,7 +535,7 @@ const KiCoaching = () => {
           </div>
         </div>
 
-        {/* Illustration disclaimer - moved up */}
+        {/* Disclaimer */}
         <div style={{ textAlign: 'center', maxWidth: 720, marginBottom: 48 }}>
           <p style={{ fontSize: 13, color: '#8CA0BE', lineHeight: 1.7, opacity: 0.7 }}>
             Die Beispiele sind Illustrationen typischer Leistungen. Konkrete Agenten und Workflows werden gemeinsam mit dir auf Basis deiner Prozesse und Ziele entwickelt und priorisiert.
@@ -654,7 +554,6 @@ const KiCoaching = () => {
           position: 'relative',
           overflow: 'hidden',
         }}>
-          {/* Subtle glow */}
           <div style={{
             position: 'absolute', top: -60, left: '50%', transform: 'translateX(-50%)',
             width: 320, height: 200,
@@ -662,47 +561,15 @@ const KiCoaching = () => {
             pointerEvents: 'none',
           }} />
 
-          {/* Espresso Icon */}
           <div style={{ width: 96, height: 96, margin: '0 auto 24px' }}>
             <svg viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="g-espresso-cta" cx="50%" cy="60%" r="40%">
-                  <stop offset="0%" stopColor="rgba(225,185,145,0.08)"/>
-                  <stop offset="100%" stopColor="rgba(225,185,145,0)"/>
-                </radialGradient>
-              </defs>
-              <circle cx="60" cy="65" r="45" fill="url(#g-espresso-cta)"/>
+              <circle cx="60" cy="65" r="45" fill="rgba(225,185,145,0.04)"/>
               <path d="M 38 58 L 35 88 Q 35 95, 45 96 L 75 96 Q 85 95, 85 88 L 82 58"
                 fill="none" stroke="rgba(225,185,145,0.55)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M 35 58 Q 60 54, 85 58" fill="none" stroke="rgba(225,185,145,0.6)" strokeWidth="1.5" strokeLinecap="round"/>
               <path d="M 82 63 Q 98 63, 98 76 Q 98 88, 85 88"
                 fill="none" stroke="rgba(225,185,145,0.4)" strokeWidth="1.5" strokeLinecap="round"/>
               <path d="M 25 100 Q 60 106, 95 100" fill="none" stroke="rgba(225,185,145,0.25)" strokeWidth="1" strokeLinecap="round"/>
-              <path d="M 48 55 Q 44 42, 50 32 Q 56 22, 48 12" fill="none" stroke="rgba(225,185,145,0.2)" strokeWidth="0.8" strokeLinecap="round">
-                <animate attributeName="d" values="M 48 55 Q 44 42, 50 32 Q 56 22, 48 12;M 48 55 Q 52 40, 46 30 Q 40 20, 48 10;M 48 55 Q 44 42, 50 32 Q 56 22, 48 12" dur="4s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.2;0.08;0.2" dur="4s" repeatCount="indefinite"/>
-              </path>
-              <path d="M 60 52 Q 56 38, 62 28 Q 68 18, 60 8" fill="none" stroke="rgba(225,185,145,0.18)" strokeWidth="0.8" strokeLinecap="round">
-                <animate attributeName="d" values="M 60 52 Q 56 38, 62 28 Q 68 18, 60 8;M 60 52 Q 64 36, 58 26 Q 52 16, 60 6;M 60 52 Q 56 38, 62 28 Q 68 18, 60 8" dur="4.5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.18;0.06;0.18" dur="4.5s" repeatCount="indefinite"/>
-              </path>
-              <path d="M 72 55 Q 68 44, 74 34 Q 80 24, 72 16" fill="none" stroke="rgba(225,185,145,0.15)" strokeWidth="0.8" strokeLinecap="round">
-                <animate attributeName="d" values="M 72 55 Q 68 44, 74 34 Q 80 24, 72 16;M 72 55 Q 76 42, 70 32 Q 64 22, 72 14;M 72 55 Q 68 44, 74 34 Q 80 24, 72 16" dur="5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.15;0.05;0.15" dur="5s" repeatCount="indefinite"/>
-              </path>
-              <circle cx="48" cy="10" r="1.5" fill="rgba(110,145,180,0.4)">
-                <animate attributeName="cy" values="10;6;10" dur="3s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="60" cy="6" r="1.8" fill="rgba(110,145,180,0.45)">
-                <animate attributeName="cy" values="6;2;6" dur="3.5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.45;0.15;0.45" dur="3.5s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="72" cy="12" r="1.3" fill="rgba(110,145,180,0.35)">
-                <animate attributeName="cy" values="12;7;12" dur="4s" repeatCount="indefinite"/>
-              </circle>
-              <line x1="48" y1="10" x2="60" y2="6" stroke="rgba(110,145,180,0.15)" strokeWidth="0.4"/>
-              <line x1="60" y1="6" x2="72" y2="12" stroke="rgba(110,145,180,0.12)" strokeWidth="0.4"/>
             </svg>
           </div>
 
@@ -777,59 +644,6 @@ const KiCoaching = () => {
         <div className="kic-logo-footer">Sonaris</div>
 
       </div>
-
-      {/* Chat Button */}
-      <button className="kic-chat-btn" onClick={() => setChatOpen(!chatOpen)} aria-label="Chat öffnen">
-        {chatOpen
-          ? <X style={{ width: 22, height: 22, color: '#fff' }} />
-          : <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        }
-      </button>
-
-      {/* Chat Window */}
-      {chatOpen && (
-        <div className="kic-chat-window">
-          <div className="kic-chat-header">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'rgba(110,145,180,0.15)', border: '1px solid rgba(110,145,180,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Sparkles style={{ width: 14, height: 14, color: '#6E91B4' }} />
-              </div>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#C8DCF0' }}>Sonaris Assistent</div>
-                <div style={{ fontSize: 10, color: '#6E91B4' }}>KI-Coaching</div>
-              </div>
-            </div>
-            <button onClick={() => setChatOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6E91B4' }}>
-              <X style={{ width: 16, height: 16 }} />
-            </button>
-          </div>
-          <div className="kic-chat-messages">
-            {messages.map((msg, i) => (
-              <div key={i} className={msg.role === 'user' ? 'kic-chat-msg-user' : 'kic-chat-msg-bot'}>
-                {msg.role === 'assistant' ? renderMessageContent(msg.content) : msg.content}
-              </div>
-            ))}
-            {isLoading && (
-              <div className="kic-chat-msg-bot">
-                <Loader2 style={{ width: 14, height: 14, animation: 'spin 1s linear infinite' }} />
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-          <div className="kic-chat-input-row">
-            <input
-              className="kic-chat-input"
-              value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Frage stellen…"
-            />
-            <button className="kic-chat-send" onClick={sendMessage} disabled={isLoading}>
-              <Send style={{ width: 16, height: 16, color: '#fff' }} />
-            </button>
-          </div>
-        </div>
-      )}
     </>
   );
 };
